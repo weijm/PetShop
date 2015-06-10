@@ -23,6 +23,14 @@
 		0727EA731B27DBD2005D330C /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0727EA711B27DBD2005D330C /* MineViewController.m */; };
 		0727EA741B27DBD2005D330C /* MineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0727EA721B27DBD2005D330C /* MineViewController.xib */; };
 		0727EA771B27E4BB005D330C /* Util.m in Sources */ = {isa = PBXBuildFile; fileRef = 0727EA761B27E4BB005D330C /* Util.m */; };
+		0727EAB01B282622005D330C /* community_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0727EAAA1B282622005D330C /* community_icon@2x.png */; };
+		0727EAB11B282622005D330C /* community_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0727EAAB1B282622005D330C /* community_icon@3x.png */; };
+		0727EAB21B282622005D330C /* home_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0727EAAC1B282622005D330C /* home_icon@2x.png */; };
+		0727EAB31B282622005D330C /* home_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0727EAAD1B282622005D330C /* home_icon@3x.png */; };
+		0727EAB41B282622005D330C /* integral_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0727EAAE1B282622005D330C /* integral_icon@2x.png */; };
+		0727EAB51B282622005D330C /* integral_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0727EAAF1B282622005D330C /* integral_icon@3x.png */; };
+		0727EAB81B2826D3005D330C /* persional_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0727EAB61B2826D3005D330C /* persional_icon@2x.png */; };
+		0727EAB91B2826D3005D330C /* persional_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0727EAB71B2826D3005D330C /* persional_icon@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +73,14 @@
 		0727EA721B27DBD2005D330C /* MineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineViewController.xib; sourceTree = "<group>"; };
 		0727EA751B27E4BB005D330C /* Util.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
 		0727EA761B27E4BB005D330C /* Util.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Util.m; sourceTree = "<group>"; };
+		0727EAAA1B282622005D330C /* community_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "community_icon@2x.png"; sourceTree = "<group>"; };
+		0727EAAB1B282622005D330C /* community_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "community_icon@3x.png"; sourceTree = "<group>"; };
+		0727EAAC1B282622005D330C /* home_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_icon@2x.png"; sourceTree = "<group>"; };
+		0727EAAD1B282622005D330C /* home_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "home_icon@3x.png"; sourceTree = "<group>"; };
+		0727EAAE1B282622005D330C /* integral_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "integral_icon@2x.png"; sourceTree = "<group>"; };
+		0727EAAF1B282622005D330C /* integral_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "integral_icon@3x.png"; sourceTree = "<group>"; };
+		0727EAB61B2826D3005D330C /* persional_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "persional_icon@2x.png"; sourceTree = "<group>"; };
+		0727EAB71B2826D3005D330C /* persional_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "persional_icon@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +178,14 @@
 		0727EA5E1B27D883005D330C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				0727EAB61B2826D3005D330C /* persional_icon@2x.png */,
+				0727EAB71B2826D3005D330C /* persional_icon@3x.png */,
+				0727EAAA1B282622005D330C /* community_icon@2x.png */,
+				0727EAAB1B282622005D330C /* community_icon@3x.png */,
+				0727EAAC1B282622005D330C /* home_icon@2x.png */,
+				0727EAAD1B282622005D330C /* home_icon@3x.png */,
+				0727EAAE1B282622005D330C /* integral_icon@2x.png */,
+				0727EAAF1B282622005D330C /* integral_icon@3x.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -297,12 +321,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				0727EA681B27DB31005D330C /* CommunityViewController.xib in Resources */,
+				0727EAB91B2826D3005D330C /* persional_icon@3x.png in Resources */,
 				0727EA741B27DBD2005D330C /* MineViewController.xib in Resources */,
+				0727EAB31B282622005D330C /* home_icon@3x.png in Resources */,
+				0727EAB81B2826D3005D330C /* persional_icon@2x.png in Resources */,
 				0727EA3E1B27CA98005D330C /* LaunchScreen.xib in Resources */,
 				0727EA6E1B27DB86005D330C /* IntegralViewController.xib in Resources */,
+				0727EAB21B282622005D330C /* home_icon@2x.png in Resources */,
 				0727EA581B27D36C005D330C /* HomePageViewController.xib in Resources */,
+				0727EAB51B282622005D330C /* integral_icon@3x.png in Resources */,
 				0727EA5D1B27D774005D330C /* RootViewController.xib in Resources */,
 				0727EA3B1B27CA98005D330C /* Images.xcassets in Resources */,
+				0727EAB11B282622005D330C /* community_icon@3x.png in Resources */,
+				0727EAB01B282622005D330C /* community_icon@2x.png in Resources */,
+				0727EAB41B282622005D330C /* integral_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,7 +478,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PetShop/PetShopPrefixHeader.pch";
 				INFOPLIST_FILE = PetShop/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -459,7 +491,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PetShop/PetShopPrefixHeader.pch";
 				INFOPLIST_FILE = PetShop/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -518,6 +550,7 @@
 				0727EA4F1B27CA98005D330C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0727EA501B27CA98005D330C /* Build configuration list for PBXNativeTarget "PetShopTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +559,7 @@
 				0727EA521B27CA98005D330C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

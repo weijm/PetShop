@@ -27,7 +27,7 @@
         }
         //设置image
         if (imageArray.count>0) {
-            vc.tabBarItem.image = imageArray[i];
+            vc.tabBarItem.image = [UIImage imageNamed:imageArray[i]];
         }
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:vc];
         if (kDeviceVersion >=7.0) {
