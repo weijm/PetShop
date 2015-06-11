@@ -27,7 +27,7 @@
         }
         //设置image
         if (imageArray.count>0) {
-            vc.tabBarItem.image = imageArray[i];
+            vc.tabBarItem.image = [UIImage imageNamed:imageArray[i]];
         }
         UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:vc];
         if (kDeviceVersion >=7.0) {
@@ -41,6 +41,21 @@
         [vcArray addObject:navigation];
     }
     return vcArray;
+}
+//根据颜色获取对应色值的图片
++ (UIImage *)imageWithColor:(UIColor *)color
+{
+    CGRect rect = CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
+    UIGraphicsBeginImageContext(rect.size);
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    CGContextSetFillColorWithColor(context, [color CGColor]);
+    CGContextFillRect(context, rect);
+    
+    UIImage *image = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return image;
 }
 
 @end

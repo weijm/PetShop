@@ -5,13 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>23C0552B-E11E-46EF-83AE-6E2C3914E5BC</string>
+	<string>833F6904-47B8-4D07-994F-A207ACCC9994</string>
 	<key>IDESourceControlProjectName</key>
 	<string>PetShop</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>0D4A76BB620A1974B554A7A7B4C04E94816E07F1</key>
-		<string>https://github.com/longgeshashen/PetShop.git</string>
+		<string>https://github.com/weijm/PetShop.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>PetShop/PetShop.xcodeproj</string>
@@ -21,7 +21,7 @@
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>https://github.com/longgeshashen/PetShop.git</string>
+	<string>https://github.com/weijm/PetShop.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
