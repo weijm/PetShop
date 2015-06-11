@@ -13,7 +13,8 @@
 #import "Util.h"
 
 
-
+#define kWidth [UIScreen mainScreen].bounds.size.width
+#define kHeight [UIScreen mainScreen].bounds.size.height
 
 #define kDeviceVersion [[[UIDevice currentDevice] systemVersion] floatValue]
 

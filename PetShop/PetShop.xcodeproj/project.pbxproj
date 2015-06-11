@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		070264C51B293603003BDCB5 /* homepage_list_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 070264C31B293603003BDCB5 /* homepage_list_btn@2x.png */; };
+		070264C61B293603003BDCB5 /* homepage_list_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 070264C41B293603003BDCB5 /* homepage_list_btn@3x.png */; };
+		070264C91B29363B003BDCB5 /* homepage_shopcart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 070264C71B29363B003BDCB5 /* homepage_shopcart@2x.png */; };
+		070264CA1B29363B003BDCB5 /* homepage_shopcart@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 070264C81B29363B003BDCB5 /* homepage_shopcart@3x.png */; };
+		070264CE1B293D7B003BDCB5 /* BannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 070264CD1B293D7B003BDCB5 /* BannerView.m */; };
+		070264D01B293DAB003BDCB5 /* BannerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 070264CF1B293DAB003BDCB5 /* BannerView.xib */; };
+		070264DB1B298AB9003BDCB5 /* homepage_banner1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 070264D91B298AB9003BDCB5 /* homepage_banner1@2x.png */; };
+		070264DC1B298AB9003BDCB5 /* homepage_banner2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 070264DA1B298AB9003BDCB5 /* homepage_banner2@2x.png */; };
+		070264DE1B2991D6003BDCB5 /* homepage_left_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 070264DD1B2991D6003BDCB5 /* homepage_left_bt@2x.png */; };
 		0727EA301B27CA98005D330C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0727EA2F1B27CA98005D330C /* main.m */; };
 		0727EA331B27CA98005D330C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0727EA321B27CA98005D330C /* AppDelegate.m */; };
 		0727EA3B1B27CA98005D330C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0727EA3A1B27CA98005D330C /* Images.xcassets */; };
@@ -44,6 +53,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		070264C31B293603003BDCB5 /* homepage_list_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_list_btn@2x.png"; sourceTree = "<group>"; };
+		070264C41B293603003BDCB5 /* homepage_list_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_list_btn@3x.png"; sourceTree = "<group>"; };
+		070264C71B29363B003BDCB5 /* homepage_shopcart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_shopcart@2x.png"; sourceTree = "<group>"; };
+		070264C81B29363B003BDCB5 /* homepage_shopcart@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_shopcart@3x.png"; sourceTree = "<group>"; };
+		070264CC1B293D7B003BDCB5 /* BannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BannerView.h; sourceTree = "<group>"; };
+		070264CD1B293D7B003BDCB5 /* BannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BannerView.m; sourceTree = "<group>"; };
+		070264CF1B293DAB003BDCB5 /* BannerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BannerView.xib; sourceTree = "<group>"; };
+		070264D91B298AB9003BDCB5 /* homepage_banner1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_banner1@2x.png"; sourceTree = "<group>"; };
+		070264DA1B298AB9003BDCB5 /* homepage_banner2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_banner2@2x.png"; sourceTree = "<group>"; };
+		070264DD1B2991D6003BDCB5 /* homepage_left_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_left_bt@2x.png"; sourceTree = "<group>"; };
 		0727EA2A1B27CA97005D330C /* PetShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PetShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0727EA2E1B27CA98005D330C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0727EA2F1B27CA98005D330C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -101,6 +120,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		070264C21B2935F9003BDCB5 /* Homepage */ = {
+			isa = PBXGroup;
+			children = (
+				070264DD1B2991D6003BDCB5 /* homepage_left_bt@2x.png */,
+				070264D91B298AB9003BDCB5 /* homepage_banner1@2x.png */,
+				070264DA1B298AB9003BDCB5 /* homepage_banner2@2x.png */,
+				070264C71B29363B003BDCB5 /* homepage_shopcart@2x.png */,
+				070264C81B29363B003BDCB5 /* homepage_shopcart@3x.png */,
+				070264C31B293603003BDCB5 /* homepage_list_btn@2x.png */,
+				070264C41B293603003BDCB5 /* homepage_list_btn@3x.png */,
+			);
+			path = Homepage;
+			sourceTree = "<group>";
+		};
+		070264CB1B293D27003BDCB5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				070264CC1B293D7B003BDCB5 /* BannerView.h */,
+				070264CD1B293D7B003BDCB5 /* BannerView.m */,
+				070264CF1B293DAB003BDCB5 /* BannerView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		0727EA211B27CA97005D330C = {
 			isa = PBXGroup;
 			children = (
@@ -178,6 +221,7 @@
 		0727EA5E1B27D883005D330C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				070264C21B2935F9003BDCB5 /* Homepage */,
 				0727EAB61B2826D3005D330C /* persional_icon@2x.png */,
 				0727EAB71B2826D3005D330C /* persional_icon@3x.png */,
 				0727EAAA1B282622005D330C /* community_icon@2x.png */,
@@ -203,6 +247,7 @@
 		0727EA621B27DAB5005D330C /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				070264CB1B293D27003BDCB5 /* View */,
 				0727EA541B27D36C005D330C /* HomePageViewController.h */,
 				0727EA551B27D36C005D330C /* HomePageViewController.m */,
 				0727EA561B27D36C005D330C /* HomePageViewController.xib */,
@@ -320,17 +365,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				070264D01B293DAB003BDCB5 /* BannerView.xib in Resources */,
 				0727EA681B27DB31005D330C /* CommunityViewController.xib in Resources */,
 				0727EAB91B2826D3005D330C /* persional_icon@3x.png in Resources */,
+				070264DC1B298AB9003BDCB5 /* homepage_banner2@2x.png in Resources */,
+				070264DE1B2991D6003BDCB5 /* homepage_left_bt@2x.png in Resources */,
 				0727EA741B27DBD2005D330C /* MineViewController.xib in Resources */,
 				0727EAB31B282622005D330C /* home_icon@3x.png in Resources */,
+				070264C91B29363B003BDCB5 /* homepage_shopcart@2x.png in Resources */,
 				0727EAB81B2826D3005D330C /* persional_icon@2x.png in Resources */,
 				0727EA3E1B27CA98005D330C /* LaunchScreen.xib in Resources */,
 				0727EA6E1B27DB86005D330C /* IntegralViewController.xib in Resources */,
+				070264CA1B29363B003BDCB5 /* homepage_shopcart@3x.png in Resources */,
 				0727EAB21B282622005D330C /* home_icon@2x.png in Resources */,
 				0727EA581B27D36C005D330C /* HomePageViewController.xib in Resources */,
+				070264C51B293603003BDCB5 /* homepage_list_btn@2x.png in Resources */,
 				0727EAB51B282622005D330C /* integral_icon@3x.png in Resources */,
+				070264C61B293603003BDCB5 /* homepage_list_btn@3x.png in Resources */,
 				0727EA5D1B27D774005D330C /* RootViewController.xib in Resources */,
+				070264DB1B298AB9003BDCB5 /* homepage_banner1@2x.png in Resources */,
 				0727EA3B1B27CA98005D330C /* Images.xcassets in Resources */,
 				0727EAB11B282622005D330C /* community_icon@3x.png in Resources */,
 				0727EAB01B282622005D330C /* community_icon@2x.png in Resources */,
@@ -354,6 +407,7 @@
 			files = (
 				0727EA6D1B27DB86005D330C /* IntegralViewController.m in Sources */,
 				0727EA731B27DBD2005D330C /* MineViewController.m in Sources */,
+				070264CE1B293D7B003BDCB5 /* BannerView.m in Sources */,
 				0727EA331B27CA98005D330C /* AppDelegate.m in Sources */,
 				0727EA301B27CA98005D330C /* main.m in Sources */,
 				0727EA671B27DB31005D330C /* CommunityViewController.m in Sources */,
