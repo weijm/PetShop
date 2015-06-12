@@ -11,7 +11,7 @@
 
 
 
-#define kSearchBarRect CGRectMake(50,20,(kWidth - 50*2),40)
+#define kSearchBarRect CGRectMake(50,22,(kWidth - 50*2),40)
 #define kSearchBarTag 100
 @interface HomePageViewController ()
 
@@ -31,8 +31,7 @@
     CGRect frame = bannerView.frame;
     frame.size = bannerViewBg.frame.size;
     bannerView.frame = frame;
-    NSLog(@"frame == %@",NSStringFromCGRect(bannerView.frame));
-    NSLog(@"bg frame == %@",NSStringFromCGRect(bannerViewBg.frame));
+ 
     [bannerView loadImageAndData:[[NSArray alloc] initWithObjects:@"homepage_banner1",@"homepage_banner1", nil]];
     [bannerViewBg addSubview:bannerView];
     
@@ -40,6 +39,15 @@
     if (kDeviceVersion>=7.0 &&[self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
+    //初始化按钮界面
+    allBtbg.backgroundColor = Rgb(231, 220, 220);
+    HomePageButtonView *btbg = [[[NSBundle mainBundle] loadNibNamed:@"HomePageButtonView" owner:nil options:nil] lastObject];
+    frame = btbg.frame;
+    frame.size = CGSizeMake(kWidth, kWidth);
+    btbg.frame = frame;
+    btbg.delegate = self;
+    [allBtbg addSubview:btbg];
+    
     
 }
 -(void)viewWillDisappear:(BOOL)animated
@@ -77,7 +85,7 @@
     //将searchBar上的🔍设置为透明
     [customSearchBar setImage:[Util imageWithColor:[UIColor clearColor]] forSearchBarIcon:UISearchBarIconSearch state:UIControlStateNormal];
     //设置textFiled的背景
-     [customSearchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"login_btn_input_side.png"] forState:UIControlStateNormal];
+     [customSearchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"homepage_searchbg"] forState:UIControlStateNormal];
     //添加到页面上
     [[UIApplication sharedApplication].windows[0] addSubview: customSearchBar];
 }
@@ -117,5 +125,34 @@
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     [searchBar resignFirstResponder];
+}
+#pragma mark - HomePageButtonViewDelegate
+-(void)clickedBtAction:(NSInteger)index
+{
+    switch (index) {
+        case 1:
+            NSLog(@"宠物用品11");
+            break;
+        case 2:
+            NSLog(@"宠物专卖22");
+            break;
+        case 3:
+            NSLog(@"宠物美容33");
+            break;
+        case 4:
+            NSLog(@"宠物医院44");
+            break;
+        case 5:
+            NSLog(@"团购55");
+            break;
+        case 6:
+            NSLog(@"上门服务66");
+            break;
+        case 7:
+            NSLog(@"签到77");
+            break;
+           default:
+            break;
+    }
 }
 @end
