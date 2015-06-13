@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@interface HomePageViewController : UIViewController<UISearchBarDelegate>
+#import "HomePageButtonView.h"
+@interface HomePageViewController : UIViewController<UISearchBarDelegate,HomePageButtonViewDelegate>
 {
     
+    __weak IBOutlet UIView *allBtbg;
     __weak IBOutlet UIView *bannerViewBg;
 }
 
