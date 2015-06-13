@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6751"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -18,11 +17,11 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bd-Zk-bPe" userLabel="allBtBg" customClass="HomePageButtonView">
-                    <rect key="frame" x="0.0" y="210" width="600" height="340"/>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4KD-Oj-GPh" userLabel="bannerViewbg">
                     <rect key="frame" x="0.0" y="8" width="600" height="220"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bd-Zk-bPe" userLabel="allBtBg" customClass="HomePageButtonView">
+                    <rect key="frame" x="0.0" y="210" width="600" height="350"/>
                 </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -33,7 +32,7 @@
                 <constraint firstAttribute="trailing" secondItem="8bd-Zk-bPe" secondAttribute="trailing" id="8pU-b5-tIz"/>
                 <constraint firstAttribute="trailing" secondItem="4KD-Oj-GPh" secondAttribute="trailing" id="Ou7-Rp-C78"/>
                 <constraint firstItem="8bd-Zk-bPe" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="210" id="Zlc-jy-n01"/>
-                <constraint firstAttribute="bottom" secondItem="8bd-Zk-bPe" secondAttribute="bottom" constant="50" id="c5U-tE-KFp"/>
+                <constraint firstAttribute="bottom" secondItem="8bd-Zk-bPe" secondAttribute="bottom" constant="40" id="c5U-tE-KFp"/>
                 <constraint firstItem="4KD-Oj-GPh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" id="o8P-W1-2Sf"/>
             </constraints>
         </view>

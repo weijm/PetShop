@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+
+
 @interface BannerView : UIView<UIScrollViewDelegate>
 {
     //banner上的标识页码的
@@ -16,4 +18,9 @@
 }
 //加载图片和数据
 -(void)loadImageAndData:(NSArray*)dataArray;
+//适配scrollView的大小
+-(void)adaperScrollview:(CGRect)frame;
+
+- (IBAction)leftOrRightAction:(id)sender;
+
 @end

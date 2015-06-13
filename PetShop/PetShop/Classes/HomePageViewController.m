@@ -7,12 +7,14 @@
 //
 
 #import "HomePageViewController.h"
-#import "BannerView.h"
+
 
 
 
 #define kSearchBarRect CGRectMake(50,22,(kWidth - 50*2),40)
 #define kSearchBarTag 100
+#define kBannerViewTag 10
+#define kBtBgTag 9
 @interface HomePageViewController ()
 
 @end
@@ -28,10 +30,7 @@
     [self initNavigationItem];
     //添加bannaerView
     BannerView *bannerView = [[[NSBundle mainBundle] loadNibNamed:@"BannerView" owner:nil options:nil] lastObject];
-    CGRect frame = bannerView.frame;
-    frame.size = bannerViewBg.frame.size;
-    bannerView.frame = frame;
- 
+    bannerView.tag = kBannerViewTag;
     [bannerView loadImageAndData:[[NSArray alloc] initWithObjects:@"homepage_banner1",@"homepage_banner1", nil]];
     [bannerViewBg addSubview:bannerView];
     
@@ -42,9 +41,7 @@
     //初始化按钮界面
     allBtbg.backgroundColor = Rgb(231, 220, 220);
     HomePageButtonView *btbg = [[[NSBundle mainBundle] loadNibNamed:@"HomePageButtonView" owner:nil options:nil] lastObject];
-    frame = btbg.frame;
-    frame.size = CGSizeMake(kWidth, kWidth);
-    btbg.frame = frame;
+    btbg.tag = kBtBgTag;
     btbg.delegate = self;
     [allBtbg addSubview:btbg];
     
@@ -61,7 +58,11 @@
     [self showOrHiddenSearchBar:NO];
     
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+    [self autoAdapter];
+}
 
 
 - (void)didReceiveMemoryWarning {
@@ -154,5 +155,32 @@
            default:
             break;
     }
+}
+
+#pragma mark - 适配各种屏幕 
+-(void)autoAdapter
+{
+    //适配bannerView的大小
+    BannerView *bannerTemp = (BannerView *)[bannerViewBg viewWithTag:kBannerViewTag];
+    CGRect frame = bannerTemp.frame;
+    frame.size = bannerViewBg.frame.size;
+    bannerTemp.frame = frame;
+    [bannerTemp adaperScrollview:frame];
+    
+    //适配allBtbg 的大小
+    float btbgTop = frame.size.height;
+    frame = allBtbg.frame;
+    float btbgOriginOldY = frame.origin.y;
+    frame.origin.y = btbgTop;
+    frame.size.height = frame.size.height -(btbgTop-btbgOriginOldY);
+    allBtbg.frame = frame;
+    
+    //适配按钮视图的位置
+    HomePageButtonView *btbg = (HomePageButtonView *)[allBtbg viewWithTag:kBtBgTag];
+    frame = btbg.frame;
+    frame.origin.x =(kWidth-btbg.frame.size.width)/2;
+    frame.origin.y = (allBtbg.frame.size.height-btbg.frame.size.height)/2;
+    btbg.frame = frame;
+    
 }
 @end

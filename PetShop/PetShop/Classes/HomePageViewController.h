@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HomePageButtonView.h"
+#import "BannerView.h"
 @interface HomePageViewController : UIViewController<UISearchBarDelegate,HomePageButtonViewDelegate>
 {
     
