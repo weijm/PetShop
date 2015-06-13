@@ -11,7 +11,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="L1P-Wb-Hx7" userLabel="pageControl">
-                    <rect key="frame" x="270" y="183" width="39" height="37"/>
+                    <rect key="frame" x="241" y="183" width="39" height="37"/>
                 </pageControl>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWL-8f-J64" userLabel="leftBt">
                     <rect key="frame" x="30" y="108" width="15" height="34"/>
@@ -44,13 +44,11 @@
             </subviews>
             <constraints>
                 <constraint firstItem="a33-A6-lAl" firstAttribute="top" secondItem="5Cd-Lq-av4" secondAttribute="top" constant="108" id="07I-3V-GeQ"/>
-                <constraint firstItem="L1P-Wb-Hx7" firstAttribute="leading" secondItem="5Cd-Lq-av4" secondAttribute="leading" constant="270" id="EUr-U9-f5l"/>
-                <constraint firstAttribute="trailing" secondItem="qWL-8f-J64" secondAttribute="trailing" constant="275" id="Jcx-h9-fT2"/>
                 <constraint firstItem="qWL-8f-J64" firstAttribute="leading" secondItem="5Cd-Lq-av4" secondAttribute="leading" constant="30" id="mrI-bf-PBT"/>
                 <constraint firstItem="qWL-8f-J64" firstAttribute="top" secondItem="5Cd-Lq-av4" secondAttribute="top" constant="108" id="rbE-iF-RsO"/>
+                <constraint firstAttribute="trailing" secondItem="L1P-Wb-Hx7" secondAttribute="trailing" constant="40" id="smW-vZ-PWJ"/>
                 <constraint firstAttribute="bottom" secondItem="L1P-Wb-Hx7" secondAttribute="bottom" id="tAP-Ts-yCz"/>
                 <constraint firstAttribute="trailing" secondItem="a33-A6-lAl" secondAttribute="trailing" constant="35" id="wBl-ri-ZCY"/>
-                <constraint firstItem="a33-A6-lAl" firstAttribute="leading" secondItem="5Cd-Lq-av4" secondAttribute="leading" constant="270" id="znu-RG-gBc"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
