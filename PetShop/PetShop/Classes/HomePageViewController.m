@@ -17,8 +17,6 @@
 #define kBtBgTag 9
 @interface HomePageViewController ()
 {
-    //是否进入子控制器
-    BOOL  isEnterSubView;
 }
 @end
 
@@ -52,13 +50,11 @@
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
-   //隐藏searchBar
-    [self showOrHiddenSearchBar:YES];
+
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    //显示searchBar
-    [self showOrHiddenSearchBar:NO];
+
     
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -94,32 +90,7 @@
     //设置textFiled的背景
      [customSearchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"homepage_searchbg"] forState:UIControlStateNormal];
     //添加到页面上
-    [[UIApplication sharedApplication].windows[0] addSubview: customSearchBar];
-}
-//导航条的隐藏与显示
--(void)showOrHiddenSearchBar:(BOOL)isShow
-{
-     UISearchBar *tempSearchBar = (UISearchBar *)[[UIApplication sharedApplication].windows[0] viewWithTag:kSearchBarTag];
-    if (tempSearchBar) {
-        if (isShow) {
-            if (isEnterSubView) {//进入子控制器中 需要将searchBar移除
-                [tempSearchBar removeFromSuperview];
-            }else
-            {//tabbar之间的控制器切换到别的控制器隐藏
-                tempSearchBar.hidden = YES;
-            }
-        }else
-        {
-            if (isEnterSubView) {//从子控制器返回时 将searchbar添加上 将标记进入子控制器的变量置为NO
-                [self initSearchBar];
-                isEnterSubView = NO;
-                return;
-            }else
-            {//tabbar之间切换回本控制器的时候 显示
-                tempSearchBar.hidden = NO;
-            }
-        }
-    }
+    self.navigationItem.titleView = customSearchBar;
 }
 //初始化导航条上的item
 -(void)initNavigationItem
@@ -183,7 +154,6 @@
            default:
             break;
     }
-    isEnterSubView = YES;
 }
 
 #pragma mark - 适配各种屏幕 
