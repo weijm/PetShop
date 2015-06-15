@@ -16,7 +16,10 @@
 #define kBannerViewTag 10
 #define kBtBgTag 9
 @interface HomePageViewController ()
-
+{
+    //是否进入子控制器
+    BOOL  isEnterSubView;
+}
 @end
 
 @implementation HomePageViewController
@@ -74,7 +77,10 @@
 //初始化导航条
 -(void)initSearchBar
 {
-    
+    UISearchBar *tempSearchBar = (UISearchBar *)[[UIApplication sharedApplication].windows[0] viewWithTag:kSearchBarTag];
+    if (tempSearchBar) {
+        [tempSearchBar removeFromSuperview];
+    }
     UISearchBar *customSearchBar = [[UISearchBar alloc] initWithFrame:kSearchBarRect];
     //添加的searchBar标记
     customSearchBar.tag = kSearchBarTag;
@@ -95,7 +101,24 @@
 {
      UISearchBar *tempSearchBar = (UISearchBar *)[[UIApplication sharedApplication].windows[0] viewWithTag:kSearchBarTag];
     if (tempSearchBar) {
-        tempSearchBar.hidden = isShow;
+        if (isShow) {
+            if (isEnterSubView) {//进入子控制器中 需要将searchBar移除
+                [tempSearchBar removeFromSuperview];
+            }else
+            {//tabbar之间的控制器切换到别的控制器隐藏
+                tempSearchBar.hidden = YES;
+            }
+        }else
+        {
+            if (isEnterSubView) {//从子控制器返回时 将searchbar添加上 将标记进入子控制器的变量置为NO
+                [self initSearchBar];
+                isEnterSubView = NO;
+                return;
+            }else
+            {//tabbar之间切换回本控制器的时候 显示
+                tempSearchBar.hidden = NO;
+            }
+        }
     }
 }
 //初始化导航条上的item
@@ -160,6 +183,7 @@
            default:
             break;
     }
+    isEnterSubView = YES;
 }
 
 #pragma mark - 适配各种屏幕 
