@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -12,33 +12,39 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="L1P-Wb-Hx7" userLabel="pageControl">
-                    <rect key="frame" x="270" y="183" width="39" height="37"/>
+                    <rect key="frame" x="241" y="183" width="39" height="37"/>
                 </pageControl>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWL-8f-J64">
-                    <rect key="frame" x="30" y="95" width="15" height="25"/>
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWL-8f-J64" userLabel="leftBt">
+                    <rect key="frame" x="30" y="108" width="15" height="34"/>
+                    <color key="backgroundColor" red="0.0" green="0.1159612156" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="25" id="cac-UX-wJ8"/>
-                        <constraint firstAttribute="width" constant="15" id="o8O-jH-mZs"/>
+                        <constraint firstAttribute="height" constant="34" id="HGM-tg-UKC"/>
+                        <constraint firstAttribute="width" constant="15" id="Tz9-eE-20p"/>
                     </constraints>
                     <state key="normal" image="homepage_left_bt.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="leftOrRightAction:" destination="5Cd-Lq-av4" eventType="touchUpInside" id="FXl-zR-kEs"/>
+                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a33-A6-lAl">
-                    <rect key="frame" x="241" y="95" width="33" height="25"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a33-A6-lAl">
+                    <rect key="frame" x="270" y="108" width="15" height="25"/>
                     <state key="normal" image="homepage_right_bt.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
+                    <connections>
+                        <action selector="leftOrRightAction:" destination="5Cd-Lq-av4" eventType="touchUpInside" id="BAP-FB-daN"/>
+                    </connections>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="a33-A6-lAl" secondAttribute="trailing" constant="46" id="Ch1-9q-bXv"/>
-                <constraint firstItem="L1P-Wb-Hx7" firstAttribute="leading" secondItem="5Cd-Lq-av4" secondAttribute="leading" constant="270" id="EUr-U9-f5l"/>
-                <constraint firstItem="qWL-8f-J64" firstAttribute="leading" secondItem="5Cd-Lq-av4" secondAttribute="leading" constant="30" id="Red-VW-HZJ"/>
-                <constraint firstItem="qWL-8f-J64" firstAttribute="top" secondItem="a33-A6-lAl" secondAttribute="top" id="a6A-SI-py4"/>
-                <constraint firstItem="qWL-8f-J64" firstAttribute="top" secondItem="5Cd-Lq-av4" secondAttribute="top" constant="95" id="dkY-5b-0HW"/>
+                <constraint firstItem="a33-A6-lAl" firstAttribute="top" secondItem="5Cd-Lq-av4" secondAttribute="top" constant="108" id="07I-3V-GeQ"/>
+                <constraint firstItem="qWL-8f-J64" firstAttribute="leading" secondItem="5Cd-Lq-av4" secondAttribute="leading" constant="30" id="mrI-bf-PBT"/>
+                <constraint firstItem="qWL-8f-J64" firstAttribute="top" secondItem="5Cd-Lq-av4" secondAttribute="top" constant="108" id="rbE-iF-RsO"/>
+                <constraint firstAttribute="trailing" secondItem="L1P-Wb-Hx7" secondAttribute="trailing" constant="40" id="smW-vZ-PWJ"/>
                 <constraint firstAttribute="bottom" secondItem="L1P-Wb-Hx7" secondAttribute="bottom" id="tAP-Ts-yCz"/>
+                <constraint firstAttribute="trailing" secondItem="a33-A6-lAl" secondAttribute="trailing" constant="35" id="wBl-ri-ZCY"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
