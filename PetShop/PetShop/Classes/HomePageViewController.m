@@ -16,7 +16,8 @@
 #define kBannerViewTag 10
 #define kBtBgTag 9
 @interface HomePageViewController ()
-
+{
+}
 @end
 
 @implementation HomePageViewController
@@ -49,13 +50,11 @@
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
-   //隐藏searchBar
-    [self showOrHiddenSearchBar:YES];
+
 }
 -(void)viewWillAppear:(BOOL)animated
 {
-    //显示searchBar
-    [self showOrHiddenSearchBar:NO];
+
     
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -74,7 +73,10 @@
 //初始化导航条
 -(void)initSearchBar
 {
-    
+    UISearchBar *tempSearchBar = (UISearchBar *)[[UIApplication sharedApplication].windows[0] viewWithTag:kSearchBarTag];
+    if (tempSearchBar) {
+        [tempSearchBar removeFromSuperview];
+    }
     UISearchBar *customSearchBar = [[UISearchBar alloc] initWithFrame:kSearchBarRect];
     //添加的searchBar标记
     customSearchBar.tag = kSearchBarTag;
@@ -88,15 +90,7 @@
     //设置textFiled的背景
      [customSearchBar setSearchFieldBackgroundImage:[UIImage imageNamed:@"homepage_searchbg"] forState:UIControlStateNormal];
     //添加到页面上
-    [[UIApplication sharedApplication].windows[0] addSubview: customSearchBar];
-}
-//导航条的隐藏与显示
--(void)showOrHiddenSearchBar:(BOOL)isShow
-{
-     UISearchBar *tempSearchBar = (UISearchBar *)[[UIApplication sharedApplication].windows[0] viewWithTag:kSearchBarTag];
-    if (tempSearchBar) {
-        tempSearchBar.hidden = isShow;
-    }
+    self.navigationItem.titleView = customSearchBar;
 }
 //初始化导航条上的item
 -(void)initNavigationItem

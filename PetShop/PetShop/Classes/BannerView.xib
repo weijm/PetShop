@@ -16,7 +16,6 @@
                 </pageControl>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWL-8f-J64" userLabel="leftBt">
                     <rect key="frame" x="30" y="108" width="15" height="34"/>
-                    <color key="backgroundColor" red="0.0" green="0.1159612156" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="34" id="HGM-tg-UKC"/>
                         <constraint firstAttribute="width" constant="15" id="Tz9-eE-20p"/>
@@ -28,23 +27,27 @@
                         <action selector="leftOrRightAction:" destination="5Cd-Lq-av4" eventType="touchUpInside" id="FXl-zR-kEs"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a33-A6-lAl">
-                    <rect key="frame" x="270" y="108" width="15" height="25"/>
+                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yq9-Mc-XLr" userLabel="rightBt">
+                    <rect key="frame" x="275" y="108" width="15" height="34"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="15" id="yDe-Vl-drz"/>
+                        <constraint firstAttribute="height" constant="34" id="yts-R3-c0x"/>
+                    </constraints>
                     <state key="normal" image="homepage_right_bt.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="leftOrRightAction:" destination="5Cd-Lq-av4" eventType="touchUpInside" id="BAP-FB-daN"/>
+                        <action selector="leftOrRightAction:" destination="5Cd-Lq-av4" eventType="touchUpInside" id="oKK-OD-oNl"/>
                     </connections>
                 </button>
             </subviews>
             <constraints>
-                <constraint firstItem="a33-A6-lAl" firstAttribute="top" secondItem="5Cd-Lq-av4" secondAttribute="top" constant="108" id="07I-3V-GeQ"/>
+                <constraint firstAttribute="trailing" secondItem="Yq9-Mc-XLr" secondAttribute="trailing" constant="30" id="KSx-BD-ahL"/>
+                <constraint firstItem="Yq9-Mc-XLr" firstAttribute="top" secondItem="5Cd-Lq-av4" secondAttribute="top" constant="108" id="fOr-sD-koD"/>
                 <constraint firstItem="qWL-8f-J64" firstAttribute="leading" secondItem="5Cd-Lq-av4" secondAttribute="leading" constant="30" id="mrI-bf-PBT"/>
                 <constraint firstItem="qWL-8f-J64" firstAttribute="top" secondItem="5Cd-Lq-av4" secondAttribute="top" constant="108" id="rbE-iF-RsO"/>
                 <constraint firstAttribute="trailing" secondItem="L1P-Wb-Hx7" secondAttribute="trailing" constant="40" id="smW-vZ-PWJ"/>
                 <constraint firstAttribute="bottom" secondItem="L1P-Wb-Hx7" secondAttribute="bottom" id="tAP-Ts-yCz"/>
-                <constraint firstAttribute="trailing" secondItem="a33-A6-lAl" secondAttribute="trailing" constant="35" id="wBl-ri-ZCY"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
