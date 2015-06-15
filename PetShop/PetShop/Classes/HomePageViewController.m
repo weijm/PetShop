@@ -7,8 +7,8 @@
 //
 
 #import "HomePageViewController.h"
-
-
+#import "BannerView.h"
+#import "PetBeautyViewController.h"
 
 
 #define kSearchBarRect CGRectMake(50,22,(kWidth - 50*2),40)
@@ -138,7 +138,12 @@
             NSLog(@"宠物专卖22");
             break;
         case 3:
+        {
             NSLog(@"宠物美容33");
+            PetBeautyViewController *pet = [[PetBeautyViewController alloc] init];
+            pet.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:pet animated:YES];
+        }
             break;
         case 4:
             NSLog(@"宠物医院44");

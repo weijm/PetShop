@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
@@ -27,13 +28,8 @@
                         <action selector="leftOrRightAction:" destination="5Cd-Lq-av4" eventType="touchUpInside" id="FXl-zR-kEs"/>
                     </connections>
                 </button>
-                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a33-A6-lAl" userLabel="rightBt">
-                    <rect key="frame" x="270" y="108" width="15" height="34"/>
-                    <color key="backgroundColor" red="0.0" green="0.1159612156" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="15" id="RJS-e2-C5e"/>
-                        <constraint firstAttribute="height" constant="34" id="kua-7G-FIh"/>
-                    </constraints>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a33-A6-lAl">
+                    <rect key="frame" x="270" y="108" width="15" height="25"/>
                     <state key="normal" image="homepage_right_bt.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
@@ -60,6 +56,6 @@
     </objects>
     <resources>
         <image name="homepage_left_bt.png" width="15" height="25"/>
-        <image name="homepage_right_bt.png" width="126" height="125"/>
+        <image name="homepage_right_bt.png" width="15" height="25"/>
     </resources>
 </document>

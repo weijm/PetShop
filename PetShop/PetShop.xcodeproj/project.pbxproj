@@ -58,6 +58,11 @@
 		F9985D7B1B2AD41300371B33 /* homepage_sign_bt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9985D6D1B2AD41300371B33 /* homepage_sign_bt@3x.png */; };
 		F9985D7C1B2AD41300371B33 /* homepage_supplies_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9985D6E1B2AD41300371B33 /* homepage_supplies_bt@2x.png */; };
 		F9985D7D1B2AD41300371B33 /* homepage_supplies_bt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9985D6F1B2AD41300371B33 /* homepage_supplies_bt@3x.png */; };
+		FD2EB69F1B2DADAC007C5E38 /* homepage_right_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD2EB69E1B2DADAC007C5E38 /* homepage_right_bt@2x.png */; };
+		FD2EB6A41B2DAF31007C5E38 /* PetBeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EB6A21B2DAF31007C5E38 /* PetBeautyViewController.m */; };
+		FD2EB6A51B2DAF31007C5E38 /* PetBeautyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD2EB6A31B2DAF31007C5E38 /* PetBeautyViewController.xib */; };
+		FD2EB6A81B2DB0B7007C5E38 /* SegementBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EB6A71B2DB0B7007C5E38 /* SegementBtnView.m */; };
+		FD2EB6AC1B2DB241007C5E38 /* TQMultistageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD2EB6AB1B2DB241007C5E38 /* TQMultistageTableView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +142,14 @@
 		F9985D6D1B2AD41300371B33 /* homepage_sign_bt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_sign_bt@3x.png"; sourceTree = "<group>"; };
 		F9985D6E1B2AD41300371B33 /* homepage_supplies_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_supplies_bt@2x.png"; sourceTree = "<group>"; };
 		F9985D6F1B2AD41300371B33 /* homepage_supplies_bt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_supplies_bt@3x.png"; sourceTree = "<group>"; };
+		FD2EB69E1B2DADAC007C5E38 /* homepage_right_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_right_bt@2x.png"; sourceTree = "<group>"; };
+		FD2EB6A11B2DAF31007C5E38 /* PetBeautyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetBeautyViewController.h; sourceTree = "<group>"; };
+		FD2EB6A21B2DAF31007C5E38 /* PetBeautyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetBeautyViewController.m; sourceTree = "<group>"; };
+		FD2EB6A31B2DAF31007C5E38 /* PetBeautyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetBeautyViewController.xib; sourceTree = "<group>"; };
+		FD2EB6A61B2DB0B7007C5E38 /* SegementBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SegementBtnView.h; sourceTree = "<group>"; };
+		FD2EB6A71B2DB0B7007C5E38 /* SegementBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SegementBtnView.m; sourceTree = "<group>"; };
+		FD2EB6AA1B2DB241007C5E38 /* TQMultistageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQMultistageTableView.h; sourceTree = "<group>"; };
+		FD2EB6AB1B2DB241007C5E38 /* TQMultistageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQMultistageTableView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +173,7 @@
 		070264C21B2935F9003BDCB5 /* Homepage */ = {
 			isa = PBXGroup;
 			children = (
+				FD2EB69E1B2DADAC007C5E38 /* homepage_right_bt@2x.png */,
 				F9985D621B2AD41300371B33 /* homepage_deals_bt@2x.png */,
 				F9985D631B2AD41300371B33 /* homepage_deals_bt@3x.png */,
 				F9985D641B2AD41300371B33 /* homepage_grooming_bt@2x.png */,
@@ -196,6 +210,8 @@
 				F9985D5D1B2AD0C400371B33 /* HomePageButtonView.h */,
 				F9985D5E1B2AD0C400371B33 /* HomePageButtonView.m */,
 				F9985D601B2AD0E100371B33 /* HomePageButtonView.xib */,
+				FD2EB6A61B2DB0B7007C5E38 /* SegementBtnView.h */,
+				FD2EB6A71B2DB0B7007C5E38 /* SegementBtnView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -262,6 +278,7 @@
 		0727EA531B27D323005D330C /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				FD2EB6A91B2DB21C007C5E38 /* ThirdMethod */,
 				0727EA6F1B27DB8E005D330C /* Persional */,
 				0727EA691B27DB44005D330C /* Integral */,
 				0727EA631B27DAC6005D330C /* Community */,
@@ -303,6 +320,7 @@
 		0727EA621B27DAB5005D330C /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				FD2EB6A01B2DAF02007C5E38 /* HomePushViewController */,
 				070264CB1B293D27003BDCB5 /* View */,
 				0727EA541B27D36C005D330C /* HomePageViewController.h */,
 				0727EA551B27D36C005D330C /* HomePageViewController.m */,
@@ -339,6 +357,25 @@
 				0727EA721B27DBD2005D330C /* MineViewController.xib */,
 			);
 			name = Persional;
+			sourceTree = "<group>";
+		};
+		FD2EB6A01B2DAF02007C5E38 /* HomePushViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FD2EB6A11B2DAF31007C5E38 /* PetBeautyViewController.h */,
+				FD2EB6A21B2DAF31007C5E38 /* PetBeautyViewController.m */,
+				FD2EB6A31B2DAF31007C5E38 /* PetBeautyViewController.xib */,
+			);
+			name = HomePushViewController;
+			sourceTree = "<group>";
+		};
+		FD2EB6A91B2DB21C007C5E38 /* ThirdMethod */ = {
+			isa = PBXGroup;
+			children = (
+				FD2EB6AA1B2DB241007C5E38 /* TQMultistageTableView.h */,
+				FD2EB6AB1B2DB241007C5E38 /* TQMultistageTableView.m */,
+			);
+			name = ThirdMethod;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -441,6 +478,7 @@
 				F9985D761B2AD41300371B33 /* homepage_monopoly_bt@2x.png in Resources */,
 				F9985D7C1B2AD41300371B33 /* homepage_supplies_bt@2x.png in Resources */,
 				0727EA6E1B27DB86005D330C /* IntegralViewController.xib in Resources */,
+				FD2EB69F1B2DADAC007C5E38 /* homepage_right_bt@2x.png in Resources */,
 				0727EAB21B282622005D330C /* home_icon@2x.png in Resources */,
 				F9985D7B1B2AD41300371B33 /* homepage_sign_bt@3x.png in Resources */,
 				0727EA581B27D36C005D330C /* HomePageViewController.xib in Resources */,
@@ -460,6 +498,7 @@
 				F9985D781B2AD41300371B33 /* homepage_serve_bt@2x.png in Resources */,
 				0727EAB01B282622005D330C /* community_icon@2x.png in Resources */,
 				F9985D611B2AD0E100371B33 /* HomePageButtonView.xib in Resources */,
+				FD2EB6A51B2DAF31007C5E38 /* PetBeautyViewController.xib in Resources */,
 				0727EAB41B282622005D330C /* integral_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -481,9 +520,12 @@
 				0727EA6D1B27DB86005D330C /* IntegralViewController.m in Sources */,
 				0727EA731B27DBD2005D330C /* MineViewController.m in Sources */,
 				070264CE1B293D7B003BDCB5 /* BannerView.m in Sources */,
+				FD2EB6A81B2DB0B7007C5E38 /* SegementBtnView.m in Sources */,
 				0727EA331B27CA98005D330C /* AppDelegate.m in Sources */,
 				0727EA301B27CA98005D330C /* main.m in Sources */,
 				0727EA671B27DB31005D330C /* CommunityViewController.m in Sources */,
+				FD2EB6A41B2DAF31007C5E38 /* PetBeautyViewController.m in Sources */,
+				FD2EB6AC1B2DB241007C5E38 /* TQMultistageTableView.m in Sources */,
 				F9985D5F1B2AD0C400371B33 /* HomePageButtonView.m in Sources */,
 				0727EA5C1B27D774005D330C /* RootViewController.m in Sources */,
 				0727EA571B27D36C005D330C /* HomePageViewController.m in Sources */,
@@ -606,7 +648,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PetShop/PetShopPrefixHeader.pch";
 				INFOPLIST_FILE = PetShop/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -619,7 +661,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/PetShop/PetShopPrefixHeader.pch";
 				INFOPLIST_FILE = PetShop/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
