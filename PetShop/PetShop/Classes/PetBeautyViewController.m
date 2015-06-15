@@ -24,7 +24,7 @@
     segmentView.delegate = self;
     [self.view addSubview:segmentView];
     
-    tqMultiTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, topBarheight, kWidth, kHeight)];
+    tqMultiTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, topBarheight+44, kWidth, kHeight)];
     tqMultiTableView.dataSource = self;
     tqMultiTableView.delegate   = self;
     tqMultiTableView.backgroundColor = [UIColor clearColor];
