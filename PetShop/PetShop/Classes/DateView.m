@@ -91,7 +91,8 @@
     }
 }
 - (IBAction)clickNumber:(id)sender {
-    NSLog(@"clickNumber");
+    UIButton *numberBt = (UIButton*)sender;
+    NSLog(@"clickNumber== %d",numberBt.tag);
 }
 
 @end
