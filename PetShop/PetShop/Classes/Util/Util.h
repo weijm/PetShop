@@ -19,4 +19,14 @@
  根据颜色获取对应色值的图片
  */
 + (UIImage *)imageWithColor:(UIColor *)color;
+
+/**
+ 获取当前年、月、日、周
+ */
++ (NSDictionary*)getCurrentMonth;
+
+/**
+ 获取指定月份的天数
+ */
++(int)howManyDaysInThisMonth:(int)year month:(int)month;
 @end
