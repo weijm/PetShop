@@ -9,6 +9,7 @@
 #import "HomePageViewController.h"
 #import "BannerView.h"
 #import "PetBeautyViewController.h"
+#import "SignViewController.h"
 
 
 #define kSearchBarRect CGRectMake(50,22,(kWidth - 50*2),40)
@@ -59,8 +60,10 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
+    if (kIphone6) {
+        [self autoAdapter];
+    }
     
-    [self autoAdapter];
 }
 
 
@@ -102,6 +105,10 @@
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"homepage_shopcart"] style:UIBarButtonItemStylePlain target:self action:@selector(rightAction)];
     rightItem.tintColor = [UIColor whiteColor];
     self.navigationItem.rightBarButtonItem = rightItem;
+    //设置子控制器的返回按钮的颜色
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    //设置子控制器返回按钮上的文字不显示
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(NSIntegerMin, NSIntegerMin) forBarMetrics:UIBarMetricsDefault];
 }
 -(void)leftAction
 {
@@ -150,6 +157,11 @@
             break;
         case 7:
             NSLog(@"签到77");
+        {
+            SignViewController *signVC = [[SignViewController alloc] init];
+            signVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:signVC animated:YES];
+        }
             break;
            default:
             break;
@@ -166,20 +178,12 @@
     bannerTemp.frame = frame;
     [bannerTemp adaperScrollview:frame];
     
-    //适配allBtbg 的大小
-    float btbgTop = frame.size.height;
-    frame = allBtbg.frame;
-    float btbgOriginOldY = frame.origin.y;
-    frame.origin.y = btbgTop;
-    frame.size.height = frame.size.height -(btbgTop-btbgOriginOldY);
-    allBtbg.frame = frame;
-    
     //适配按钮视图的位置
     HomePageButtonView *btbg = (HomePageButtonView *)[allBtbg viewWithTag:kBtBgTag];
     frame = btbg.frame;
     frame.origin.x =(kWidth-btbg.frame.size.width)/2;
     frame.origin.y = (allBtbg.frame.size.height-btbg.frame.size.height)/2;
     btbg.frame = frame;
-    
+    ;
 }
 @end
