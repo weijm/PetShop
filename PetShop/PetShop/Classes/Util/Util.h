@@ -29,4 +29,21 @@
  获取指定月份的天数
  */
 +(int)howManyDaysInThisMonth:(int)year month:(int)month;
+
+/**
+ 获取document的路径
+ */
++(NSString*)documentPath;
+
+/**
+ 复制原文件到指定目录
+ */
++(BOOL)copyFile:(NSString*)originalPath To:(NSString*)targetPath;
+
+/**
+ 用户的数据库文件路径
+ */
++(NSString*)getSQLitePath;
+
+
 @end

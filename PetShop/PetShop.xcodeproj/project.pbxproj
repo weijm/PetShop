@@ -43,6 +43,8 @@
 		0727EAB51B282622005D330C /* integral_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0727EAAF1B282622005D330C /* integral_icon@3x.png */; };
 		0727EAB81B2826D3005D330C /* persional_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0727EAB61B2826D3005D330C /* persional_icon@2x.png */; };
 		0727EAB91B2826D3005D330C /* persional_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0727EAB71B2826D3005D330C /* persional_icon@3x.png */; };
+		076A4D971B311306002F51DA /* SignModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 076A4D961B311306002F51DA /* SignModel.m */; };
+		076A4D9B1B31146F002F51DA /* PetDB.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 076A4D9A1B31146F002F51DA /* PetDB.sqlite */; };
 		077D24441B2FF64600B8AD84 /* TQMultistageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D24431B2FF64600B8AD84 /* TQMultistageTableView.m */; };
 		077D24561B2FF6FE00B8AD84 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D244C1B2FF6FE00B8AD84 /* FMDatabase.m */; };
 		077D24571B2FF6FE00B8AD84 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D244E1B2FF6FE00B8AD84 /* FMDatabaseAdditions.m */; };
@@ -139,6 +141,9 @@
 		0727EAAF1B282622005D330C /* integral_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "integral_icon@3x.png"; sourceTree = "<group>"; };
 		0727EAB61B2826D3005D330C /* persional_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "persional_icon@2x.png"; sourceTree = "<group>"; };
 		0727EAB71B2826D3005D330C /* persional_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "persional_icon@3x.png"; sourceTree = "<group>"; };
+		076A4D951B311306002F51DA /* SignModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignModel.h; sourceTree = "<group>"; };
+		076A4D961B311306002F51DA /* SignModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignModel.m; sourceTree = "<group>"; };
+		076A4D9A1B31146F002F51DA /* PetDB.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = PetDB.sqlite; sourceTree = "<group>"; };
 		077D24421B2FF64600B8AD84 /* TQMultistageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQMultistageTableView.h; sourceTree = "<group>"; };
 		077D24431B2FF64600B8AD84 /* TQMultistageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQMultistageTableView.m; sourceTree = "<group>"; };
 		077D244B1B2FF6FE00B8AD84 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
@@ -330,6 +335,7 @@
 		0727EA5E1B27D883005D330C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				076A4D991B311465002F51DA /* db */,
 				070264C21B2935F9003BDCB5 /* Homepage */,
 				0727EAB61B2826D3005D330C /* persional_icon@2x.png */,
 				0727EAB71B2826D3005D330C /* persional_icon@3x.png */,
@@ -356,6 +362,7 @@
 		0727EA621B27DAB5005D330C /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				076A4D981B31130F002F51DA /* Model */,
 				FD2EB6A01B2DAF02007C5E38 /* HomePushViewController */,
 				070264CB1B293D27003BDCB5 /* View */,
 				0727EA541B27D36C005D330C /* HomePageViewController.h */,
@@ -393,6 +400,23 @@
 				0727EA721B27DBD2005D330C /* MineViewController.xib */,
 			);
 			name = Persional;
+			sourceTree = "<group>";
+		};
+		076A4D981B31130F002F51DA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				076A4D951B311306002F51DA /* SignModel.h */,
+				076A4D961B311306002F51DA /* SignModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		076A4D991B311465002F51DA /* db */ = {
+			isa = PBXGroup;
+			children = (
+				076A4D9A1B31146F002F51DA /* PetDB.sqlite */,
+			);
+			path = db;
 			sourceTree = "<group>";
 		};
 		077D24411B2FF63700B8AD84 /* Third */ = {
@@ -545,6 +569,7 @@
 				0727EA3E1B27CA98005D330C /* LaunchScreen.xib in Resources */,
 				070F00DC1B2EB83C007E021B /* homepage_default_protrait@2x.png in Resources */,
 				F9985D761B2AD41300371B33 /* homepage_monopoly_bt@2x.png in Resources */,
+				076A4D9B1B31146F002F51DA /* PetDB.sqlite in Resources */,
 				F9985D7C1B2AD41300371B33 /* homepage_supplies_bt@2x.png in Resources */,
 				0727EA6E1B27DB86005D330C /* IntegralViewController.xib in Resources */,
 				FD2EB69F1B2DADAC007C5E38 /* homepage_right_bt@2x.png in Resources */,
@@ -599,6 +624,7 @@
 				0727EA671B27DB31005D330C /* CommunityViewController.m in Sources */,
 				077D24441B2FF64600B8AD84 /* TQMultistageTableView.m in Sources */,
 				FD2EB6A41B2DAF31007C5E38 /* PetBeautyViewController.m in Sources */,
+				076A4D971B311306002F51DA /* SignModel.m in Sources */,
 				F9985D5F1B2AD0C400371B33 /* HomePageButtonView.m in Sources */,
 				077D245A1B2FF6FE00B8AD84 /* FMResultSet.m in Sources */,
 				077D24581B2FF6FE00B8AD84 /* FMDatabasePool.m in Sources */,

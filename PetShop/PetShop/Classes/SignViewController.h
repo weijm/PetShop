@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DateView.h"
 
-@interface SignViewController : UIViewController<UIScrollViewDelegate>
+@interface SignViewController : UIViewController<UIScrollViewDelegate,DateViewDelegate>
 {
     
     IBOutlet UIView *dateViewBg;

@@ -7,7 +7,8 @@
 //
 
 #import "SignViewController.h"
-#import "DateView.h"
+
+#import "SignModel.h"
 
 @interface SignViewController ()
 @end
@@ -68,16 +69,19 @@
         NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:daysInMonth],@"daysInMonth",[NSNumber numberWithInt:titleMonth],@"titleMonth", nil];
         
         DateView *dateView;
+        NSMutableArray *signArr = [[SignModel sharedInstance] getSignDateByMonth:titleMonth AndYear:[[dictionary objectForKey:@"year"] intValue] AndUser:1];
         if (isInit) {
             dateView = [[DateView alloc] initWithFrame:frame];
+            dateView.delegate = self;
             dateView.currentDic = dictionary;
             [dateView loadSubView:dic];
+            [dateView initMarkView:titleMonth SignDate:signArr];
             [dateScrollView addSubview:dateView];
         }else
         {
             if ([subViewArray count]>0) {
                 dateView = [subViewArray objectAtIndex:i];
-                [dateView initMarkView:titleMonth SignDate:nil];
+                [dateView initMarkView:titleMonth SignDate:signArr];
             }
             
        
@@ -91,6 +95,18 @@
     CGPoint point = dateScrollView.contentOffset;
     point.x = scrollAnchor;
     dateScrollView.contentOffset = point;
+    
+}
+#pragma mark - DateViewDelegate
+-(void)clickedBackMonthBt:(int)titleMonth
+{
+    float sWidth = dateViewBg.frame.size.width;
+    CGPoint point = dateScrollView.contentOffset;
+    if (point.x == 0) {
+        return;
+    }
+    point.x = point.x- sWidth;
+    [dateScrollView setContentOffset:point animated:YES];
     
 }
 
