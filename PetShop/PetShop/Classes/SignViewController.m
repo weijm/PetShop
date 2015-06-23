@@ -36,15 +36,7 @@
     [self initScrollView:NO];
 
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 #pragma mark - 签到时间视图的相关操作
 //初始化签到时间的滚动视图 isInit为YES初始化dataView  为NO时 修改frame
 -(void)initScrollView:(int)isInit

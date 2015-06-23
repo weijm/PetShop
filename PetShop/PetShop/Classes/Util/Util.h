@@ -45,5 +45,18 @@
  */
 +(NSString*)getSQLitePath;
 
-
+#pragma mark - 自定义的Point Size Rect
+/**
+ 自定义的rect
+ */
++ (CGRect)myCGRectMake:(float)x andY:(float)y Width:(float)width Height:(float) height;
+/**
+ 自定义的Size
+ */
++(CGSize)myCGSizeMake:(float)width Height:(float)height;
+/**
+ 自定义的Point
+ */
++(CGPoint)myCGPoint:(float)x AndY:(float)y;
++(CGFloat)myYOrHeight:(float)var;
 @end

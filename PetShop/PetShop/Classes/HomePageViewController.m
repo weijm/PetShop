@@ -10,6 +10,7 @@
 #import "BannerView.h"
 #import "PetBeautyViewController.h"
 #import "SignViewController.h"
+#import "SuppliesViewController.h"
 
 
 #define kSearchBarRect CGRectMake(50,22,(kWidth - 50*2),40)
@@ -134,6 +135,12 @@
     switch (index) {
         case 1:
             NSLog(@"宠物用品11");
+        {
+            SuppliesViewController *suppliesVC = [[SuppliesViewController alloc] init];
+            suppliesVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:suppliesVC animated:YES];
+       
+        }
             break;
         case 2:
             NSLog(@"宠物专卖22");

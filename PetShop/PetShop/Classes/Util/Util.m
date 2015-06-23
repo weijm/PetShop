@@ -8,6 +8,8 @@
 
 #import "Util.h"
 
+
+
 @implementation Util
 // 根据数组中的类名称，title，image 生成tabbar的Viewcontrollers
 +(NSMutableArray*)generateViewControllerByName:(NSDictionary*)classInfoDic
@@ -124,5 +126,38 @@
     }
     return dbPath;
 }
-
+#pragma mark - 自定义的Point Size Rect
++ (CGRect)myCGRectMake:(float)x andY:(float)y Width:(float)width Height:(float) height
+{
+    CGRect rect;
+    rect.origin.x = x * autoSizeScaleX;
+    rect.origin.y = y * autoSizeScaleY;
+    rect.size.width = width * autoSizeScaleX;
+    rect.size.height = height * autoSizeScaleY;
+    return rect;
+}
++(CGSize)myCGSizeMake:(float)width Height:(float)height
+{
+    CGSize size;
+    NSLog(@"width == %f,height == %f",width,height);
+    NSLog(@"autoSizeScaleY == %f",autoSizeScaleY);
+    NSLog(@"in height == %f",height*autoSizeScaleY);
+    size.width = width * autoSizeScaleX;
+    size.height = height * autoSizeScaleY;
+    NSLog(@"size == %@",NSStringFromCGSize(size));
+    return size;
+}
++(CGPoint)myCGPoint:(float)x AndY:(float)y
+{
+    CGPoint point;
+    point.x = x *autoSizeScaleX;
+    point.y = y *autoSizeScaleY;
+    return point;
+}
++(CGFloat)myYOrHeight:(float)var
+{
+    float var1 = autoSizeScaleY;
+    float newVar = var *var1;
+    return newVar;
+}
 @end
