@@ -15,11 +15,10 @@
     //banner上的标识页码的
     __weak IBOutlet UIPageControl *pageControl;
     
+    IBOutlet UIScrollView *bannerScrollView;
 }
 //加载图片和数据
 -(void)loadImageAndData:(NSArray*)dataArray;
-//适配scrollView的大小
--(void)adaperScrollview:(CGRect)frame;
 
 - (IBAction)leftOrRightAction:(id)sender;
 

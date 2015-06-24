@@ -19,7 +19,6 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1y-d1-Ocd" userLabel="segmentView">
                     <rect key="frame" x="0.0" y="64" width="600" height="30"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="hfk-le-1zf"/>
                     </constraints>
