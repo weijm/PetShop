@@ -113,6 +113,13 @@
                             <constraint firstItem="ghh-nX-F2g" firstAttribute="top" secondItem="gUp-1T-Emg" secondAttribute="top" id="jMg-fh-Ou1"/>
                         </constraints>
                     </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YSR-GM-MZq" userLabel="lineView">
+                        <rect key="frame" x="0.0" y="0.0" width="399" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="thg-gt-7Wa"/>
+                        </constraints>
+                    </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="狗狗衣服泰迪秋冬装四脚衣服比熊吉娃娃宠物衣服幼犬秋冬服饰包邮" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fF1-WD-9sM">
                         <rect key="frame" x="100" y="15" width="299" height="36"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -126,8 +133,11 @@
                     <constraint firstItem="fF1-WD-9sM" firstAttribute="leading" secondItem="ezY-ge-eik" secondAttribute="trailing" constant="20" id="AiB-kX-SDj"/>
                     <constraint firstAttribute="trailing" secondItem="fF1-WD-9sM" secondAttribute="trailing" id="KhG-ZE-5jX"/>
                     <constraint firstItem="gUp-1T-Emg" firstAttribute="leading" secondItem="ezY-ge-eik" secondAttribute="trailing" constant="20" id="NN2-wd-ot2"/>
+                    <constraint firstItem="YSR-GM-MZq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Wju-5A-bdh"/>
                     <constraint firstAttribute="centerY" secondItem="ezY-ge-eik" secondAttribute="centerY" constant="-1" id="fhn-H3-Rh0"/>
                     <constraint firstAttribute="bottom" secondItem="gUp-1T-Emg" secondAttribute="bottom" id="fiv-cd-ymj"/>
+                    <constraint firstAttribute="trailing" secondItem="YSR-GM-MZq" secondAttribute="trailing" id="mIk-rt-Ais"/>
+                    <constraint firstItem="YSR-GM-MZq" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="rLx-pE-naM"/>
                     <constraint firstItem="ezY-ge-eik" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="uZg-P8-XPB"/>
                     <constraint firstItem="fF1-WD-9sM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="whd-PZ-VKA"/>
                 </constraints>

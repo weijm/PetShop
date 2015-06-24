@@ -26,10 +26,10 @@
                     <rect key="frame" x="241" y="183" width="39" height="37"/>
                 </pageControl>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWL-8f-J64" userLabel="leftBt">
-                    <rect key="frame" x="30" y="93" width="15" height="34"/>
+                    <rect key="frame" x="30" y="85" width="30" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="34" id="HGM-tg-UKC"/>
-                        <constraint firstAttribute="width" constant="15" id="Tz9-eE-20p"/>
+                        <constraint firstAttribute="height" constant="50" id="HGM-tg-UKC"/>
+                        <constraint firstAttribute="width" constant="30" id="Tz9-eE-20p"/>
                     </constraints>
                     <state key="normal" image="homepage_left_bt.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -39,10 +39,10 @@
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yq9-Mc-XLr" userLabel="rightBt">
-                    <rect key="frame" x="275" y="93" width="15" height="34"/>
+                    <rect key="frame" x="260" y="85" width="30" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="15" id="yDe-Vl-drz"/>
-                        <constraint firstAttribute="height" constant="34" id="yts-R3-c0x"/>
+                        <constraint firstAttribute="width" constant="30" id="yDe-Vl-drz"/>
+                        <constraint firstAttribute="height" constant="50" id="yts-R3-c0x"/>
                     </constraints>
                     <state key="normal" image="homepage_right_bt.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -70,7 +70,7 @@
         </view>
     </objects>
     <resources>
-        <image name="homepage_left_bt.png" width="15" height="25"/>
-        <image name="homepage_right_bt.png" width="15" height="25"/>
+        <image name="homepage_left_bt.png" width="7" height="13"/>
+        <image name="homepage_right_bt.png" width="7" height="13"/>
     </resources>
 </document>

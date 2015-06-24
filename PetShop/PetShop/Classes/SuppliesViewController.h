@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CustomSegmentView.h"
+#import "SuppliesBannerView.h"
 
-@interface SuppliesViewController : UIViewController<CustomSegmentViewDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface SuppliesViewController : UIViewController<CustomSegmentViewDelegate,UITableViewDataSource,UITableViewDelegate,SuppliesBannerViewDelegate>
 {
     
     IBOutlet UIView *bannerBg;

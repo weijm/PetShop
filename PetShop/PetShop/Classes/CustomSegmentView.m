@@ -35,8 +35,8 @@
     self.backgroundColor = [UIColor whiteColor];
     switch (tag) {
         case 1:
-           
-            
+            _hLine.hidden = NO;
+            self.backgroundColor = Rgb(234, 234, 234);
             break;
         case 2:
             [segmentBt setTitle:@"价格排序" forState:UIControlStateNormal];
@@ -56,7 +56,9 @@
     _hLine.hidden = NO;
     self.backgroundColor = Rgb(234, 234, 234);
     if ([_delegate respondsToSelector:@selector(ClickBtByTag:)]) {
+        
         [_delegate ClickBtByTag:viewTag];
+        _isShowCoverView = !_isShowCoverView;
     }
 }
 @end

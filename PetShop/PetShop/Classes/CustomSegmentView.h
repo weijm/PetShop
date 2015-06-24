@@ -23,6 +23,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *hLine;
 @property (nonatomic,weak) id<CustomSegmentViewDelegate>  delegate;
+@property (nonatomic) BOOL isShowCoverView;//按钮是否已经被选中
 -(void)loadButtonView;
 - (IBAction)clickedCustomSegmentBt:(id)sender;
 

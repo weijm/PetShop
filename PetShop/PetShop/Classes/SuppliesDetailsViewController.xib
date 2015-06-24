@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SuppliesDetailsViewController">
+            <connections>
+                <outlet property="detailTableView" destination="wIB-GN-2UI" id="E2S-di-Ecj"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="wIB-GN-2UI" userLabel="deatailsTableView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="550"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="mV0-zG-Pae"/>
+                        <outlet property="delegate" destination="-1" id="H4I-QX-ydK"/>
+                    </connections>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fj0-4m-fXG" userLabel="footerView">
+                    <rect key="frame" x="0.0" y="550" width="600" height="50"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5nz-nl-zo4" userLabel="vLine">
+                            <rect key="frame" x="300" y="0.0" width="1" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="1" id="DwS-Ff-0gi"/>
+                                <constraint firstAttribute="height" constant="50" id="X4X-PI-BhT"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TtJ-gU-XBP" userLabel="buyBt">
+                            <rect key="frame" x="30" y="6" width="255" height="39"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="39" id="XNS-v7-1WK"/>
+                            </constraints>
+                            <state key="normal" title="立即购买" backgroundImage="homepage_suppbuy_bt.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clickedBuyBtAction:" destination="-1" eventType="touchUpInside" id="YZp-Vu-2xi"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kxm-N7-cmS" userLabel="readyBuyBt">
+                            <rect key="frame" x="316" y="6" width="254" height="39"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="39" id="DLO-yp-Pj0"/>
+                            </constraints>
+                            <state key="normal" title="加入购物车" backgroundImage="homepage_suppreadybuy_bt.png">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="clickedReadyBuyAction:" destination="-1" eventType="touchUpInside" id="Ydl-xg-zFc"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.81176470590000005" green="0.81176470590000005" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="centerY" secondItem="TtJ-gU-XBP" secondAttribute="centerY" id="NPH-um-EU1"/>
+                        <constraint firstItem="5nz-nl-zo4" firstAttribute="leading" secondItem="TtJ-gU-XBP" secondAttribute="trailing" constant="15" id="T15-BN-EzJ"/>
+                        <constraint firstAttribute="centerY" secondItem="5nz-nl-zo4" secondAttribute="centerY" id="TcX-Eb-uXe"/>
+                        <constraint firstAttribute="height" constant="50" id="as3-7n-V5O"/>
+                        <constraint firstAttribute="centerX" secondItem="5nz-nl-zo4" secondAttribute="centerX" id="ci3-KS-Pn0"/>
+                        <constraint firstItem="kxm-N7-cmS" firstAttribute="leading" secondItem="5nz-nl-zo4" secondAttribute="trailing" constant="15" id="clu-4N-ZCC"/>
+                        <constraint firstAttribute="trailing" secondItem="kxm-N7-cmS" secondAttribute="trailing" constant="30" id="jT7-fb-fFC"/>
+                        <constraint firstAttribute="centerY" secondItem="kxm-N7-cmS" secondAttribute="centerY" id="mdC-s3-YIY"/>
+                        <constraint firstItem="TtJ-gU-XBP" firstAttribute="leading" secondItem="fj0-4m-fXG" secondAttribute="leading" constant="30" id="oT7-mg-TG4"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="fj0-4m-fXG" secondAttribute="trailing" id="5S6-yb-1FF"/>
+                <constraint firstItem="fj0-4m-fXG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="9mD-AI-HYu"/>
+                <constraint firstItem="wIB-GN-2UI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="C22-Ph-78g"/>
+                <constraint firstAttribute="trailing" secondItem="wIB-GN-2UI" secondAttribute="trailing" id="M4e-yI-yCs"/>
+                <constraint firstItem="fj0-4m-fXG" firstAttribute="top" secondItem="wIB-GN-2UI" secondAttribute="bottom" id="VFQ-EO-blW"/>
+                <constraint firstAttribute="bottom" secondItem="fj0-4m-fXG" secondAttribute="bottom" id="bm9-NL-yCm"/>
+                <constraint firstItem="wIB-GN-2UI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="iNO-xn-xSv"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="homepage_suppbuy_bt.png" width="142" height="39"/>
+        <image name="homepage_suppreadybuy_bt.png" width="142" height="39"/>
+    </resources>
+</document>

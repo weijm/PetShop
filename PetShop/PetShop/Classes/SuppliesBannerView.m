@@ -10,6 +10,7 @@
 
 @implementation SuppliesBannerView
 
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -46,6 +47,9 @@
     bannerScroll.contentSize = CGSizeMake(scrollAnchor+kWidth, self.frame.size.height);
     bannerScroll.pagingEnabled=YES;
     bannerPage.numberOfPages = imageCount;
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchImageInScrollView:)];
+    [bannerScroll addGestureRecognizer:tap];
 }
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)_scrollView
@@ -54,5 +58,15 @@
     wid = _scrollView.contentOffset.x;
     bannerPage.currentPage = round(wid/kWidth);
     
+}
+-(void)touchImageInScrollView:(UITapGestureRecognizer*)sender
+{
+    CGPoint point = [sender locationInView:bannerScroll];
+    float pointX = point.x;
+    int pageIndex = pointX/kWidth;
+    NSLog(@"pageIndex == %d",pageIndex);
+    if ([_delegate respondsToSelector:@selector(clickedBannerImage:)]) {
+        [_delegate clickedBannerImage:pageIndex];
+    }
 }
 @end

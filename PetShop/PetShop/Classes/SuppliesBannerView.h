@@ -7,13 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol SuppliesBannerViewDelegate<NSObject>
+@optional
+-(void)clickedBannerImage:(NSInteger)index;
+@end
 @interface SuppliesBannerView : UIView<UIScrollViewDelegate>
 {
     
     IBOutlet UIScrollView *bannerScroll;
     IBOutlet UIPageControl *bannerPage;
 }
+@property(weak,nonatomic) id<SuppliesBannerViewDelegate> delegate;
 /**
  加载scrollView上的图片
  */
