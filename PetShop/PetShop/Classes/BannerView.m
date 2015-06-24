@@ -11,34 +11,35 @@
 
 @implementation BannerView
 
-
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        // Initialization code
+        UIView *containerView = [[[UINib nibWithNibName:@"BannerView" bundle:nil] instantiateWithOwner:self options:nil] objectAtIndex:0];
+        CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
+        containerView.frame = newFrame;
+        [self addSubview:containerView];
+    }
+    return self;
+}
 #pragma mark- 加载图片和数据
 -(void)loadImageAndData:(NSArray*)dataArray
 {
-    
-    UIScrollView *selectScrollView=[[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, kWidth, self.frame.size.height)];
-    selectScrollView.backgroundColor=[UIColor clearColor];
-    selectScrollView.delegate=self;
-    selectScrollView.decelerationRate=0.5;
-    selectScrollView.showsHorizontalScrollIndicator=NO;
-    selectScrollView.pagingEnabled=YES;
-    selectScrollView.tag = kScrollViewTag;
-    
     NSInteger imageCount = dataArray.count;
     int scrollAnchor = -kWidth;
     for (int i =0; i < imageCount; i++) {
         scrollAnchor += kWidth;
-        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(scrollAnchor, 0, kWidth, selectScrollView.frame.size.height)];
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(scrollAnchor, 0, kWidth, self.frame.size.height)];
         
         imageView.image = [UIImage imageNamed:dataArray[i]];
         imageView.clipsToBounds = NO;
         imageView.tag = i;
-        [selectScrollView addSubview:imageView];
+        [bannerScrollView addSubview:imageView];
     }
-    selectScrollView.contentSize = CGSizeMake(scrollAnchor+kWidth, self.frame.size.height);
+    bannerScrollView.contentSize = CGSizeMake(scrollAnchor+kWidth, self.frame.size.height);
    
     pageControl.numberOfPages = imageCount;
-    [self insertSubview:selectScrollView belowSubview:pageControl];
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -49,33 +50,10 @@
     pageControl.currentPage = round(wid/kWidth);
     
 }
--(void)adaperScrollview:(CGRect)frame
-{
-    UIScrollView *scrollView = (UIScrollView *)[self viewWithTag:kScrollViewTag];
-    //适配滚动视图的大小
-    CGRect tframe = scrollView.frame;
-    tframe.size.height = frame.size.height;
-    tframe.origin.y = 50;
-    scrollView.frame = tframe;
-    //适配contentSize的大小
-    CGSize contenSize = scrollView.contentSize;
-    contenSize.height = frame.size.height;
-    scrollView.contentSize = contenSize;
-    //适配滚动视图子视图的大小
-    for (UIView *view in [scrollView subviews]) {
-        if ([view isKindOfClass:[UIImageView class]]) {
-            tframe = view.frame;
-            tframe.size.height = frame.size.height;
-            view.frame = tframe;
-            
-        }
-    }
-}
 
 - (IBAction)leftOrRightAction:(id)sender {
     UIButton *bt = (UIButton*)sender;
-     UIScrollView *scrollView = (UIScrollView *)[self viewWithTag:kScrollViewTag];
-     CGPoint point = scrollView.contentOffset;
+     CGPoint point = bannerScrollView.contentOffset;
     switch (bt.tag) {
         case 1://点击向左按钮
             if (pageControl.currentPage>0) {
@@ -93,7 +71,7 @@
         default:
             break;
     }
-    [scrollView setContentOffset:point animated:YES];
+    [bannerScrollView setContentOffset:point animated:YES];
     
 }
 @end

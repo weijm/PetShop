@@ -5,60 +5,72 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BannerView">
+            <connections>
+                <outlet property="bannerScrollView" destination="dPy-L3-siq" id="Vud-wO-o2r"/>
+                <outlet property="pageControl" destination="L1P-Wb-Hx7" id="9TG-0I-IbV"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="5Cd-Lq-av4" customClass="BannerView">
+        <view contentMode="scaleToFill" id="5Cd-Lq-av4">
             <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dPy-L3-siq" userLabel="bannerScrollView">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="ltN-0G-WcQ"/>
+                    </connections>
+                </scrollView>
                 <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="L1P-Wb-Hx7" userLabel="pageControl">
                     <rect key="frame" x="241" y="183" width="39" height="37"/>
                 </pageControl>
                 <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qWL-8f-J64" userLabel="leftBt">
-                    <rect key="frame" x="30" y="108" width="15" height="34"/>
+                    <rect key="frame" x="30" y="85" width="30" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="34" id="HGM-tg-UKC"/>
-                        <constraint firstAttribute="width" constant="15" id="Tz9-eE-20p"/>
+                        <constraint firstAttribute="height" constant="50" id="HGM-tg-UKC"/>
+                        <constraint firstAttribute="width" constant="30" id="Tz9-eE-20p"/>
                     </constraints>
                     <state key="normal" image="homepage_left_bt.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="leftOrRightAction:" destination="5Cd-Lq-av4" eventType="touchUpInside" id="FXl-zR-kEs"/>
+                        <action selector="leftOrRightAction:" destination="-1" eventType="touchUpInside" id="Aop-u1-tpI"/>
                     </connections>
                 </button>
                 <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yq9-Mc-XLr" userLabel="rightBt">
-                    <rect key="frame" x="275" y="108" width="15" height="34"/>
+                    <rect key="frame" x="260" y="85" width="30" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="15" id="yDe-Vl-drz"/>
-                        <constraint firstAttribute="height" constant="34" id="yts-R3-c0x"/>
+                        <constraint firstAttribute="width" constant="30" id="yDe-Vl-drz"/>
+                        <constraint firstAttribute="height" constant="50" id="yts-R3-c0x"/>
                     </constraints>
                     <state key="normal" image="homepage_right_bt.png">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
-                        <action selector="leftOrRightAction:" destination="5Cd-Lq-av4" eventType="touchUpInside" id="oKK-OD-oNl"/>
+                        <action selector="leftOrRightAction:" destination="-1" eventType="touchUpInside" id="o7E-7j-2bQ"/>
                     </connections>
                 </button>
             </subviews>
             <constraints>
+                <constraint firstItem="dPy-L3-siq" firstAttribute="top" secondItem="5Cd-Lq-av4" secondAttribute="top" id="3b3-xh-Mvy"/>
+                <constraint firstAttribute="bottom" secondItem="dPy-L3-siq" secondAttribute="bottom" id="AcL-cy-ORH"/>
                 <constraint firstAttribute="trailing" secondItem="Yq9-Mc-XLr" secondAttribute="trailing" constant="30" id="KSx-BD-ahL"/>
-                <constraint firstItem="Yq9-Mc-XLr" firstAttribute="top" secondItem="5Cd-Lq-av4" secondAttribute="top" constant="108" id="fOr-sD-koD"/>
+                <constraint firstItem="dPy-L3-siq" firstAttribute="leading" secondItem="5Cd-Lq-av4" secondAttribute="leading" id="OHS-N3-80U"/>
+                <constraint firstAttribute="centerY" secondItem="Yq9-Mc-XLr" secondAttribute="centerY" id="P0G-D2-qjD"/>
+                <constraint firstAttribute="trailing" secondItem="dPy-L3-siq" secondAttribute="trailing" id="R2b-1I-kH5"/>
                 <constraint firstItem="qWL-8f-J64" firstAttribute="leading" secondItem="5Cd-Lq-av4" secondAttribute="leading" constant="30" id="mrI-bf-PBT"/>
-                <constraint firstItem="qWL-8f-J64" firstAttribute="top" secondItem="5Cd-Lq-av4" secondAttribute="top" constant="108" id="rbE-iF-RsO"/>
+                <constraint firstAttribute="centerY" secondItem="qWL-8f-J64" secondAttribute="centerY" id="rMy-vn-48N"/>
                 <constraint firstAttribute="trailing" secondItem="L1P-Wb-Hx7" secondAttribute="trailing" constant="40" id="smW-vZ-PWJ"/>
                 <constraint firstAttribute="bottom" secondItem="L1P-Wb-Hx7" secondAttribute="bottom" id="tAP-Ts-yCz"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <connections>
-                <outlet property="pageControl" destination="L1P-Wb-Hx7" id="CR0-br-anT"/>
-            </connections>
             <point key="canvasLocation" x="126" y="261"/>
         </view>
     </objects>
     <resources>
-        <image name="homepage_left_bt.png" width="15" height="25"/>
-        <image name="homepage_right_bt.png" width="15" height="25"/>
+        <image name="homepage_left_bt.png" width="7" height="13"/>
+        <image name="homepage_right_bt.png" width="7" height="13"/>
     </resources>
 </document>

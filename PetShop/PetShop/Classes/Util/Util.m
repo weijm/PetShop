@@ -8,6 +8,8 @@
 
 #import "Util.h"
 
+
+
 @implementation Util
 // 根据数组中的类名称，title，image 生成tabbar的Viewcontrollers
 +(NSMutableArray*)generateViewControllerByName:(NSDictionary*)classInfoDic
@@ -90,5 +92,72 @@
     if(year%100 == 0)
         return 28;
     return 29;
+}
+#pragma mark - 文件的相关操作
+//document的路径
++(NSString*)documentPath
+{
+    NSString *docPath = nil;
+    NSArray *searchPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    docPath = [searchPaths firstObject];
+    return docPath;
+}
+// 复制原文件到指定目录
++(BOOL)copyFile:(NSString*)originalPath To:(NSString*)targetPath
+{
+    NSFileManager *filemanager = [NSFileManager defaultManager];
+    NSError *error;
+    if (![filemanager copyItemAtPath:originalPath toPath:targetPath error:&error]) {
+        NSLog(@"copy file error %@",[error localizedDescription]);
+        return NO;
+    }
+    return YES;
+}
+// 用户的数据库文件路径
++(NSString*)getSQLitePath
+{
+    NSString *dbPath = [NSString stringWithFormat:@"%@/PetDB.sqlite",[self documentPath]];
+    NSFileManager *filemanager = [NSFileManager defaultManager];
+    if (![filemanager fileExistsAtPath:dbPath]) {
+        NSString *bundelPath = [[NSBundle mainBundle] pathForResource:@"PetDB" ofType:@"sqlite"];
+        if (![self copyFile:bundelPath To:dbPath]) {
+            NSLog(@"getSQLitePath copy file error");
+        }
+    }
+    return dbPath;
+}
+#pragma mark - 自定义的Point Size Rect
++ (CGRect)myCGRectMake:(float)x andY:(float)y Width:(float)width Height:(float) height
+{
+    CGRect rect;
+    rect.origin.x = x * autoSizeScaleX;
+    rect.origin.y = y * autoSizeScaleY;
+    rect.size.width = width * autoSizeScaleX;
+    rect.size.height = height * autoSizeScaleY;
+    return rect;
+}
++(CGSize)myCGSizeMake:(float)width Height:(float)height
+{
+    CGSize size;
+    NSLog(@"width == %f,height == %f",width,height);
+    NSLog(@"autoSizeScaleY == %f",autoSizeScaleY);
+    NSLog(@"in height == %f",height*autoSizeScaleY);
+    size.width = width * autoSizeScaleX;
+    size.height = height * autoSizeScaleY;
+    NSLog(@"size == %@",NSStringFromCGSize(size));
+    return size;
+}
++(CGPoint)myCGPoint:(float)x AndY:(float)y
+{
+    CGPoint point;
+    point.x = x *autoSizeScaleX;
+    point.y = y *autoSizeScaleY;
+    return point;
+}
++(CGFloat)myYOrHeight:(float)var
+{
+    float var1 = autoSizeScaleY;
+    float newVar = var *var1;
+    return newVar;
 }
 @end

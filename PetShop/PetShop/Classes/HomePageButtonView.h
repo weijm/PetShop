@@ -14,7 +14,7 @@
 @interface HomePageButtonView : UIView
 {
     
-    __weak IBOutlet UIView *buttonbg;
+    IBOutlet UIView *buttonbg;
 }
 @property(nonatomic,retain)id<HomePageButtonViewDelegate>delegate;
 - (IBAction)clickedBt:(id)sender;

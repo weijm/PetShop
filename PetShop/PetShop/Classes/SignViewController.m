@@ -7,7 +7,8 @@
 //
 
 #import "SignViewController.h"
-#import "DateView.h"
+
+#import "SignModel.h"
 
 @interface SignViewController ()
 @end
@@ -35,15 +36,7 @@
     [self initScrollView:NO];
 
 }
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 #pragma mark - 签到时间视图的相关操作
 //初始化签到时间的滚动视图 isInit为YES初始化dataView  为NO时 修改frame
 -(void)initScrollView:(int)isInit
@@ -68,16 +61,19 @@
         NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:daysInMonth],@"daysInMonth",[NSNumber numberWithInt:titleMonth],@"titleMonth", nil];
         
         DateView *dateView;
+        NSMutableArray *signArr = [[SignModel sharedInstance] getSignDateByMonth:titleMonth AndYear:[[dictionary objectForKey:@"year"] intValue] AndUser:1];
         if (isInit) {
             dateView = [[DateView alloc] initWithFrame:frame];
+            dateView.delegate = self;
             dateView.currentDic = dictionary;
             [dateView loadSubView:dic];
+            [dateView initMarkView:titleMonth SignDate:signArr];
             [dateScrollView addSubview:dateView];
         }else
         {
             if ([subViewArray count]>0) {
                 dateView = [subViewArray objectAtIndex:i];
-                [dateView initMarkView:titleMonth SignDate:nil];
+                [dateView initMarkView:titleMonth SignDate:signArr];
             }
             
        
@@ -91,6 +87,18 @@
     CGPoint point = dateScrollView.contentOffset;
     point.x = scrollAnchor;
     dateScrollView.contentOffset = point;
+    
+}
+#pragma mark - DateViewDelegate
+-(void)clickedBackMonthBt:(int)titleMonth
+{
+    float sWidth = dateViewBg.frame.size.width;
+    CGPoint point = dateScrollView.contentOffset;
+    if (point.x == 0) {
+        return;
+    }
+    point.x = point.x- sWidth;
+    [dateScrollView setContentOffset:point animated:YES];
     
 }
 

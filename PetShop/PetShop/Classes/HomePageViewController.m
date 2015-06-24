@@ -10,6 +10,7 @@
 #import "BannerView.h"
 #import "PetBeautyViewController.h"
 #import "SignViewController.h"
+#import "SuppliesViewController.h"
 
 
 #define kSearchBarRect CGRectMake(50,22,(kWidth - 50*2),40)
@@ -26,12 +27,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = Rgb(231, 220, 220);
     //初始化导航条的搜索框
     [self initSearchBar];
     //初始化导航条上的item
     [self initNavigationItem];
     //添加bannaerView
-    BannerView *bannerView = [[[NSBundle mainBundle] loadNibNamed:@"BannerView" owner:nil options:nil] lastObject];
+    CGRect frame;
+    float bHeight = [Util myYOrHeight:bannerViewBg.frame.size.height];
+    frame = CGRectMake(0, 0, kWidth,bHeight );
+    BannerView *bannerView = [[BannerView alloc] initWithFrame:frame];
     bannerView.tag = kBannerViewTag;
     [bannerView loadImageAndData:[[NSArray alloc] initWithObjects:@"homepage_banner1",@"homepage_banner1", nil]];
     [bannerViewBg addSubview:bannerView];
@@ -41,13 +46,10 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     //初始化按钮界面
-    allBtbg.backgroundColor = Rgb(231, 220, 220);
-    HomePageButtonView *btbg = [[[NSBundle mainBundle] loadNibNamed:@"HomePageButtonView" owner:nil options:nil] lastObject];
-    btbg.tag = kBtBgTag;
+    CGRect  btBgframe = CGRectMake(0, bannerViewBg.frame.origin.y+frame.size.height-35, kWidth, kHeight-frame.origin.y-frame.size.height-60);
+    HomePageButtonView *btbg = [[HomePageButtonView alloc] initWithFrame:btBgframe];
     btbg.delegate = self;
-    [allBtbg addSubview:btbg];
-    
-    
+    [self.view addSubview:btbg];
 }
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -60,10 +62,6 @@
 }
 -(void)viewDidAppear:(BOOL)animated
 {
-    if (kIphone6) {
-        [self autoAdapter];
-    }
-    
 }
 
 
@@ -134,6 +132,12 @@
     switch (index) {
         case 1:
             NSLog(@"宠物用品11");
+        {
+            SuppliesViewController *suppliesVC = [[SuppliesViewController alloc] init];
+            suppliesVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:suppliesVC animated:YES];
+       
+        }
             break;
         case 2:
             NSLog(@"宠物专卖22");
@@ -168,22 +172,4 @@
     }
 }
 
-#pragma mark - 适配各种屏幕 
--(void)autoAdapter
-{
-    //适配bannerView的大小
-    BannerView *bannerTemp = (BannerView *)[bannerViewBg viewWithTag:kBannerViewTag];
-    CGRect frame = bannerTemp.frame;
-    frame.size = bannerViewBg.frame.size;
-    bannerTemp.frame = frame;
-    [bannerTemp adaperScrollview:frame];
-    
-    //适配按钮视图的位置
-    HomePageButtonView *btbg = (HomePageButtonView *)[allBtbg viewWithTag:kBtBgTag];
-    frame = btbg.frame;
-    frame.origin.x =(kWidth-btbg.frame.size.width)/2;
-    frame.origin.y = (allBtbg.frame.size.height-btbg.frame.size.height)/2;
-    btbg.frame = frame;
-    ;
-}
 @end
