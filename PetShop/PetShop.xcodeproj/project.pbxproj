@@ -74,13 +74,13 @@
 		076EF0ED1B3AAFAD00438018 /* homepage_suppbuy_bt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 076EF0EB1B3AAFAD00438018 /* homepage_suppbuy_bt@3x.png */; };
 		076EF0F01B3AAFB500438018 /* homepage_suppreadybuy_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 076EF0EE1B3AAFB500438018 /* homepage_suppreadybuy_bt@2x.png */; };
 		076EF0F11B3AAFB500438018 /* homepage_suppreadybuy_bt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 076EF0EF1B3AAFB500438018 /* homepage_suppreadybuy_bt@3x.png */; };
-		077D24441B2FF64600B8AD84 /* TQMultistageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D24431B2FF64600B8AD84 /* TQMultistageTableView.m */; };
 		077D24561B2FF6FE00B8AD84 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D244C1B2FF6FE00B8AD84 /* FMDatabase.m */; };
 		077D24571B2FF6FE00B8AD84 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D244E1B2FF6FE00B8AD84 /* FMDatabaseAdditions.m */; };
 		077D24581B2FF6FE00B8AD84 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D24501B2FF6FE00B8AD84 /* FMDatabasePool.m */; };
 		077D24591B2FF6FE00B8AD84 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D24521B2FF6FE00B8AD84 /* FMDatabaseQueue.m */; };
 		077D245A1B2FF6FE00B8AD84 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D24551B2FF6FE00B8AD84 /* FMResultSet.m */; };
 		077D245C1B2FF80900B8AD84 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 077D245B1B2FF80900B8AD84 /* libsqlite3.0.dylib */; };
+		3B2EF2561B3B908100C069CF /* TQMultistageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2EF2551B3B908100C069CF /* TQMultistageTableView.m */; };
 		F9985D561B2ACC1600371B33 /* homepage_searchbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9985D551B2ACC1600371B33 /* homepage_searchbg@2x.png */; };
 		F9985D581B2ACE3400371B33 /* homepage_searchbg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9985D571B2ACE3400371B33 /* homepage_searchbg@3x.png */; };
 		F9985D5B1B2ACE7000371B33 /* homepage_list_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9985D591B2ACE7000371B33 /* homepage_list_btn@3x.png */; };
@@ -210,8 +210,6 @@
 		076EF0EB1B3AAFAD00438018 /* homepage_suppbuy_bt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_suppbuy_bt@3x.png"; sourceTree = "<group>"; };
 		076EF0EE1B3AAFB500438018 /* homepage_suppreadybuy_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_suppreadybuy_bt@2x.png"; sourceTree = "<group>"; };
 		076EF0EF1B3AAFB500438018 /* homepage_suppreadybuy_bt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_suppreadybuy_bt@3x.png"; sourceTree = "<group>"; };
-		077D24421B2FF64600B8AD84 /* TQMultistageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQMultistageTableView.h; sourceTree = "<group>"; };
-		077D24431B2FF64600B8AD84 /* TQMultistageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQMultistageTableView.m; sourceTree = "<group>"; };
 		077D244B1B2FF6FE00B8AD84 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		077D244C1B2FF6FE00B8AD84 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		077D244D1B2FF6FE00B8AD84 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -224,6 +222,8 @@
 		077D24541B2FF6FE00B8AD84 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		077D24551B2FF6FE00B8AD84 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		077D245B1B2FF80900B8AD84 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		3B2EF2541B3B908100C069CF /* TQMultistageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQMultistageTableView.h; sourceTree = "<group>"; };
+		3B2EF2551B3B908100C069CF /* TQMultistageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQMultistageTableView.m; sourceTree = "<group>"; };
 		F9985D551B2ACC1600371B33 /* homepage_searchbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_searchbg@2x.png"; sourceTree = "<group>"; };
 		F9985D571B2ACE3400371B33 /* homepage_searchbg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_searchbg@3x.png"; sourceTree = "<group>"; };
 		F9985D591B2ACE7000371B33 /* homepage_list_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_list_btn@3x.png"; sourceTree = "<group>"; };
@@ -582,9 +582,9 @@
 		077D24411B2FF63700B8AD84 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				3B2EF2541B3B908100C069CF /* TQMultistageTableView.h */,
+				3B2EF2551B3B908100C069CF /* TQMultistageTableView.m */,
 				077D244A1B2FF69E00B8AD84 /* FMDB */,
-				077D24421B2FF64600B8AD84 /* TQMultistageTableView.h */,
-				077D24431B2FF64600B8AD84 /* TQMultistageTableView.m */,
 			);
 			path = Third;
 			sourceTree = "<group>";
@@ -799,6 +799,7 @@
 				070F00D91B2E8202007E021B /* SignViewController.m in Sources */,
 				077D24571B2FF6FE00B8AD84 /* FMDatabaseAdditions.m in Sources */,
 				076EF0B61B3A5BA300438018 /* SuppliesListViewController.m in Sources */,
+				3B2EF2561B3B908100C069CF /* TQMultistageTableView.m in Sources */,
 				FD2EB6A81B2DB0B7007C5E38 /* SegementBtnView.m in Sources */,
 				0727EA331B27CA98005D330C /* AppDelegate.m in Sources */,
 				070F00DF1B2ED1EB007E021B /* DateView.m in Sources */,
@@ -806,7 +807,6 @@
 				077D24591B2FF6FE00B8AD84 /* FMDatabaseQueue.m in Sources */,
 				0727EA671B27DB31005D330C /* CommunityViewController.m in Sources */,
 				076EF0C91B3A910000438018 /* InfoTableViewCell.m in Sources */,
-				077D24441B2FF64600B8AD84 /* TQMultistageTableView.m in Sources */,
 				FD2EB6A41B2DAF31007C5E38 /* PetBeautyViewController.m in Sources */,
 				076A4D971B311306002F51DA /* SignModel.m in Sources */,
 				F9985D5F1B2AD0C400371B33 /* HomePageButtonView.m in Sources */,

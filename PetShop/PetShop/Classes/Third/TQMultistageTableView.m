@@ -3,42 +3,20 @@
 //  TQMultistageTableView
 //
 //  Created by fuqiang on 13-8-19.
+//  Copyright (c) 2013年 Magus. All rights reserved.
 //
-//  Copyright (c) 2013 TinyQ (http://tinyq.me )
-//
-//  Permission is hereby granted, free of charge, to any person obtaining a copy of
-//  this software and associated documentation files (the "Software"), to deal in
-//  the Software without restriction, including without limitation the rights to
-//  use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of
-//  the Software, and to permit persons to whom the Software is furnished to do so,
-//  subject to the following conditions:
-//
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
-//  FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
-//  COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
-//  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
-//  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 #import "TQMultistageTableView.h"
-
-typedef enum
-{
-    //最外层
-	TQHeaderLineTouch,
-    //中间层
-	TQCellLineTouch,
-    //代码
-	TQCodeSendTouch,
-} TQLineTouchType;
-
-static const CGFloat kDefultHeightForRow    = 44.0f;
-static const CGFloat kDefultHeightForAtom   = 44.0f;
-
 @interface TQMultistageTableView ()
+
+@property (nonatomic,assign) BOOL isReusableCell;
+@property (nonatomic,TQ_STRONG) UIView * viewForExpand;
+
+@property (nonatomic,assign) BOOL selectIndexPathIsOpen;
+@property (nonatomic,TQ_STRONG) NSIndexPath *selectIndexPath;
+
+@property (nonatomic,assign) BOOL selectOldIndexPathIsOpen;
+@property (nonatomic,TQ_STRONG) NSIndexPath *selectOldIndexPath;
 
 @end
 
@@ -49,422 +27,117 @@ static const CGFloat kDefultHeightForAtom   = 44.0f;
     self = [super initWithFrame:frame];
     if (self)
     {
-        _openedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:-1];
+        self.isReusableCell = NO;
+        self.selectIndexPathIsOpen = NO;
+        self.selectIndexPath = [NSIndexPath indexPathForRow:-1 inSection:-1];
+        self.selectOldIndexPathIsOpen = NO;
+        self.selectOldIndexPath = nil;
         
-        _atomOrigin = CGPointMake(0, 0);
-        
+        //
         _tableView = [[UITableView alloc] initWithFrame:frame];
-        _tableView.delegate         = self;
-        _tableView.dataSource       = self;
-        _tableView.backgroundColor  = [UIColor clearColor];
-        _tableView.separatorStyle   = UITableViewCellSeparatorStyleNone;
-        
-        _tableView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
-        
+        _tableView.delegate     = self;
+        _tableView.dataSource   = self;
         [self addSubview:_tableView];
     }
     return self;
 }
 
-#pragma mark - Public Methods
-
-- (id)dequeueReusableCellWithIdentifier:(NSString *)identifier
+- (void)dealloc
 {
-    id cell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
+    [self setDelegate:nil];
+    [self setDataSource:nil];
+    
+#if !__has_feature(objc_arc)
+    [_tableView release];
+    
+    [_viewForExpand release];
+    [_selectIndexPath release];
+    [_selectOldIndexPath release];
+    [super dealloc];
+
+#endif
+
+}
+
+#pragma mark - Set
+
+-(void)setFrame:(CGRect)frame
+{
+    self.tableView.frame = frame;
+    [super setFrame:frame];
+}
+
+-(void)setBackgroundColor:(UIColor *)backgroundColor
+{
+    [self.tableView setBackgroundColor:backgroundColor];
+    [super setBackgroundColor:backgroundColor];
+}
+
+#pragma mark - Table view data source
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [self dataSource_numberOfSectionsInTableView];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)])
+    {
+        if (self.selectIndexPath.section != section)
+        {
+            return 0;
+        }
+    }
+    
+    NSInteger n = 0;
+    n = [self dataSource_numberOfRowsInSection:section];
+    return n;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [self dataSource_cellForRowAtIndexPath:indexPath];
+    
+    if (cell && !self.isReusableCell)
+    {
+        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(tableViewCellTouchUpInside:)];
+        [cell addGestureRecognizer:tapGesture];
+    }
     
     return cell;
 }
 
-- (id)dequeueReusableCellWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath
-{
-    id cell = [self.tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
-    
-    return cell;
-}
-
-- (id)dequeueReusableHeaderFooterViewWithIdentifier:(NSString *)identifier
-{
-    return [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:identifier];
-}
-
-- (void)sendHeaderTouchActionWithSection:(NSInteger)section
-{
-    [self openOrCloseHeaderWithSection:section];
-}
-
-- (void)sendCellTouchActionWithIndexPath:(NSIndexPath *)indexPath
-{
-    [self openOrCloseCellWithTouchType:TQCodeSendTouch forIndexPath:indexPath];
-}
-
-- (void)reloadData
-{
-    _openedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:-1];
-    [self.tableView reloadData];
-}
-
-#pragma mark - Private Methods
-
-/**
- *  为视图添加点击手势监听
- *
- *  @param view   要监听的视图
- *  @param action 方法名
- */
-- (void)addTapGestureRecognizerForView:(UIView *)view action:(SEL)action
-{
-    if (view)
-    {
-        UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tableViewCellTouchUpInside:)];
-        [view addGestureRecognizer:tapGesture];
-    }
-}
-
-/**
- *  从视图移除点击手势监听
- *
- *  @param view 要移除监听的视图
- */
-- (void)removeTapGestureRecognizerFromView:(UIView *)view
-{
-    if (view)
-    {
-        for (UIGestureRecognizer *gesture in view.gestureRecognizers)
-        {
-            if ([gesture.view isEqual:view])
-            {
-                [view removeGestureRecognizer:gesture];
-            }
-        }
-    }
-}
-
-#pragma mark - Private Operation For Header Open & Close
-
-/**
- *  创建待插入NSIndexPath数组
- *
- *  @param section header 索引
- *
- *  @return 待删除NSIndexPath数组
- */
-- (NSMutableArray *)buildInsertRowWithSection:(NSInteger)section
-{
-    NSInteger insert = [self invoke_numberOfRowsInSection:section];
-    
-    if (insert != 0)
-    {
-        [self invoke_willOpenHeaderAtSection:section];
-    }
-    
-    _openedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:section];
-    
-    NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i < insert; i++)
-    {
-        [indexPaths addObject: [NSIndexPath indexPathForRow:i inSection:section]];
-    }
-    
-    return indexPaths;
-}
-
-/**
- *  创建待删除NSIndexPath数组
- *
- *  @param section header 索引
- *
- *  @return 待删除NSIndexPath数组
- */
-- (NSMutableArray *)buildDeleteRowWithSection:(NSInteger)section
-{
-    NSInteger delete = [self invoke_numberOfRowsInSection:section];;
-    
-    if (delete != 0)
-    {
-        [self invoke_willCloseHeaderAtSection:section];
-    }
-    
-    if (section == self.openedIndexPath.section)
-    {
-        _openedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:-1];
-    }
-    
-    NSMutableArray *indexPaths = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i < delete; i++)
-    {
-        [indexPaths addObject: [NSIndexPath indexPathForRow:i inSection:section]];
-    }
-    
-    return indexPaths;
-}
-
-/**
- *  展开或关闭列表的 Header
- *
- *  @param section header 索引
- */
-- (void)openOrCloseHeaderWithSection:(NSInteger)section
-{
-    NSMutableArray *deleteIndexPaths = [[NSMutableArray alloc] init];
-    NSMutableArray *insertIndexPaths = [[NSMutableArray alloc] init];
-    
-    NSInteger oldSection = self.openedIndexPath.section;
-    NSInteger newSection = section;
-    
-    if (oldSection <= -1)
-    {
-        //当前列表header是关闭状态
-        if (oldSection != newSection)
-        {
-            //展开newSection
-            insertIndexPaths = [self buildInsertRowWithSection:newSection];
-        }
-    }
-    else
-    {
-        //当前列表header是展开状态
-        if (oldSection != newSection && newSection > -1)
-        {
-            //关闭oldSection && 展开 newSection
-            deleteIndexPaths = [self buildDeleteRowWithSection:oldSection];
-            insertIndexPaths = [self buildInsertRowWithSection:newSection];
-        }
-        else
-        {
-            //关闭oldSection && 还原 oldSection ＝ －1
-            deleteIndexPaths = [self buildDeleteRowWithSection:oldSection];
-        }
-    }
-    
-    [self.tableView beginUpdates];
-    if ([insertIndexPaths count] > 0)
-    {
-        [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationLeft];
-    }
-    if ([deleteIndexPaths count] > 0)
-    {
-        [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationFade];
-    }
-    [self.tableView endUpdates];
-}
-
-#pragma mark - Private Operation For Row Open & Close
-
-/**
- *  创建待reload NSIndexPath 数组 For insert atomView
- *
- *  @param row row 索引
- *
- *  @return 待reload NSIndexPath 数组
- */
-- (NSMutableArray *)buildWillOpenRowsWithRow:(NSInteger)row
-{
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:self.openedIndexPath.section];
-    
-    [self invoke_willOpenRowAtIndexPath:indexPath];
-    
-    _openedIndexPath = indexPath;
-    
-    return [NSMutableArray arrayWithObject:indexPath];
-}
-
-/**
- *  创建待reload NSIndexPath 数组 for close atomView
- *
- *  @param row row 索引
- *
- *  @return 待reload NSIndexPath 数组
- */
-- (NSMutableArray *)buildWillCloseRowsWithRow:(NSInteger)row
-{
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:row inSection:self.openedIndexPath.section];
-    
-    [self invoke_willCloseRowAtIndexPath:indexPath];
-    
-    if (row == self.openedIndexPath.row)
-    {
-        _openedIndexPath = [NSIndexPath indexPathForRow:-1 inSection:self.openedIndexPath.section];;
-    }
-    
-    return [NSMutableArray arrayWithObject:indexPath];
-}
-
-/**
- *  展开或关闭列表的 Row
- *
- *  @param row Row 索引
- */
-- (void)openOrCloseCellWithRow:(NSInteger)row
-{
-    NSMutableArray *reloadIndexPaths = [NSMutableArray array];
-    
-    NSInteger oldRow = self.openedIndexPath.row;
-    NSInteger newRow = row;
-    
-    if (oldRow <= -1)
-    {
-        //当前列表Row是全部关闭状态
-        if (oldRow != newRow)
-        {
-            //展开newRow
-            reloadIndexPaths = [self buildWillOpenRowsWithRow:newRow];
-        }
-    }
-    else
-    {
-        //当前列表Row是一个展开状态
-        if (oldRow != newRow)
-        {
-            //关闭oldRow && 展开 newRow
-            [reloadIndexPaths addObjectsFromArray: [self buildWillCloseRowsWithRow:oldRow]];
-            [reloadIndexPaths addObjectsFromArray: [self buildWillOpenRowsWithRow:newRow]];
-        }
-        else
-        {
-            //关闭oldRow && 还原 oldRow ＝ －1
-            reloadIndexPaths = [self buildWillCloseRowsWithRow:oldRow];
-        }
-    }
-    
-    [self.tableView reloadRowsAtIndexPaths:reloadIndexPaths withRowAnimation:UITableViewRowAnimationAutomatic];
-}
-
-#pragma mark - Private Operation For Row & Header
-/**
- *  展开或关闭列表的Cell Or Header
- *
- *  @param touchType 展开操作触发的来源类型
- *  @param indexPath Cell 和 Header 索引路径
- */
-- (void)openOrCloseCellWithTouchType:(TQLineTouchType)touchType forIndexPath:(NSIndexPath *)indexPath
-{
-    switch (touchType)
-    {
-        case TQHeaderLineTouch:
-        {
-            [self openOrCloseHeaderWithSection:indexPath.section];
-        }
-            break;
-        case TQCellLineTouch:
-        {
-            [self openOrCloseCellWithRow:indexPath.row];
-        }
-            break;
-        case TQCodeSendTouch:
-        {
-            if (indexPath.section != self.openedIndexPath.section)
-            {
-                [self openOrCloseHeaderWithSection:indexPath.section];
-                
-                double delayInSeconds = 0.4;
-                dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-                dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-                    
-                    [self openOrCloseCellWithRow:indexPath.row];
-                });
-            }
-            else
-            {
-                [self openOrCloseCellWithRow:indexPath.row];
-            }
-        }
-            break;
-        default:
-            
-            break;
-    }
-}
-
-#pragma mark - Touch Selector
-
-/**
- *  列表头点击时触发
- *
- *  @param gesture Tap Gesture Recognizer
- */
-- (void)tableViewHeaderTouchUpInside:(UITapGestureRecognizer *)gesture
-{
-    NSInteger section = gesture.view.tag;
-    
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:-1 inSection:section];
-    
-    [self openOrCloseCellWithTouchType:TQHeaderLineTouch forIndexPath:indexPath];
-}
-
-/**
- *  列表点击时触发
- *
- *  @param gesture Tap Gesture Recognizer
- */
-- (void)tableViewCellTouchUpInside:(UITapGestureRecognizer *)gesture
-{
-    //判断点击区域
-    UITableViewCell *cell = (UITableViewCell *)gesture.view;
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    
-    CGFloat h = [self invoke_heightForRowAtIndexPath:indexPath];
-    CGFloat w = cell.bounds.size.width;
-    CGRect rect = CGRectMake(0, 0, w, h);
-    CGPoint point = [gesture locationInView:cell];
-    if(CGRectContainsPoint(rect,point))
-    {
-        if (self.atomView)
-        {
-            [self openOrCloseCellWithTouchType:TQCellLineTouch forIndexPath:indexPath];
-        }
-        
-        [self invoke_didSelectRowAtIndexPath:indexPath];
-    }
-}
-
-#pragma mark - Table View Delegate
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [self addTapGestureRecognizerForView:cell action:@selector(tableViewCellTouchUpInside:)];
-    
-    if ([self.openedIndexPath compare:indexPath] == NSOrderedSame)
-    {
-        CGFloat atomViewHeight = [self invoke_heightForAtomAtIndexPath:indexPath];
-        CGFloat cellViewHeight = [self invoke_heightForRowAtIndexPath:indexPath];
-        self.atomView.frame = CGRectMake(self.atomOrigin.x,self.atomOrigin.y + cellViewHeight,cell.bounds.size.width, atomViewHeight);
-        
-        [cell addSubview:self.atomView];
-    }
-}
-
-- (void)tableView:(UITableView *)tableView didEndDisplayingCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath*)indexPath
-{
-    [self removeTapGestureRecognizerFromView:cell];
-    
-    if ([cell.subviews containsObject:self.atomView])
-    {
-        [self.atomView removeFromSuperview];
-    }
-}
+#pragma mark - Table view delegate
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGFloat h = [self invoke_heightForRowAtIndexPath:indexPath];
-        
-    if ([self.openedIndexPath compare:indexPath] == NSOrderedSame)
+    CGFloat h = [self delegate_heightForRowAtIndexPath:indexPath];
+    
+    if (self.selectIndexPathIsOpen && self.selectIndexPath && [self.selectIndexPath compare:indexPath] == NSOrderedSame)
     {
-        h += [self invoke_heightForAtomAtIndexPath:indexPath];
+        h += [self delegate_heightForOpenCellAtIndexPath:indexPath];
     }
     
     return h;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (self.dataSource && ![self.dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)])
+    {
+        return 0;
+    }
+    return [self delegate_heightForHeaderInSection:section];
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *view = [self invoke_viewForHeaderInSection:section];
+    UIView *view = [self delegate_viewForHeaderInSection:section];
     
     if (view)
     {
         CGFloat height = [self tableView:tableView heightForHeaderInSection:section];
-        CGRect frame = CGRectMake(0, 0, tableView.bounds.size.width, height);
+        CGRect frame = CGRectMake(0, 0, self.tableView.bounds.size.width, height);
         view.frame = frame;
         view.tag = section;
         
@@ -475,127 +148,326 @@ static const CGFloat kDefultHeightForAtom   = 44.0f;
     return view;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.dataSource && [self.dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)])
+    if (self.viewForExpand)
     {
-        return [self invoke_heightForHeaderInSection:section];
+        if ([self.selectIndexPath compare:indexPath] == NSOrderedSame && self.selectIndexPathIsOpen)
+        {
+            if (self.viewForExpand.superview && ![self.viewForExpand.subviews isEqual:cell])
+            {
+                [self.viewForExpand removeFromSuperview];
+            }
+            [cell addSubview:self.viewForExpand];
+        }
+        else
+        {
+            if ([cell.subviews containsObject:self.viewForExpand])
+            {
+                [self.viewForExpand removeFromSuperview];
+            }
+        }
+    }
+}
+
+#pragma mark - Selector
+
+//列表Header点击
+- (void)tableViewHeaderTouchUpInside:(UITapGestureRecognizer *)gesture
+{
+    int section = gesture.view.tag;
+    [self delegate_didSelectHeaderAtSection:section];
+    [self openOrCloseHeaderWithSection:section];
+}
+
+//列表cell点击
+- (void)tableViewCellTouchUpInside:(UITapGestureRecognizer *)gesture
+{
+    //判断点击区域
+    UITableViewCell *cell = (UITableViewCell *)gesture.view;
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    CGFloat h = [self delegate_heightForRowAtIndexPath:indexPath];
+    CGFloat w = cell.bounds.size.width;
+    CGRect rect = CGRectMake(0, 0, w, h);
+    CGPoint point = [gesture locationInView:cell];
+    if(CGRectContainsPoint(rect,point))
+    {
+        [self delegate_didSelectRowAtIndexPath:indexPath];
+        [self openCellViewWithIndexPath:indexPath];
+    }
+}
+
+#pragma mark - Private
+
+- (void)insertViewForExpandWithIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.viewForExpand && self.viewForExpand.superview)
+    {
+        [self.viewForExpand removeFromSuperview];
+    }
+    
+    UITableViewCell *cell = [self cellForRowAtIndexPath:indexPath];
+    CGFloat cellHeight = [self delegate_heightForRowAtIndexPath:indexPath];
+    CGFloat openHeight = [self delegate_heightForOpenCellAtIndexPath:indexPath];
+    
+    self.viewForExpand = [self delegate_openCellForRowAtIndexPath:indexPath];
+    self.viewForExpand.frame = CGRectMake(0, cellHeight,cell.bounds.size.width, 0);
+    //cell.isOpen = YES;
+    __block __unsafe_unretained UITableViewCell * weekCell = cell;
+    __block __unsafe_unretained TQMultistageTableView     * weekSelf = self;
+    
+    [UIView transitionWithView:cell
+                      duration:0.3
+                       options:UIViewAnimationOptionCurveEaseOut
+                    animations:^
+     {
+         [weekCell addSubview:weekSelf.viewForExpand];
+         
+         weekSelf.viewForExpand.frame = CGRectMake(0, cellHeight, weekCell.bounds.size.width, openHeight);
+     }
+                    completion:^(BOOL finished)
+     {
+         [self handleCellOpenThanTheView];
+     }];
+}
+
+- (void)removeViewForExpandWithIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.viewForExpand)
+    {
+        __block __unsafe_unretained TQMultistageTableView * weekSelf = self;
+        
+        CGRect rect = self.viewForExpand.frame;
+        
+        [UIView transitionWithView:self.viewForExpand
+                          duration:0.2
+                           options:UIViewAnimationOptionCurveEaseIn
+                        animations:^
+         {
+             weekSelf.viewForExpand.frame = CGRectMake(0, rect.origin.y,rect.size.width, 0);
+         }
+                        completion:^(BOOL finished)
+         {
+             [weekSelf.viewForExpand removeFromSuperview];
+             self.viewForExpand.frame = rect;
+         }];
+    }
+}
+
+//插入row
+- (void)insertRowWithSection:(int)section toIndexPaths:(NSMutableArray *)indexPaths
+{
+    int insert = [self dataSource_numberOfRowsInSection:section];
+    
+    if (insert != 0)
+    {
+        [self delegate_willOpenHeaderAtSection:section];
+    }
+    
+    for (int i = 0; i < insert; i++)
+    {
+        [indexPaths addObject: [NSIndexPath indexPathForRow:i inSection:section]];
+    }
+}
+
+//删除row
+- (void)deleteRowWithSection:(int)section toIndexPaths:(NSMutableArray *)indexPaths
+{
+    int delete = [self dataSource_numberOfRowsInSection:section];;
+    
+    if (delete != 0)
+    {
+        [self delegate_willCloseHeaderAtSection:section];
+    }
+    
+    for (int i = 0; i < delete; i++)
+    {
+        [indexPaths addObject: [NSIndexPath indexPathForRow:i inSection:section]];
+    }
+}
+
+//处理打开Cell的时候。cell中的内容超出了列表的Fram
+- (void)handleCellOpenThanTheView
+{
+    CGFloat h = [self delegate_heightForRowAtIndexPath:self.selectIndexPath];
+    
+    h += [self delegate_heightForOpenCellAtIndexPath:self.selectIndexPath];
+  
+    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:self.selectIndexPath];
+    
+    CGPoint p = [cell convertPoint:CGPointZero fromView:self];
+    
+    if((h - p.y) > self.frame.size.height)
+    {
+        [self.tableView scrollToRowAtIndexPath:self.selectIndexPath atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    }
+}
+
+#pragma mark - Public
+
+- (id)dequeueReusableCellWithIdentifier:(NSString *)identifier
+{
+    id cell = [self.tableView dequeueReusableCellWithIdentifier:identifier];
+    
+    self.isReusableCell = cell ? YES : NO;
+    
+    return cell;
+}
+
+//展开或关闭点开的View
+- (void)openCellViewWithIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewRowAnimation rowAnimation = UITableViewRowAnimationAutomatic;
+    NSMutableArray *updataIndexPathArray = [NSMutableArray array];
+    
+    if (self.selectOldIndexPath == nil)
+    {
+        //第一次展开
+        self.selectIndexPath = indexPath;
+        self.selectIndexPathIsOpen = YES;
+        //
+        [self delegate_willOpenCellAtIndexPath:self.selectIndexPath];
+        //
+        [updataIndexPathArray addObject:self.selectIndexPath];
+        [self.tableView reloadRowsAtIndexPaths:updataIndexPathArray withRowAnimation:rowAnimation];
+        [self insertViewForExpandWithIndexPath:self.selectIndexPath];
+        
+        self.selectOldIndexPath = [NSIndexPath indexPathForRow:self.selectIndexPath.row inSection:self.selectIndexPath.section];
+        self.selectOldIndexPathIsOpen = self.selectIndexPathIsOpen;
     }
     else
     {
-        return 0;
+        //!=第一次展开
+        if ([indexPath compare:self.selectOldIndexPath] == NSOrderedSame)
+        {
+            //相同Cell
+            self.selectIndexPathIsOpen = NO;
+            //
+            [self delegate_willCloseCellAtIndexPath:self.selectIndexPath];
+            //
+            [updataIndexPathArray addObject:self.selectIndexPath];
+            [self.tableView reloadRowsAtIndexPaths:updataIndexPathArray withRowAnimation:rowAnimation];
+            [self removeViewForExpandWithIndexPath:self.selectIndexPath];
+            
+            self.selectOldIndexPath = nil;
+            self.selectOldIndexPathIsOpen = NO;
+        }
+        else
+        {
+            //不同Cell
+            self.selectIndexPath = indexPath;
+            self.selectIndexPathIsOpen = YES;
+            //
+            [self delegate_willCloseCellAtIndexPath:self.selectOldIndexPath];
+            [self delegate_willOpenCellAtIndexPath:self.selectIndexPath];
+            //
+            [updataIndexPathArray addObject:self.selectOldIndexPath];
+            [updataIndexPathArray addObject:self.selectIndexPath];
+            [self.tableView reloadRowsAtIndexPaths:updataIndexPathArray withRowAnimation:rowAnimation];
+            [self insertViewForExpandWithIndexPath:self.selectIndexPath];
+            
+            self.selectOldIndexPath = [NSIndexPath indexPathForRow:self.selectIndexPath.row inSection:self.selectIndexPath.section];
+            self.selectOldIndexPathIsOpen = self.selectIndexPathIsOpen;
+        }
     }
 }
 
-#pragma mark - Table View DataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+//展开或关闭点开的Header
+- (void)openOrCloseHeaderWithSection:(int)section
 {
-    if (self.dataSource && [self.dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)] && self.openedIndexPath.section != section)
+    self.selectIndexPathIsOpen = NO;
+    self.selectOldIndexPath = nil;
+    self.selectOldIndexPathIsOpen = NO;
+    
+    NSMutableArray *deleteIndexPaths = TQ_AUTORELEASE([[NSMutableArray alloc] init]);
+    NSMutableArray *insertIndexPaths = TQ_AUTORELEASE([[NSMutableArray alloc] init]);
+    if(self.selectIndexPath.section == section)
     {
-        return 0;
+        [self deleteRowWithSection:self.selectIndexPath.section toIndexPaths:deleteIndexPaths];
+        self.selectIndexPath = [NSIndexPath indexPathForRow:-1 inSection:-1];
+    }
+    else
+    {
+        if (self.selectIndexPath.section < 0)
+        {
+            [self insertRowWithSection:section toIndexPaths:insertIndexPaths];
+            self.selectIndexPath = [NSIndexPath indexPathForRow:-1 inSection:section];
+        }
+        else
+        {
+            [self deleteRowWithSection:self.selectIndexPath.section toIndexPaths:deleteIndexPaths];
+            
+            self.selectIndexPath = [NSIndexPath indexPathForRow:-1 inSection:section];
+            
+            [self insertRowWithSection:section toIndexPaths:insertIndexPaths];
+        }
     }
     
-    NSInteger n = 0;
-    n = [self invoke_numberOfRowsInSection:section];
+    [self.tableView beginUpdates];
+    [self.tableView insertRowsAtIndexPaths:insertIndexPaths withRowAnimation:UITableViewRowAnimationLeft];
+    [self.tableView deleteRowsAtIndexPaths:deleteIndexPaths withRowAnimation:UITableViewRowAnimationFade];
+    [self.tableView endUpdates];
+}
+
+- (UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [self.tableView cellForRowAtIndexPath:indexPath];
+}
+
+- (void)reloadDataWithTableViewCell:(UITableViewCell *)cell
+{
+    if (cell)
+    {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        NSMutableArray *updataIndexPathArray = [NSMutableArray array];
+        [updataIndexPathArray addObject:indexPath];
+        [self.tableView reloadRowsAtIndexPaths:updataIndexPathArray withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+- (void)reloadData
+{
+    self.isReusableCell = NO;
+    self.selectIndexPathIsOpen = NO;
+    self.selectIndexPath = [NSIndexPath indexPathForRow:-1 inSection:-1];
+    self.selectOldIndexPathIsOpen = NO;
+    self.selectOldIndexPath = nil;
+    [self.tableView reloadData];
+}
+
+- (void)updateTableView
+{
+    [self.tableView beginUpdates];
+    [self.tableView endUpdates];
+    [self handleCellOpenThanTheView];
+}
+
+- (bool)isOpenCellWithIndexPath:(NSIndexPath *)indexPath
+{
+    if([self.selectIndexPath compare:indexPath] == NSOrderedSame)
+    {
+        return self.selectIndexPathIsOpen;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+#pragma mark - Safety Delegate & DataSource Call
+#pragma mark - Safety DataSource
+
+- (NSInteger)dataSource_numberOfSectionsInTableView
+{
+    NSInteger n = 1;
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)])
+    {
+        n = [self.dataSource numberOfSectionsInTableView:self];
+    }
     return n;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return [self invoke_cellForRowAtIndexPath:indexPath];
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return  [self invoke_numberOfSectionsInTableView];
-}
-
-#pragma mark - Invoke Delegate
-
-- (CGFloat)invoke_heightForHeaderInSection:(NSInteger)section
-{
-    NSInteger h = 0;
-    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: heightForHeaderInSection:)])
-    {
-        h = [self.delegate mTableView:self heightForHeaderInSection:section];
-    }
-    return h;
-}
-
-- (CGFloat)invoke_heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    CGFloat h = kDefultHeightForRow;
-    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: heightForRowAtIndexPath:)])
-    {
-        h = [self.delegate mTableView:self heightForRowAtIndexPath:indexPath];
-    }
-    return h;
-}
-
-- (CGFloat)invoke_heightForAtomAtIndexPath:(NSIndexPath *)indexPath
-{
-    CGFloat h = kDefultHeightForAtom;
-    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: heightForAtomAtIndexPath:)])
-    {
-        h = [self.delegate mTableView:self heightForAtomAtIndexPath:indexPath];
-    }
-    return h;
-}
-
-- (UIView *)invoke_viewForHeaderInSection:(NSInteger)section
-{
-    UIView *view = nil;
-    if(self.delegate && [self.delegate respondsToSelector:@selector(mTableView: viewForHeaderInSection:)])
-    {
-        view = [self.delegate mTableView:self viewForHeaderInSection:section];
-    }
-    return view;
-}
-
-- (void)invoke_willOpenHeaderAtSection:(NSInteger)section
-{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: willOpenHeaderAtSection:)])
-    {
-        [self.delegate mTableView:self willOpenHeaderAtSection:section];
-    }
-}
-
-- (void)invoke_willCloseHeaderAtSection:(NSInteger)section
-{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: willCloseHeaderAtSection:)])
-    {
-        [self.delegate mTableView:self willCloseHeaderAtSection:section];
-    }
-}
-
-- (void)invoke_willOpenRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: willOpenHeaderAtSection:)])
-    {
-        [self.delegate mTableView:self willOpenRowAtIndexPath:indexPath];
-    }
-}
-
-- (void)invoke_willCloseRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: willCloseRowAtIndexPath:)])
-    {
-        [self.delegate mTableView:self willCloseRowAtIndexPath:indexPath];
-    }
-}
-
-- (void)invoke_didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: didSelectRowAtIndexPath:)])
-    {
-        [self.delegate mTableView:self didSelectRowAtIndexPath:indexPath];
-    }
-}
-
-#pragma mark - Invoke DataSource
-
-- (NSInteger)invoke_numberOfRowsInSection:(NSInteger)section
+- (NSInteger)dataSource_numberOfRowsInSection:(NSInteger)section
 {
     NSInteger n = 0;
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(mTableView: numberOfRowsInSection:)])
@@ -605,7 +477,7 @@ static const CGFloat kDefultHeightForAtom   = 44.0f;
     return n;
 }
 
-- (UITableViewCell *)invoke_cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UITableViewCell *)dataSource_cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = nil;
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(mTableView: cellForRowAtIndexPath:)])
@@ -615,14 +487,109 @@ static const CGFloat kDefultHeightForAtom   = 44.0f;
     return cell;
 }
 
-- (NSInteger)invoke_numberOfSectionsInTableView
+- (UIView *)delegate_openCellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSInteger n = 1;
-    if (self.dataSource && [self.dataSource respondsToSelector:@selector(numberOfSectionsInTableView:)])
+    UIView *view = nil;
+    if (self.dataSource && [self.dataSource respondsToSelector:@selector(mTableView: openCellForRowAtIndexPath:)])
     {
-        n = [self.dataSource numberOfSectionsInTableView:self];
+        view = [self.dataSource mTableView:self openCellForRowAtIndexPath:indexPath];
     }
-    return n;
+    return view;
+}
+
+#pragma mark - Safety Delegate
+- (CGFloat)delegate_heightForHeaderInSection:(NSInteger)section
+{
+    NSInteger h = 0;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: heightForHeaderInSection:)])
+    {
+        h = [self.delegate mTableView:self heightForHeaderInSection:section];
+    }
+    return h;
+}
+
+- (CGFloat)delegate_heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat h = DEFULT_HEIGHT_FOR_ROW;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: heightForRowAtIndexPath:)])
+    {
+        h = [self.delegate mTableView:self heightForRowAtIndexPath:indexPath];
+    }
+    return h;
+}
+
+- (CGFloat)delegate_heightForOpenCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGFloat h = 0;
+    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: heightForOpenCellAtIndexPath:)])
+    {
+        h = [self.delegate mTableView:self heightForOpenCellAtIndexPath:indexPath];
+    }
+    return h;
+}
+
+- (UIView *)delegate_viewForHeaderInSection:(NSInteger)section
+{
+    UIView *view = nil;
+    if(self.delegate && [self.delegate respondsToSelector:@selector(mTableView: viewForHeaderInSection:)])
+    {
+        view = [self.delegate mTableView:self viewForHeaderInSection:section];
+    }
+    return view;
+}
+
+//header点击
+- (void)delegate_didSelectHeaderAtSection:(NSInteger)section;
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: didSelectHeaderAtSection:)])
+    {
+        [self.delegate mTableView:self didSelectHeaderAtSection:section];
+    }
+}
+
+//celll点击
+- (void)delegate_didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: didSelectRowAtIndexPath:)])
+    {
+        [self.delegate mTableView:self didSelectRowAtIndexPath:indexPath];
+    }
+}
+
+//header展开
+- (void)delegate_willOpenHeaderAtSection:(NSInteger)section
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: willOpenHeaderAtSection:)])
+    {
+        [self.delegate mTableView:self willOpenHeaderAtSection:section];
+    }
+}
+
+//header关闭
+- (void)delegate_willCloseHeaderAtSection:(NSInteger)section
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: willCloseHeaderAtSection:)])
+    {
+        [self.delegate mTableView:self willCloseHeaderAtSection:section];
+    }
+}
+
+//cell展开
+- (void)delegate_willOpenCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: willOpenCellAtIndexPath:)])
+    {
+        [self.delegate mTableView:self willOpenCellAtIndexPath:indexPath];
+    }
+}
+
+//cell关闭
+- (void)delegate_willCloseCellAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (self.delegate && [self.delegate respondsToSelector:@selector(mTableView: willCloseCellAtIndexPath:)])
+    {
+        [self.delegate mTableView:self willCloseCellAtIndexPath:indexPath];
+    }
 }
 
 @end
