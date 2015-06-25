@@ -15,8 +15,9 @@
 
 #define kSearchBarRect CGRectMake(50,22,(kWidth - 50*2),40)
 #define kSearchBarTag 100
-#define kBannerViewTag 10
 #define kBtBgTag 9
+
+#define bannerHeight 160
 @interface HomePageViewController ()
 {
 }
@@ -34,19 +35,19 @@
     [self initNavigationItem];
     //添加bannaerView
     CGRect frame;
-    float bHeight = [Util myYOrHeight:bannerViewBg.frame.size.height];
-    frame = CGRectMake(0, 0, kWidth,bHeight );
+    float banHeight = bannerHeight;
+    float bHeight = [Util myYOrHeight:banHeight];
+    frame = CGRectMake(0, 64, kWidth,bHeight );
     BannerView *bannerView = [[BannerView alloc] initWithFrame:frame];
-    bannerView.tag = kBannerViewTag;
     [bannerView loadImageAndData:[[NSArray alloc] initWithObjects:@"homepage_banner1",@"homepage_banner1", nil]];
-    [bannerViewBg addSubview:bannerView];
+    [self.view addSubview:bannerView];
     
     //ios7以上的版本滚动视图自动产生竖向偏移
     if (kDeviceVersion>=7.0 &&[self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     //初始化按钮界面
-    CGRect  btBgframe = CGRectMake(0, bannerViewBg.frame.origin.y+frame.size.height-35, kWidth, kHeight-frame.origin.y-frame.size.height-60);
+    CGRect  btBgframe = CGRectMake(0, bannerViewBg.frame.origin.y+frame.size.height-25, kWidth, kHeight-frame.origin.y-frame.size.height);
     HomePageButtonView *btbg = [[HomePageButtonView alloc] initWithFrame:btBgframe];
     btbg.delegate = self;
     [self.view addSubview:btbg];
