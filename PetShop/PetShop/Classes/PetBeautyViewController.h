@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "SegementBtnView.h"
 #import "TQMultistageTableView.h"
+#import "PetBeautyCareCell.h"
+@interface PetBeautyViewController : UIViewController<SegementBtnViewDelegate,TQTableViewDataSource,TQTableViewDelegate,PetBeautyCareCellDelegate>
 
-@interface PetBeautyViewController : UIViewController<SegementBtnViewDelegate,TQTableViewDataSource,TQTableViewDelegate>
-
-@property (nonatomic,retain)SegementBtnView *segmentView;
+@property (nonatomic,retain)SegementBtnView      *segmentView;
 @property (nonatomic,retain)TQMultistageTableView*tqMultiTableView;
 
 @end

@@ -20,7 +20,7 @@
     if (self)
     {
         
-        defaultBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kWidth/3, 44)];
+        defaultBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, kWidth/3, 30)];
         [defaultBtn setTitle:@"默认排序" forState:UIControlStateNormal];
         [defaultBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         defaultBtn.layer.borderColor = [[UIColor grayColor] CGColor];
@@ -28,7 +28,7 @@
         defaultBtn.tag = 100;
         [defaultBtn addTarget:self action:@selector(touchBtn:) forControlEvents:UIControlEventTouchUpInside];
         //
-        aptitudeBtn = [[UIButton alloc] initWithFrame:CGRectMake(kWidth/3, 0, kWidth/3, 44)];
+        aptitudeBtn = [[UIButton alloc] initWithFrame:CGRectMake(kWidth/3, 0, kWidth/3, 30)];
         [aptitudeBtn setTitle:@"资质排序" forState:UIControlStateNormal];
         [aptitudeBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         aptitudeBtn.layer.borderColor = [[UIColor grayColor] CGColor];
@@ -36,7 +36,7 @@
         aptitudeBtn.tag = 101;
         [aptitudeBtn addTarget:self action:@selector(touchBtn:) forControlEvents:UIControlEventTouchUpInside];
         //
-        creditBtn = [[UIButton alloc] initWithFrame:CGRectMake(kWidth*2/3, 0, kWidth/3, 44)];
+        creditBtn = [[UIButton alloc] initWithFrame:CGRectMake(kWidth*2/3, 0, kWidth/3, 30)];
         [creditBtn setTitle:@"信誉排序" forState:UIControlStateNormal];
         [creditBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         creditBtn.layer.borderColor = [[UIColor grayColor] CGColor];
@@ -49,7 +49,7 @@
         [self addSubview:creditBtn];
         
         //
-        lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 43, kWidth/3, 1.5)];
+        lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 29, kWidth/3, 1.0)];
         lineView.backgroundColor = [UIColor redColor];
         [self addSubview:lineView];
     }

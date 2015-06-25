@@ -9,9 +9,11 @@
 #import "PetBeautyViewController.h"
 #import "SegementBtnView.h"
 #import "TQMultistageTableView.h"
-
+#import "PetBeautyCareCell.h"
 @interface PetBeautyViewController ()
-
+{
+    UIWebView *phoneWebView;//打电话
+}
 @end
 
 @implementation PetBeautyViewController
@@ -21,14 +23,15 @@
     self.title = @"宠物美容院";
     
     //tableView
-    tqMultiTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, 24, kWidth, kHeight)];
+    tqMultiTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, 14, kWidth, kHeight-16)];
     tqMultiTableView.dataSource = self;
     tqMultiTableView.delegate   = self;
-    tqMultiTableView.backgroundColor = [UIColor yellowColor];
+    tqMultiTableView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tqMultiTableView];
     
     //
-    segmentView = [[SegementBtnView alloc] initWithFrame:CGRectMake(0, topBarheight, kWidth, 44)];
+    segmentView = [[SegementBtnView alloc] initWithFrame:CGRectMake(0, topBarheight, kWidth, 30)];
+    segmentView.backgroundColor = [UIColor whiteColor];
     segmentView.delegate = self;
     [self.view addSubview:segmentView];
     
@@ -64,12 +67,32 @@
     if (cell == nil)
     {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }else{
+        if ([cell.contentView.subviews lastObject]!=nil) {
+            [(UIView*)[cell.contentView.subviews lastObject] removeFromSuperview];
+        }
     }
-    UIView *view = [[UIView alloc] initWithFrame:cell.bounds] ;
     
-    view.backgroundColor = [UIColor colorWithRed:128/255.0 green:156/255.0 blue:151/255.0 alpha:1];
-    cell.backgroundView = view;
+    UILabel *rowLabel = [[UILabel alloc] initWithFrame:CGRectMake(30, 10, kWidth-100, 30)];
+    rowLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
+    switch (indexPath.row) {
+        case 0:
+            rowLabel.text = @"个人简历";
+            break;
+        case 1:
+            rowLabel.text = @"成功案例";
+            break;
+        case 2:
+            rowLabel.text = @"医治对象";
+            break;
+            
+        default:
+            break;
+    }
+    [cell.contentView addSubview:rowLabel];
     
+    cell.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
+
     return cell;
 }
 
@@ -84,33 +107,50 @@
 
 - (CGFloat)mTableView:(TQMultistageTableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 50;
 }
 
 - (CGFloat)mTableView:(TQMultistageTableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    return 50;
+    return 100;
 }
 
 - (CGFloat)mTableView:(TQMultistageTableView *)tableView heightForOpenCellAtIndexPath:(NSIndexPath *)indexPath
 {
+    switch (indexPath.row) {
+        case 0:
+            return 200;
+            break;
+        case 1:
+            return 150;
+            break;
+        case 2:
+            return 80;
+            break;
+            
+        default:
+            break;
+    }
     return 100;
 }
-
+#pragma mark - 第一级cell
 - (UIView *)mTableView:(TQMultistageTableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView * control = [[UIView alloc] init];
-    control.backgroundColor = [UIColor whiteColor];
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 49.5, tableView.frame.size.width, 0.5)];
-    view.backgroundColor = [UIColor blackColor];
+    PetBeautyCareCell *petBcc = [[PetBeautyCareCell alloc] initWithFrame:CGRectMake(0, 0, kWidth, 100) andDictionary:nil];
+    petBcc.delegate =self;
     
-    UILabel *label = [[UILabel alloc] init];
-    label.text = [NSString stringWithFormat:@"%d",section];
-    label.textColor = [UIColor blackColor];
-    label.frame = CGRectMake(20, 0, 200, 40);
-    [control addSubview:label];
-    [control addSubview:view];
-    return control;
+    //分割线
+    UIView *lineViewTop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 0.3)];
+    lineViewTop.backgroundColor = [UIColor lightGrayColor];
+    
+    //分割线
+    UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 99.5, tableView.frame.size.width, 0.5)];
+    lineView.backgroundColor = [UIColor lightGrayColor];
+    
+    [petBcc addSubview:lineViewTop];
+    [petBcc addSubview:lineView];
+    return petBcc;
+    
 }
 
 - (void)mTableView:(TQMultistageTableView *)tableView didSelectHeaderAtSection:(NSInteger)section
@@ -146,6 +186,13 @@
     NSLog(@"CloseCell%@",indexPath);
 }
 
-
+/////////////////////////////////////PetBeautyCareCellDelegate//////////////////////////
+- (void)CallPetbeautyCarePhoneNumber:(NSString *)phoneNumber{
+    if (phoneWebView==nil) {
+        phoneWebView = [[UIWebView alloc] init];
+    }
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",phoneNumber]];
+    [phoneWebView loadRequest:[NSURLRequest requestWithURL:url]];
+}
 @end
 
