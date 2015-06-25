@@ -13,6 +13,7 @@
 - (id)initWithFrame:(CGRect)frame  andDictionary:(NSDictionary*)dictionary{
     self = [super initWithFrame:frame];
     if (self) {
+        self.backgroundColor = [UIColor whiteColor];
         //头像
         _portrialImageView = [[UIImageView alloc] initWithFrame:CGRectMake(20, 15, 70, 70)];
         _portrialImageView.image = [UIImage imageNamed:@"petBeauty_porImage"];

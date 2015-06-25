@@ -6,10 +6,15 @@
 //  Copyright (c) 2015年 wjm. All rights reserved.
 //
 
+#define firstCellHeight    200
+#define secondCellHeight   150
+#define thirdCellHeight    80
+
 #import "PetBeautyViewController.h"
 #import "SegementBtnView.h"
 #import "TQMultistageTableView.h"
 #import "PetBeautyCareCell.h"
+
 @interface PetBeautyViewController ()
 {
     UIWebView *phoneWebView;//打电话
@@ -39,7 +44,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 #pragma mark - segmentDelegate
 - (void)touchButton:(UIButton *)sender{
@@ -49,17 +53,17 @@
 
 
 #pragma mark - TQTableViewDataSource
-
+#pragma mark -- 一级cell的个数
 - (NSInteger)numberOfSectionsInTableView:(TQMultistageTableView *)tableView
 {
     return 10;
 }
-
+#pragma mark -- 二级cell的个数
 - (NSInteger)mTableView:(TQMultistageTableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return 3;
 }
-
+#pragma mark - 第二级cell
 - (UITableViewCell *)mTableView:(TQMultistageTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"TQMultistageTableViewCell";
@@ -96,10 +100,44 @@
     return cell;
 }
 
+#pragma mark - 第三极cell
 - (UIView *)mTableView:(TQMultistageTableView *)tableView openCellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.bounds.size.width, 100)];
-    view.backgroundColor = [UIColor colorWithRed:187/255.0 green:206/255.0 blue:190/255.0 alpha:1];;
+    UIView *view = [[UIView alloc] init];
+    view.backgroundColor = [UIColor whiteColor];
+    
+    UITextView *textView = [[UITextView alloc] init];
+    textView.editable = NO;
+    
+    switch (indexPath.row) {
+        case 0:
+        {
+            view.frame = CGRectMake(0, 0, kWidth, firstCellHeight);
+            textView.frame = CGRectMake(30, 8, kWidth-60, firstCellHeight-16);
+            textView.text = @"还记得电影007中的那种便携式喷气背包吗？喷气背包中国首飞即将来临，能让你像007一样遨游天际。7月11日，百度新闻与极客公园联合主办的“The BIG Talk·新飞行时代”峰会，见证喷气背包中国首飞！除了喷气背包中国首飞，还有无人机等全球最前沿的飞行科技，让飞行不再是梦想。";
+            
+        }
+            break;
+        case 1:
+        {
+            view.frame = CGRectMake(0, 0, kWidth, secondCellHeight);
+            textView.frame = CGRectMake(30, 8, kWidth-60, secondCellHeight-16);
+            textView.text = @"还记得电影007中的那种便携式喷气背包吗？\n喷气背包中国首飞即将来临，能让你像007一样遨游天际。\n7月11日，百度新闻与极客公园联合主办的“The BIG Talk·新飞行时代”峰会，见证喷气背包中国首飞！\n除了喷气背包中国首飞，还有无人机等全球最前沿的飞行科技，让飞行不再是梦想。";
+        }
+            break;
+        case 2:
+        {
+            view.frame = CGRectMake(0, 0, kWidth, thirdCellHeight);
+            textView.frame = CGRectMake(30, 8, kWidth-60, thirdCellHeight-16);
+            textView.text = @"主治大型犬：像金毛等";
+        }
+            break;
+            
+        default:
+            break;
+    }
+    
+    [view addSubview:textView];
     return view;
 }
 
@@ -119,19 +157,19 @@
 {
     switch (indexPath.row) {
         case 0:
-            return 200;
+            return firstCellHeight;
             break;
         case 1:
-            return 150;
+            return secondCellHeight;
             break;
         case 2:
-            return 80;
+            return thirdCellHeight;
             break;
             
         default:
             break;
     }
-    return 100;
+    return thirdCellHeight;
 }
 #pragma mark - 第一级cell
 - (UIView *)mTableView:(TQMultistageTableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -139,11 +177,11 @@
     PetBeautyCareCell *petBcc = [[PetBeautyCareCell alloc] initWithFrame:CGRectMake(0, 0, kWidth, 100) andDictionary:nil];
     petBcc.delegate =self;
     
-    //分割线
+    //上分割线
     UIView *lineViewTop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 0.3)];
     lineViewTop.backgroundColor = [UIColor lightGrayColor];
     
-    //分割线
+    //下分割线
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 99.5, tableView.frame.size.width, 0.5)];
     lineView.backgroundColor = [UIColor lightGrayColor];
     
@@ -152,7 +190,7 @@
     return petBcc;
     
 }
-
+//header点击
 - (void)mTableView:(TQMultistageTableView *)tableView didSelectHeaderAtSection:(NSInteger)section
 {
     NSLog(@"headerClick%d",section);
