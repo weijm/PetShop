@@ -2,14 +2,11 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6751"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomePageViewController">
             <connections>
-                <outlet property="allBtbg" destination="8bd-Zk-bPe" id="Nb4-RY-cIJ"/>
-                <outlet property="bannerViewBg" destination="4KD-Oj-GPh" id="V2I-FH-e5o"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -17,28 +14,7 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4KD-Oj-GPh" userLabel="bannerViewbg">
-                    <rect key="frame" x="0.0" y="64" width="600" height="160"/>
-                    <color key="backgroundColor" red="1" green="0.078035595609999994" blue="0.14918302010000001" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="160" id="ynT-qu-R9D"/>
-                    </constraints>
-                </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8bd-Zk-bPe" userLabel="allBtBg" customClass="HomePageButtonView">
-                    <rect key="frame" x="0.0" y="224" width="600" height="336"/>
-                </view>
-            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="4KD-Oj-GPh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2On-6i-vZs"/>
-                <constraint firstItem="8bd-Zk-bPe" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="72k-Zx-hoi"/>
-                <constraint firstAttribute="trailing" secondItem="8bd-Zk-bPe" secondAttribute="trailing" id="8pU-b5-tIz"/>
-                <constraint firstItem="8bd-Zk-bPe" firstAttribute="top" secondItem="4KD-Oj-GPh" secondAttribute="bottom" id="EWe-YQ-MV9"/>
-                <constraint firstAttribute="trailing" secondItem="4KD-Oj-GPh" secondAttribute="trailing" id="Ou7-Rp-C78"/>
-                <constraint firstAttribute="bottom" secondItem="8bd-Zk-bPe" secondAttribute="bottom" constant="40" id="c5U-tE-KFp"/>
-                <constraint firstItem="4KD-Oj-GPh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="topMargin" constant="56" id="o8P-W1-2Sf"/>
-            </constraints>
         </view>
     </objects>
 </document>

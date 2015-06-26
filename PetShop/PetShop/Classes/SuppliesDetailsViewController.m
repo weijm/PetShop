@@ -10,8 +10,13 @@
 #import "InfoTableViewCell.h"
 #import "SuppliesGraphicSummaryView.h"
 
+
 #define SummaryViewHeight 300
 #define DataCount 4
+
+#define ReadyViewHeight 380
+
+#define ReadyViewTag 100;
 
 @interface SuppliesDetailsViewController ()
 
@@ -85,9 +90,76 @@
 }
 - (IBAction)clickedBuyBtAction:(id)sender {
     NSLog(@"clickedBuyBtAction");
+    [self appearBuyView:YES];
 }
 
 - (IBAction)clickedReadyBuyAction:(id)sender {
     NSLog(@"clickedReadyBuyAction");
+    [self appearBuyView:NO];
+}
+#pragma mark 立即购买和加入购物车的界面
+- (void)appearBuyView:(BOOL)isBuy
+{
+    //添加所有视图的父视图
+    UIView *buyBg = [[UIView alloc] initWithFrame:self.view.window.frame];
+    buyBg.backgroundColor = [UIColor clearColor];
+    buyBg.tag = ReadyViewTag;
+    buyBg.userInteractionEnabled = YES;
+    [self.view.window addSubview:buyBg];
+
+    //遮罩视图
+    UIView *subBg = [[UIView alloc] initWithFrame:self.view.window.frame];
+    subBg.backgroundColor = [UIColor blackColor];
+    subBg.alpha = 0;
+    subBg.tag = 1;
+    [buyBg addSubview:subBg];
+    
+    float theight = ReadyViewHeight;
+    float height = [Util myYOrHeight:theight];
+    CGRect frame = CGRectMake(0, self.view.frame.size.height+height, kWidth, height);
+    //购买视图
+    ReadyBuyView *buyView = [[ReadyBuyView alloc] initWithFrame:frame];
+    buyView.delegate = self;
+    buyView.tag =2;
+    [buyBg addSubview:buyView];
+    [UIView beginAnimations:nil context:nil];
+    [UIView setAnimationDuration:0.4];
+    [UIView animateWithDuration:0.4 animations:^{
+        CGRect tFrame = buyView.frame;
+        tFrame.origin.y = self.view.frame.size.height-height;
+        buyView.frame = tFrame;
+        
+        subBg.alpha = 0.7;
+    }];
+    [UIView commitAnimations];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeBuyView)];
+    [subBg addGestureRecognizer:tap];
+}
+
+-(void)removeBuyView
+{
+    NSInteger tag = ReadyViewTag;
+    UIView *buyBg = [self.view.window viewWithTag:tag];
+    if (buyBg) {
+        UIView *subBg = [buyBg viewWithTag:1];
+        ReadyBuyView * buyView = (ReadyBuyView *)[buyBg viewWithTag:2];
+        
+        [UIView beginAnimations:nil context:nil];
+        [UIView setAnimationDuration:0.4];
+        [UIView animateWithDuration:0.4 animations:^{
+            CGRect tFrame = buyView.frame;
+            tFrame.origin.y = tFrame.origin.y+tFrame.size.height;
+            buyView.frame = tFrame;
+            subBg.alpha = 0;
+        } completion:^(BOOL finished){
+            [buyBg removeFromSuperview];
+        }];
+    }
+}
+#pragma mark - ReadyBuyViewDelegate
+-(void)closeView
+{
+    [self removeBuyView];
 }
 @end

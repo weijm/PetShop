@@ -57,12 +57,12 @@
     NSArray *arry = [dateViewBg subviews];
     for (int i=0; i<[arry count]; i++) {
         UIView *lineView = [arry objectAtIndex:i];
-        int lineTag = lineView.tag;
+        NSInteger lineTag = lineView.tag;
         if (lineTag >0 && lineTag<=5) {//tag大于0，小于等于5的view是数字按钮视图
             for (UIView *number in [lineView subviews]) {
                 if ([number isKindOfClass:[UIButton class]]) {
                     UIButton *numberBt = (UIButton*)number;
-                    int numberTag = numberBt.tag;//最后一行的最后一个按钮的tag为0  这个按钮是确定位置的
+                    NSInteger numberTag = numberBt.tag;//最后一行的最后一个按钮的tag为0  这个按钮是确定位置的
                     if (numberTag == 0) {
                         return;
                     }

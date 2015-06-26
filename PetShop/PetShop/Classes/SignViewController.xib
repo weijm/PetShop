@@ -9,6 +9,8 @@
             <connections>
                 <outlet property="dateScrollView" destination="M2N-gA-Vct" id="A75-0C-65Q"/>
                 <outlet property="dateViewBg" destination="6H3-5d-oD4" id="ilz-3J-T0X"/>
+                <outlet property="integralLab" destination="YOP-2h-t8s" id="Eiu-OV-j5l"/>
+                <outlet property="signCountLab" destination="v3k-VN-Qzd" id="tIZ-gv-EO8"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

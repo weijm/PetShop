@@ -596,13 +596,14 @@
                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hft-wk-cm9" userLabel="lastBt">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hft-wk-cm9" userLabel="lastBt">
                                     <rect key="frame" x="275" y="0.0" width="20" height="20"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="20" id="IMt-Ag-CGG"/>
                                         <constraint firstAttribute="height" constant="20" id="TzH-cU-F4R"/>
                                     </constraints>
-                                    <state key="normal" title="左">
+                                    <inset key="contentEdgeInsets" minX="0.0" minY="5" maxX="0.0" maxY="0.0"/>
+                                    <state key="normal" image="homepage_left_bt.png">
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
@@ -658,4 +659,7 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
         </view>
     </objects>
+    <resources>
+        <image name="homepage_left_bt.png" width="7" height="13"/>
+    </resources>
 </document>

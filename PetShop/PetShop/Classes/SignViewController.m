@@ -11,6 +11,9 @@
 #import "SignModel.h"
 
 @interface SignViewController ()
+{
+    NSDictionary *currentDic;
+}
 @end
 
 @implementation SignViewController
@@ -24,6 +27,9 @@
     //背景颜色
     self.view.backgroundColor = Rgb(231, 220, 220);
     
+    //连续签到时间
+    [self initSignDayCount];
+    
     [self initScrollView:YES];
 }
 
@@ -36,7 +42,13 @@
     [self initScrollView:NO];
 
 }
-
+#pragma mark - 初始化连续签到时间和记分
+-(void)initSignDayCount
+{
+    currentDic = [Util getCurrentMonth];
+//    NSArray *signArray = [[SignModel sharedInstance] getSignDateByMonth:[[currentDic objectForKey:@"month"] intValue] AndYear:[[currentDic objectForKey:@"year"] intValue] AndUser:1];
+    
+}
 #pragma mark - 签到时间视图的相关操作
 //初始化签到时间的滚动视图 isInit为YES初始化dataView  为NO时 修改frame
 -(void)initScrollView:(int)isInit
@@ -48,8 +60,8 @@
     NSArray *subViewArray = [dateScrollView subviews];
     
     //当前年月日
-    NSDictionary *dictionary = [Util getCurrentMonth];
-    int month = [[dictionary objectForKey:@"month"] intValue];
+    
+    int month = [[currentDic objectForKey:@"month"] intValue];
     int titleMonth;
     for (int i =0; i < month; i++) {
         scrollAnchor += sWidth;
@@ -61,11 +73,11 @@
         NSDictionary *dic = [[NSDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:daysInMonth],@"daysInMonth",[NSNumber numberWithInt:titleMonth],@"titleMonth", nil];
         
         DateView *dateView;
-        NSMutableArray *signArr = [[SignModel sharedInstance] getSignDateByMonth:titleMonth AndYear:[[dictionary objectForKey:@"year"] intValue] AndUser:1];
+        NSMutableArray *signArr = [[SignModel sharedInstance] getSignDateByMonth:titleMonth AndYear:[[currentDic objectForKey:@"year"] intValue] AndUser:1];
         if (isInit) {
             dateView = [[DateView alloc] initWithFrame:frame];
             dateView.delegate = self;
-            dateView.currentDic = dictionary;
+            dateView.currentDic = currentDic;
             [dateView loadSubView:dic];
             [dateView initMarkView:titleMonth SignDate:signArr];
             [dateScrollView addSubview:dateView];

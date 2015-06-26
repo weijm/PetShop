@@ -14,5 +14,8 @@
     
     IBOutlet UIView *dateViewBg;
     IBOutlet UIScrollView *dateScrollView;
+    
+    IBOutlet UILabel *signCountLab;
+    IBOutlet UILabel *integralLab;
 }
 @end

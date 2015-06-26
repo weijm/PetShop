@@ -12,8 +12,6 @@
 @interface HomePageViewController : UIViewController<UISearchBarDelegate,HomePageButtonViewDelegate>
 {
     
-    __weak IBOutlet UIView *allBtbg;
-    __weak IBOutlet UIView *bannerViewBg;
 }
 
 @end
