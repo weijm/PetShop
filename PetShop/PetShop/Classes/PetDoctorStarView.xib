@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PetDoctorStarView">
+            <connections>
+                <outlet property="star_1" destination="RAo-MY-j1d" id="cuZ-6I-hhx"/>
+                <outlet property="star_2" destination="lAR-9u-ckC" id="iPC-a3-ALz"/>
+                <outlet property="star_3" destination="LYQ-d7-HiY" id="YP0-LH-wuK"/>
+                <outlet property="star_4" destination="faw-dZ-sOh" id="2jm-hP-efk"/>
+                <outlet property="star_5" destination="4Dk-MZ-YwC" id="4NI-xA-ZRq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="85" height="12"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="petBeauty_star_hide.png" highlightedImage="petBeauty_star.png" translatesAutoresizingMaskIntoConstraints="NO" id="lAR-9u-ckC">
+                    <rect key="frame" x="21" y="1" width="11" height="10"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="petBeauty_star_hide.png" highlightedImage="petBeauty_star.png" translatesAutoresizingMaskIntoConstraints="NO" id="LYQ-d7-HiY">
+                    <rect key="frame" x="37" y="1" width="11" height="10"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="petBeauty_star_hide.png" highlightedImage="petBeauty_star.png" translatesAutoresizingMaskIntoConstraints="NO" id="faw-dZ-sOh">
+                    <rect key="frame" x="53" y="1" width="11" height="10"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="petBeauty_star_hide.png" highlightedImage="petBeauty_star.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Dk-MZ-YwC">
+                    <rect key="frame" x="69" y="1" width="11" height="10"/>
+                </imageView>
+                <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="petBeauty_star_hide.png" highlightedImage="petBeauty_star.png" translatesAutoresizingMaskIntoConstraints="NO" id="RAo-MY-j1d">
+                    <rect key="frame" x="8" y="1" width="11" height="10"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="456.5" y="419.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="petBeauty_star.png" width="23" height="20"/>
+        <image name="petBeauty_star_hide.png" width="23" height="20"/>
+    </resources>
+</document>

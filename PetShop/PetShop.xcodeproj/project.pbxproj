@@ -91,6 +91,12 @@
 		07E161C51B3BD1A10022677E /* homepage_supp_reduceBt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07E161BF1B3BD1A10022677E /* homepage_supp_reduceBt@2x.png */; };
 		07E161C61B3BD1A10022677E /* homepage_supp_reduceBt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07E161C01B3BD1A10022677E /* homepage_supp_reduceBt@3x.png */; };
 		07E161C91B3C00240022677E /* UIButton+Select.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E161C81B3C00240022677E /* UIButton+Select.m */; };
+		3B1184161B3CE85500F0C0D0 /* PetHospitalViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1184141B3CE85500F0C0D0 /* PetHospitalViewController.m */; };
+		3B1184171B3CE85500F0C0D0 /* PetHospitalViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B1184151B3CE85500F0C0D0 /* PetHospitalViewController.xib */; };
+		3B11841A1B3CEA9600F0C0D0 /* PetHospitalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B1184191B3CEA9600F0C0D0 /* PetHospitalCell.m */; };
+		3B11841C1B3CF43B00F0C0D0 /* pet_hospital_portrial.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B11841B1B3CF43B00F0C0D0 /* pet_hospital_portrial.png */; };
+		3B11841F1B3D2B2000F0C0D0 /* PetDoctorStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B11841E1B3D2B2000F0C0D0 /* PetDoctorStarView.m */; };
+		3B1184251B3D2C1000F0C0D0 /* PetDoctorStarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3B1184241B3D2C1000F0C0D0 /* PetDoctorStarView.xib */; };
 		3B2EF2561B3B908100C069CF /* TQMultistageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2EF2551B3B908100C069CF /* TQMultistageTableView.m */; };
 		3B2EF26F1B3C024700C069CF /* PetBeautyCareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2EF26E1B3C024700C069CF /* PetBeautyCareCell.m */; };
 		3B2EF27A1B3C045900C069CF /* petBeauty_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2EF2711B3C045900C069CF /* petBeauty_left.png */; };
@@ -256,6 +262,15 @@
 		07E161C01B3BD1A10022677E /* homepage_supp_reduceBt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_supp_reduceBt@3x.png"; sourceTree = "<group>"; };
 		07E161C71B3C00240022677E /* UIButton+Select.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+Select.h"; sourceTree = "<group>"; };
 		07E161C81B3C00240022677E /* UIButton+Select.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Select.m"; sourceTree = "<group>"; };
+		3B1184131B3CE85500F0C0D0 /* PetHospitalViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetHospitalViewController.h; sourceTree = "<group>"; };
+		3B1184141B3CE85500F0C0D0 /* PetHospitalViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetHospitalViewController.m; sourceTree = "<group>"; };
+		3B1184151B3CE85500F0C0D0 /* PetHospitalViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetHospitalViewController.xib; sourceTree = "<group>"; };
+		3B1184181B3CEA9600F0C0D0 /* PetHospitalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetHospitalCell.h; sourceTree = "<group>"; };
+		3B1184191B3CEA9600F0C0D0 /* PetHospitalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetHospitalCell.m; sourceTree = "<group>"; };
+		3B11841B1B3CF43B00F0C0D0 /* pet_hospital_portrial.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pet_hospital_portrial.png; sourceTree = "<group>"; };
+		3B11841D1B3D2B2000F0C0D0 /* PetDoctorStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetDoctorStarView.h; sourceTree = "<group>"; };
+		3B11841E1B3D2B2000F0C0D0 /* PetDoctorStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetDoctorStarView.m; sourceTree = "<group>"; };
+		3B1184241B3D2C1000F0C0D0 /* PetDoctorStarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetDoctorStarView.xib; sourceTree = "<group>"; };
 		3B2EF2541B3B908100C069CF /* TQMultistageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQMultistageTableView.h; sourceTree = "<group>"; };
 		3B2EF2551B3B908100C069CF /* TQMultistageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQMultistageTableView.m; sourceTree = "<group>"; };
 		3B2EF26D1B3C024700C069CF /* PetBeautyCareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetBeautyCareCell.h; sourceTree = "<group>"; };
@@ -596,6 +611,9 @@
 				070264CC1B293D7B003BDCB5 /* BannerView.h */,
 				070264CD1B293D7B003BDCB5 /* BannerView.m */,
 				070264CF1B293DAB003BDCB5 /* BannerView.xib */,
+				3B11841D1B3D2B2000F0C0D0 /* PetDoctorStarView.h */,
+				3B11841E1B3D2B2000F0C0D0 /* PetDoctorStarView.m */,
+				3B1184241B3D2C1000F0C0D0 /* PetDoctorStarView.xib */,
 			);
 			name = HomePage;
 			sourceTree = "<group>";
@@ -674,6 +692,18 @@
 			name = Framework;
 			sourceTree = "<group>";
 		};
+		3B1184121B3CE82C00F0C0D0 /* PetHospital */ = {
+			isa = PBXGroup;
+			children = (
+				3B1184131B3CE85500F0C0D0 /* PetHospitalViewController.h */,
+				3B1184141B3CE85500F0C0D0 /* PetHospitalViewController.m */,
+				3B1184151B3CE85500F0C0D0 /* PetHospitalViewController.xib */,
+				3B1184181B3CEA9600F0C0D0 /* PetHospitalCell.h */,
+				3B1184191B3CEA9600F0C0D0 /* PetHospitalCell.m */,
+			);
+			name = PetHospital;
+			sourceTree = "<group>";
+		};
 		3B2EF26C1B3C01CA00C069CF /* PetBeautyCare */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,6 +719,7 @@
 		3B2EF2701B3C044000C069CF /* PetBeautyImage */ = {
 			isa = PBXGroup;
 			children = (
+				3B11841B1B3CF43B00F0C0D0 /* pet_hospital_portrial.png */,
 				3B2EF2711B3C045900C069CF /* petBeauty_left.png */,
 				3B2EF2721B3C045900C069CF /* petBeauty_left@2x.png */,
 				3B2EF2731B3C045900C069CF /* petBeauty_phone_order.png */,
@@ -705,6 +736,7 @@
 		FD2EB6A01B2DAF02007C5E38 /* HomePushViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3B1184121B3CE82C00F0C0D0 /* PetHospital */,
 				3B2EF26C1B3C01CA00C069CF /* PetBeautyCare */,
 				076A4D9E1B315FFB002F51DA /* Supplies */,
 				076A4D9D1B315700002F51DA /* Sign */,
@@ -828,6 +860,7 @@
 				07E161B91B3BAD970022677E /* homepage_supp_closeBt@2x.png in Resources */,
 				0727EAB81B2826D3005D330C /* persional_icon@2x.png in Resources */,
 				F9985D741B2AD41300371B33 /* homepage_hospital_bt@2x.png in Resources */,
+				3B1184171B3CE85500F0C0D0 /* PetHospitalViewController.xib in Resources */,
 				0727EA3E1B27CA98005D330C /* LaunchScreen.xib in Resources */,
 				076A4DA31B316017002F51DA /* SuppliesViewController.xib in Resources */,
 				070F00DC1B2EB83C007E021B /* homepage_default_protrait@2x.png in Resources */,
@@ -838,12 +871,14 @@
 				0755FDB81B3955B900651FC3 /* SuppliesTableViewCell.xib in Resources */,
 				07E161C21B3BD1A10022677E /* homepage_supp_addBt@3x.png in Resources */,
 				076EF0ED1B3AAFAD00438018 /* homepage_suppbuy_bt@3x.png in Resources */,
+				3B1184251B3D2C1000F0C0D0 /* PetDoctorStarView.xib in Resources */,
 				F9985D7C1B2AD41300371B33 /* homepage_supplies_bt@2x.png in Resources */,
 				0727EA6E1B27DB86005D330C /* IntegralViewController.xib in Resources */,
 				076EF0DE1B3A979200438018 /* homepage_suppinfo_icon1@3x.png in Resources */,
 				FD2EB69F1B2DADAC007C5E38 /* homepage_right_bt@2x.png in Resources */,
 				07E161C31B3BD1A10022677E /* homepage_supp_numberbg@2x.png in Resources */,
 				0727EAB21B282622005D330C /* home_icon@2x.png in Resources */,
+				3B11841C1B3CF43B00F0C0D0 /* pet_hospital_portrial.png in Resources */,
 				F9985D7B1B2AD41300371B33 /* homepage_sign_bt@3x.png in Resources */,
 				3B2EF27A1B3C045900C069CF /* petBeauty_left.png in Resources */,
 				0755FDB31B39420600651FC3 /* SuppliesBannerView.xib in Resources */,
@@ -899,7 +934,9 @@
 				076EF0BA1B3A835A00438018 /* SuppliesGraphicSummaryView.m in Sources */,
 				0727EA731B27DBD2005D330C /* MineViewController.m in Sources */,
 				070264CE1B293D7B003BDCB5 /* BannerView.m in Sources */,
+				3B11841A1B3CEA9600F0C0D0 /* PetHospitalCell.m in Sources */,
 				070F00D91B2E8202007E021B /* SignViewController.m in Sources */,
+				3B1184161B3CE85500F0C0D0 /* PetHospitalViewController.m in Sources */,
 				077D24571B2FF6FE00B8AD84 /* FMDatabaseAdditions.m in Sources */,
 				076EF0B61B3A5BA300438018 /* SuppliesListViewController.m in Sources */,
 				3B2EF26F1B3C024700C069CF /* PetBeautyCareCell.m in Sources */,
@@ -912,6 +949,7 @@
 				077D24591B2FF6FE00B8AD84 /* FMDatabaseQueue.m in Sources */,
 				0727EA671B27DB31005D330C /* CommunityViewController.m in Sources */,
 				076EF0C91B3A910000438018 /* InfoTableViewCell.m in Sources */,
+				3B11841F1B3D2B2000F0C0D0 /* PetDoctorStarView.m in Sources */,
 				FD2EB6A41B2DAF31007C5E38 /* PetBeautyViewController.m in Sources */,
 				076A4D971B311306002F51DA /* SignModel.m in Sources */,
 				F9985D5F1B2AD0C400371B33 /* HomePageButtonView.m in Sources */,

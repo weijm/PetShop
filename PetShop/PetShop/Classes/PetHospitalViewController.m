@@ -1,54 +1,36 @@
 //
-//  PetBeautyViewController.m
+//  PetHospitalViewController.m
 //  PetShop
 //
-//  Created by long on 15-6-14.
+//  Created by zx_06 on 15/6/26.
 //  Copyright (c) 2015年 wjm. All rights reserved.
 //
 
-
-
-#import "PetBeautyViewController.h"
-#import "SegementBtnView.h"
-#import "TQMultistageTableView.h"
-#import "PetBeautyCareCell.h"
-
-@interface PetBeautyViewController ()
+#import "PetHospitalViewController.h"
+#import "PetHospitalCell.h"
+@interface PetHospitalViewController ()
 {
-    UIWebView *phoneWebView;//打电话
+    UIWebView *petPhoneWebView;
 }
 @end
 
-@implementation PetBeautyViewController
-@synthesize segmentView,tqMultiTableView;
+@implementation PetHospitalViewController
+@synthesize PHospitalTableView;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"宠物美容院";
-    
+    self.title = @"宠物医院";
     //tableView
-    tqMultiTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, 14, kWidth, kHeight-16)];
-    tqMultiTableView.dataSource = self;
-    tqMultiTableView.delegate   = self;
-    tqMultiTableView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.tqMultiTableView];
-    
-    //
-    segmentView = [[SegementBtnView alloc] initWithFrame:CGRectMake(0, topBarheight, kWidth, 30)];
-    segmentView.backgroundColor = [UIColor whiteColor];
-    segmentView.delegate = self;
-    [self.view addSubview:segmentView];
-    
+    PHospitalTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, 14, kWidth, kHeight-16)];
+    PHospitalTableView.dataSource = self;
+    PHospitalTableView.delegate   = self;
+    PHospitalTableView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.PHospitalTableView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-#pragma mark - segmentDelegate
-- (void)touchButton:(UIButton *)sender{
-    NSLog(@"选择的butn是：%ld",(long)sender.tag);
-    
-}
-
 
 #pragma mark - TQTableViewDataSource
 #pragma mark -- 一级cell的个数
@@ -94,7 +76,7 @@
     [cell.contentView addSubview:rowLabel];
     
     cell.backgroundColor = [UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0];
-
+    
     return cell;
 }
 
@@ -172,8 +154,8 @@
 #pragma mark - 第一级cell
 - (UIView *)mTableView:(TQMultistageTableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    PetBeautyCareCell *petBcc = [[PetBeautyCareCell alloc] initWithFrame:CGRectMake(0, 0, kWidth, 100) andDictionary:nil];
-    petBcc.delegate =self;
+    PetHospitalCell *petH = [[PetHospitalCell alloc] initWithFrame:CGRectMake(0, 0, kWidth, 100) andDictionary:nil];
+    petH.delegate =self;
     
     //上分割线
     UIView *lineViewTop = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 0.3)];
@@ -183,9 +165,9 @@
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(0, 99.5, tableView.frame.size.width, 0.5)];
     lineView.backgroundColor = [UIColor lightGrayColor];
     
-    [petBcc addSubview:lineViewTop];
-    [petBcc addSubview:lineView];
-    return petBcc;
+    [petH addSubview:lineViewTop];
+    [petH addSubview:lineView];
+    return petH;
     
 }
 //header点击
@@ -222,13 +204,12 @@
     NSLog(@"CloseCell%@",indexPath);
 }
 
-/////////////////////////////////////PetBeautyCareCellDelegate//////////////////////////
-- (void)CallPetbeautyCarePhoneNumber:(NSString *)phoneNumber{
-    if (phoneWebView==nil) {
-        phoneWebView = [[UIWebView alloc] init];
+/////////////////////////////////////PetHospitalCellDelegate//////////////////////////
+- (void)CallPetHospitalPhoneNumber:(NSString *)phoneNumber{
+    if (petPhoneWebView==nil) {
+        petPhoneWebView = [[UIWebView alloc] init];
     }
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",phoneNumber]];
-    [phoneWebView loadRequest:[NSURLRequest requestWithURL:url]];
+    [petPhoneWebView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 @end
-
