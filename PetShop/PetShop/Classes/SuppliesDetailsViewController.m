@@ -9,6 +9,7 @@
 #import "SuppliesDetailsViewController.h"
 #import "InfoTableViewCell.h"
 #import "SuppliesGraphicSummaryView.h"
+#import "MakeSureOrderViewController.h"
 
 
 #define SummaryViewHeight 300
@@ -110,7 +111,7 @@
     buyBg.backgroundColor = [UIColor clearColor];
     buyBg.tag = ReadyViewTag;
     buyBg.userInteractionEnabled = YES;
-    [self.navigationController.view addSubview:buyBg];
+    [self.view addSubview:buyBg];
 
     //遮罩视图
     UIView *subBg = [[UIView alloc] initWithFrame:self.view.window.frame];
@@ -132,7 +133,7 @@
     buyView.buyNow = isBuy;
     [buyBg addSubview:buyView];
     [UIView beginAnimations:nil context:nil];
-    [UIView setAnimationDuration:0.4];
+//    [UIView setAnimationDuration:0.4];
     [UIView animateWithDuration:0.4 animations:^{
         CGRect tFrame = buyView.frame;
         tFrame.origin.y = self.view.frame.size.height-height;
@@ -155,7 +156,7 @@
         ReadyBuyView * buyView = (ReadyBuyView *)[buyBg viewWithTag:2];
         
         [UIView beginAnimations:nil context:nil];
-        [UIView setAnimationDuration:0.4];
+//        [UIView setAnimationDuration:0.4];
         [UIView animateWithDuration:0.4 animations:^{
             CGRect tFrame = buyView.frame;
             tFrame.origin.y = tFrame.origin.y+tFrame.size.height;
@@ -173,11 +174,19 @@
 {
     [self removeBuyView];
 }
+//立即购买的确认的触发事件
+-(void)makeSureOrder
+{
+    
+    [self removeBuyView];
+    MakeSureOrderViewController *orderVC = [[MakeSureOrderViewController alloc] init];
+    [self.navigationController pushViewController:orderVC animated:YES];
+}
 #pragma mark - 提示语界面
 -(void)showPromptView:(NSString*)content
 {
     MBProgressHUD * progressHUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
-    [self.navigationController.view addSubview:progressHUD];
+    [self.view addSubview:progressHUD];
     //这里添加的图片是37*37
     progressHUD.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"homepage_checkmark"]];
     
