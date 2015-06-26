@@ -12,5 +12,5 @@
 @interface PetHospitalViewController : UIViewController<TQTableViewDataSource,TQTableViewDelegate,PetHospitalCellDelegate>
 
 @property (nonatomic,retain) TQMultistageTableView *PHospitalTableView;
-
+- (UIColor *) colorWithHexString: (NSString *)color;
 @end

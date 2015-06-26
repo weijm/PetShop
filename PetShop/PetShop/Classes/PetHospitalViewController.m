@@ -8,9 +8,12 @@
 
 #import "PetHospitalViewController.h"
 #import "PetHospitalCell.h"
+#import <Foundation/NSObject.h>
+
 @interface PetHospitalViewController ()
 {
     UIWebView *petPhoneWebView;
+    
 }
 @end
 
@@ -21,17 +24,55 @@
     [super viewDidLoad];
     self.title = @"宠物医院";
     //tableView
-    PHospitalTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, 14, kWidth, kHeight-16)];
+    PHospitalTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, 30, kWidth, kHeight-32)];
     PHospitalTableView.dataSource = self;
     PHospitalTableView.delegate   = self;
     PHospitalTableView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.PHospitalTableView];
+    
+    //搜索
+    UIView *search = [[UIView alloc] initWithFrame:CGRectMake(0, topBarheight, kWidth, 60)];
+    search.backgroundColor = [self colorWithHexString:@"EEEEEF"];
+    [self.view addSubview:search];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+-(UIColor *) colorWithHexString: (NSString *)color
+{
+    NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    // String should be 6 or 8 characters
+    if ([cString length] <6) {
+        return [UIColor clearColor];
+     }
+    // strip 0X if it appears
+    if ([cString hasPrefix:@"0X"])
+        cString = [cString substringFromIndex:2];
+    if ([cString hasPrefix:@"#"])
+        cString = [cString substringFromIndex:1];
+    if ([cString length] !=6)
+        return [UIColor clearColor];
+    // Separate into r, g, b substrings
+    NSRange range;
+    range.location =0;
+    range.length =2;
+    //r
+    NSString *rString = [cString substringWithRange:range];
+    //g
+    range.location =2;
+    NSString *gString = [cString substringWithRange:range];
+    //b
+    range.location =4;
+    NSString *bString = [cString substringWithRange:range];
+    // Scan values
+    unsigned int r, g, b;
+    [[NSScanner scannerWithString:rString] scanHexInt:&r];
+    [[NSScanner scannerWithString:gString] scanHexInt:&g];
+    [[NSScanner scannerWithString:bString] scanHexInt:&b];
+    return [UIColor colorWithRed:((float) r /255.0f) green:((float) g /255.0f) blue:((float) b /255.0f) alpha:1.0f];
 
+}
 #pragma mark - TQTableViewDataSource
 #pragma mark -- 一级cell的个数
 - (NSInteger)numberOfSectionsInTableView:(TQMultistageTableView *)tableView
