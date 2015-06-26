@@ -81,6 +81,16 @@
 		077D245A1B2FF6FE00B8AD84 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D24551B2FF6FE00B8AD84 /* FMResultSet.m */; };
 		077D245C1B2FF80900B8AD84 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 077D245B1B2FF80900B8AD84 /* libsqlite3.0.dylib */; };
 		3B2EF2561B3B908100C069CF /* TQMultistageTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2EF2551B3B908100C069CF /* TQMultistageTableView.m */; };
+		3B2EF26F1B3C024700C069CF /* PetBeautyCareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3B2EF26E1B3C024700C069CF /* PetBeautyCareCell.m */; };
+		3B2EF27A1B3C045900C069CF /* petBeauty_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2EF2711B3C045900C069CF /* petBeauty_left.png */; };
+		3B2EF27B1B3C045900C069CF /* petBeauty_left@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2EF2721B3C045900C069CF /* petBeauty_left@2x.png */; };
+		3B2EF27C1B3C045900C069CF /* petBeauty_phone_order.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2EF2731B3C045900C069CF /* petBeauty_phone_order.png */; };
+		3B2EF27D1B3C045900C069CF /* petBeauty_phone_order@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2EF2741B3C045900C069CF /* petBeauty_phone_order@2x.png */; };
+		3B2EF27E1B3C045900C069CF /* petBeauty_porImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2EF2751B3C045900C069CF /* petBeauty_porImage.png */; };
+		3B2EF27F1B3C045900C069CF /* petBeauty_star_hide.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2EF2761B3C045900C069CF /* petBeauty_star_hide.png */; };
+		3B2EF2801B3C045900C069CF /* petBeauty_star_hide@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2EF2771B3C045900C069CF /* petBeauty_star_hide@2x.png */; };
+		3B2EF2811B3C045900C069CF /* petBeauty_star.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2EF2781B3C045900C069CF /* petBeauty_star.png */; };
+		3B2EF2821B3C045900C069CF /* petBeauty_star@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3B2EF2791B3C045900C069CF /* petBeauty_star@2x.png */; };
 		F9985D561B2ACC1600371B33 /* homepage_searchbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9985D551B2ACC1600371B33 /* homepage_searchbg@2x.png */; };
 		F9985D581B2ACE3400371B33 /* homepage_searchbg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9985D571B2ACE3400371B33 /* homepage_searchbg@3x.png */; };
 		F9985D5B1B2ACE7000371B33 /* homepage_list_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9985D591B2ACE7000371B33 /* homepage_list_btn@3x.png */; };
@@ -224,6 +234,17 @@
 		077D245B1B2FF80900B8AD84 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		3B2EF2541B3B908100C069CF /* TQMultistageTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TQMultistageTableView.h; sourceTree = "<group>"; };
 		3B2EF2551B3B908100C069CF /* TQMultistageTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TQMultistageTableView.m; sourceTree = "<group>"; };
+		3B2EF26D1B3C024700C069CF /* PetBeautyCareCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetBeautyCareCell.h; sourceTree = "<group>"; };
+		3B2EF26E1B3C024700C069CF /* PetBeautyCareCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetBeautyCareCell.m; sourceTree = "<group>"; };
+		3B2EF2711B3C045900C069CF /* petBeauty_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petBeauty_left.png; sourceTree = "<group>"; };
+		3B2EF2721B3C045900C069CF /* petBeauty_left@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "petBeauty_left@2x.png"; sourceTree = "<group>"; };
+		3B2EF2731B3C045900C069CF /* petBeauty_phone_order.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petBeauty_phone_order.png; sourceTree = "<group>"; };
+		3B2EF2741B3C045900C069CF /* petBeauty_phone_order@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "petBeauty_phone_order@2x.png"; sourceTree = "<group>"; };
+		3B2EF2751B3C045900C069CF /* petBeauty_porImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petBeauty_porImage.png; sourceTree = "<group>"; };
+		3B2EF2761B3C045900C069CF /* petBeauty_star_hide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petBeauty_star_hide.png; sourceTree = "<group>"; };
+		3B2EF2771B3C045900C069CF /* petBeauty_star_hide@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "petBeauty_star_hide@2x.png"; sourceTree = "<group>"; };
+		3B2EF2781B3C045900C069CF /* petBeauty_star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = petBeauty_star.png; sourceTree = "<group>"; };
+		3B2EF2791B3C045900C069CF /* petBeauty_star@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "petBeauty_star@2x.png"; sourceTree = "<group>"; };
 		F9985D551B2ACC1600371B33 /* homepage_searchbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_searchbg@2x.png"; sourceTree = "<group>"; };
 		F9985D571B2ACE3400371B33 /* homepage_searchbg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_searchbg@3x.png"; sourceTree = "<group>"; };
 		F9985D591B2ACE7000371B33 /* homepage_list_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_list_btn@3x.png"; sourceTree = "<group>"; };
@@ -396,6 +417,7 @@
 		0727EA5E1B27D883005D330C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				3B2EF2701B3C044000C069CF /* PetBeautyImage */,
 				076A4D991B311465002F51DA /* db */,
 				070264C21B2935F9003BDCB5 /* Homepage */,
 				0727EAB61B2826D3005D330C /* persional_icon@2x.png */,
@@ -615,14 +637,40 @@
 			name = Framework;
 			sourceTree = "<group>";
 		};
-		FD2EB6A01B2DAF02007C5E38 /* HomePushViewController */ = {
+		3B2EF26C1B3C01CA00C069CF /* PetBeautyCare */ = {
 			isa = PBXGroup;
 			children = (
-				076A4D9E1B315FFB002F51DA /* Supplies */,
-				076A4D9D1B315700002F51DA /* Sign */,
 				FD2EB6A11B2DAF31007C5E38 /* PetBeautyViewController.h */,
 				FD2EB6A21B2DAF31007C5E38 /* PetBeautyViewController.m */,
 				FD2EB6A31B2DAF31007C5E38 /* PetBeautyViewController.xib */,
+				3B2EF26D1B3C024700C069CF /* PetBeautyCareCell.h */,
+				3B2EF26E1B3C024700C069CF /* PetBeautyCareCell.m */,
+			);
+			name = PetBeautyCare;
+			sourceTree = "<group>";
+		};
+		3B2EF2701B3C044000C069CF /* PetBeautyImage */ = {
+			isa = PBXGroup;
+			children = (
+				3B2EF2711B3C045900C069CF /* petBeauty_left.png */,
+				3B2EF2721B3C045900C069CF /* petBeauty_left@2x.png */,
+				3B2EF2731B3C045900C069CF /* petBeauty_phone_order.png */,
+				3B2EF2741B3C045900C069CF /* petBeauty_phone_order@2x.png */,
+				3B2EF2751B3C045900C069CF /* petBeauty_porImage.png */,
+				3B2EF2761B3C045900C069CF /* petBeauty_star_hide.png */,
+				3B2EF2771B3C045900C069CF /* petBeauty_star_hide@2x.png */,
+				3B2EF2781B3C045900C069CF /* petBeauty_star.png */,
+				3B2EF2791B3C045900C069CF /* petBeauty_star@2x.png */,
+			);
+			name = PetBeautyImage;
+			sourceTree = "<group>";
+		};
+		FD2EB6A01B2DAF02007C5E38 /* HomePushViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3B2EF26C1B3C01CA00C069CF /* PetBeautyCare */,
+				076A4D9E1B315FFB002F51DA /* Supplies */,
+				076A4D9D1B315700002F51DA /* Sign */,
 			);
 			name = HomePushViewController;
 			sourceTree = "<group>";
@@ -714,6 +762,7 @@
 				F9985D771B2AD41300371B33 /* homepage_monopoly_bt@3x.png in Resources */,
 				F9985D701B2AD41300371B33 /* homepage_deals_bt@2x.png in Resources */,
 				076EF0E91B3AA8D500438018 /* homepage_suppdefault@2x.png in Resources */,
+				3B2EF27B1B3C045900C069CF /* petBeauty_left@2x.png in Resources */,
 				076EF0DD1B3A979200438018 /* homepage_suppinfo_icon1@2x.png in Resources */,
 				070F00E11B2ED235007E021B /* DateView.xib in Resources */,
 				076EF0E71B3A9F3400438018 /* SuppliesDetailsViewController.xib in Resources */,
@@ -722,9 +771,12 @@
 				070F00DA1B2E8202007E021B /* SignViewController.xib in Resources */,
 				F9985D711B2AD41300371B33 /* homepage_deals_bt@3x.png in Resources */,
 				070264DC1B298AB9003BDCB5 /* homepage_banner2@2x.png in Resources */,
+				3B2EF2801B3C045900C069CF /* petBeauty_star_hide@2x.png in Resources */,
 				F9985D721B2AD41300371B33 /* homepage_grooming_bt@2x.png in Resources */,
 				070264DE1B2991D6003BDCB5 /* homepage_left_bt@2x.png in Resources */,
+				3B2EF27F1B3C045900C069CF /* petBeauty_star_hide.png in Resources */,
 				0727EA741B27DBD2005D330C /* MineViewController.xib in Resources */,
+				3B2EF27C1B3C045900C069CF /* petBeauty_phone_order.png in Resources */,
 				F9985D581B2ACE3400371B33 /* homepage_searchbg@3x.png in Resources */,
 				0727EAB31B282622005D330C /* home_icon@3x.png in Resources */,
 				076EF0BC1B3A83A500438018 /* SuppliesGraphicSummaryView.xib in Resources */,
@@ -737,6 +789,8 @@
 				070F00DC1B2EB83C007E021B /* homepage_default_protrait@2x.png in Resources */,
 				F9985D761B2AD41300371B33 /* homepage_monopoly_bt@2x.png in Resources */,
 				076A4D9B1B31146F002F51DA /* PetDB.sqlite in Resources */,
+				3B2EF27D1B3C045900C069CF /* petBeauty_phone_order@2x.png in Resources */,
+				3B2EF2811B3C045900C069CF /* petBeauty_star.png in Resources */,
 				0755FDB81B3955B900651FC3 /* SuppliesTableViewCell.xib in Resources */,
 				076EF0ED1B3AAFAD00438018 /* homepage_suppbuy_bt@3x.png in Resources */,
 				F9985D7C1B2AD41300371B33 /* homepage_supplies_bt@2x.png in Resources */,
@@ -745,6 +799,7 @@
 				FD2EB69F1B2DADAC007C5E38 /* homepage_right_bt@2x.png in Resources */,
 				0727EAB21B282622005D330C /* home_icon@2x.png in Resources */,
 				F9985D7B1B2AD41300371B33 /* homepage_sign_bt@3x.png in Resources */,
+				3B2EF27A1B3C045900C069CF /* petBeauty_left.png in Resources */,
 				0755FDB31B39420600651FC3 /* SuppliesBannerView.xib in Resources */,
 				0727EA581B27D36C005D330C /* HomePageViewController.xib in Resources */,
 				070264C51B293603003BDCB5 /* homepage_list_btn@2x.png in Resources */,
@@ -766,6 +821,7 @@
 				076EF0DF1B3A979200438018 /* homepage_suppinfo_icon2@2x.png in Resources */,
 				070264DB1B298AB9003BDCB5 /* homepage_banner1@2x.png in Resources */,
 				0727EA3B1B27CA98005D330C /* Images.xcassets in Resources */,
+				3B2EF27E1B3C045900C069CF /* petBeauty_porImage.png in Resources */,
 				0727EAB11B282622005D330C /* community_icon@3x.png in Resources */,
 				F9985D781B2AD41300371B33 /* homepage_serve_bt@2x.png in Resources */,
 				076EF0B71B3A5BA300438018 /* SuppliesListViewController.xib in Resources */,
@@ -773,6 +829,7 @@
 				F9985D611B2AD0E100371B33 /* HomePageButtonView.xib in Resources */,
 				FD2EB6A51B2DAF31007C5E38 /* PetBeautyViewController.xib in Resources */,
 				076EF0E01B3A979200438018 /* homepage_suppinfo_icon2@3x.png in Resources */,
+				3B2EF2821B3C045900C069CF /* petBeauty_star@2x.png in Resources */,
 				0727EAB41B282622005D330C /* integral_icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -799,6 +856,7 @@
 				070F00D91B2E8202007E021B /* SignViewController.m in Sources */,
 				077D24571B2FF6FE00B8AD84 /* FMDatabaseAdditions.m in Sources */,
 				076EF0B61B3A5BA300438018 /* SuppliesListViewController.m in Sources */,
+				3B2EF26F1B3C024700C069CF /* PetBeautyCareCell.m in Sources */,
 				3B2EF2561B3B908100C069CF /* TQMultistageTableView.m in Sources */,
 				FD2EB6A81B2DB0B7007C5E38 /* SegementBtnView.m in Sources */,
 				0727EA331B27CA98005D330C /* AppDelegate.m in Sources */,
