@@ -47,24 +47,11 @@
         self.automaticallyAdjustsScrollViewInsets = NO;
     }
     //初始化按钮界面
-    CGRect  btBgframe = CGRectMake(0, bannerViewBg.frame.origin.y+frame.size.height-25, kWidth, kHeight-frame.origin.y-frame.size.height);
+    CGRect  btBgframe = CGRectMake(0, bannerView.frame.origin.y+frame.size.height-25, kWidth, kHeight-frame.origin.y-frame.size.height);
     HomePageButtonView *btbg = [[HomePageButtonView alloc] initWithFrame:btBgframe];
     btbg.delegate = self;
     [self.view addSubview:btbg];
 }
--(void)viewWillDisappear:(BOOL)animated
-{
-
-}
--(void)viewWillAppear:(BOOL)animated
-{
-
-    
-}
--(void)viewDidAppear:(BOOL)animated
-{
-}
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SuppliesDetailsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+#import "ReadyBuyView.h"
+@interface SuppliesDetailsViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,ReadyBuyViewDelegate>
 {
     
     IBOutlet UITableView *detailTableView;
