@@ -59,6 +59,7 @@
     bannerPage.currentPage = round(wid/kWidth);
     
 }
+#pragma mark - 点击滚动视图上的各张图片触发的事件
 -(void)touchImageInScrollView:(UITapGestureRecognizer*)sender
 {
     CGPoint point = [sender locationInView:bannerScroll];

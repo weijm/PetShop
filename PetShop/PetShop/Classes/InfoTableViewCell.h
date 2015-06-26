@@ -1,6 +1,6 @@
 //
 //  InfoTableViewCell.h
-//  PetShop
+//  商品详情的简单cell
 //
 //  Created by wjm on 15/6/24.
 //  Copyright (c) 2015年 wjm. All rights reserved.

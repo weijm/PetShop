@@ -7,6 +7,7 @@
 //
 
 #import "SuppliesGraphicSummaryView.h"
+#import "UIButton+Select.h"
 
 @implementation SuppliesGraphicSummaryView
 
@@ -29,16 +30,19 @@
     }
     return self;
 }
--(id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super initWithCoder:aDecoder];
-    if (self) {
-        // Initialization code
-        UIView *containerView = [[[UINib nibWithNibName:@"SuppliesGraphicSummaryView" bundle:nil] instantiateWithOwner:self options:nil] objectAtIndex:0];
-        CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-        containerView.frame = newFrame;
-        [self addSubview:containerView];
+#pragma mark - 收藏触发事件
+- (IBAction)collectedAction:(id)sender {
+    NSLog(@"collectedAction");
+    UIButton_Select *bt = (UIButton_Select*)sender;
+    BOOL isSelected = bt.showColor;
+    NSString *string = nil;
+    if (!isSelected) {
+        string = @"收藏成功";
+    }else
+    {
+        string = @"收藏失败";
     }
-    return self;
+    self.colletedOrCancel(string);
+    bt.showColor = !isSelected;
 }
 @end

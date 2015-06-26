@@ -74,6 +74,8 @@
 		076EF0ED1B3AAFAD00438018 /* homepage_suppbuy_bt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 076EF0EB1B3AAFAD00438018 /* homepage_suppbuy_bt@3x.png */; };
 		076EF0F01B3AAFB500438018 /* homepage_suppreadybuy_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 076EF0EE1B3AAFB500438018 /* homepage_suppreadybuy_bt@2x.png */; };
 		076EF0F11B3AAFB500438018 /* homepage_suppreadybuy_bt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 076EF0EF1B3AAFB500438018 /* homepage_suppreadybuy_bt@3x.png */; };
+		0775DDFC1B3CEF5200293BB3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775DDFB1B3CEF5200293BB3 /* MBProgressHUD.m */; };
+		0775DDFE1B3CF00600293BB3 /* homepage_checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0775DDFD1B3CF00600293BB3 /* homepage_checkmark@2x.png */; };
 		077D24561B2FF6FE00B8AD84 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D244C1B2FF6FE00B8AD84 /* FMDatabase.m */; };
 		077D24571B2FF6FE00B8AD84 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D244E1B2FF6FE00B8AD84 /* FMDatabaseAdditions.m */; };
 		077D24581B2FF6FE00B8AD84 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D24501B2FF6FE00B8AD84 /* FMDatabasePool.m */; };
@@ -231,6 +233,9 @@
 		076EF0EB1B3AAFAD00438018 /* homepage_suppbuy_bt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_suppbuy_bt@3x.png"; sourceTree = "<group>"; };
 		076EF0EE1B3AAFB500438018 /* homepage_suppreadybuy_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_suppreadybuy_bt@2x.png"; sourceTree = "<group>"; };
 		076EF0EF1B3AAFB500438018 /* homepage_suppreadybuy_bt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_suppreadybuy_bt@3x.png"; sourceTree = "<group>"; };
+		0775DDFA1B3CEF5200293BB3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		0775DDFB1B3CEF5200293BB3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		0775DDFD1B3CF00600293BB3 /* homepage_checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_checkmark@2x.png"; sourceTree = "<group>"; };
 		077D244B1B2FF6FE00B8AD84 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		077D244C1B2FF6FE00B8AD84 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		077D244D1B2FF6FE00B8AD84 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -613,6 +618,7 @@
 		076EF0BD1B3A8D7A00438018 /* Supplies */ = {
 			isa = PBXGroup;
 			children = (
+				0775DDFD1B3CF00600293BB3 /* homepage_checkmark@2x.png */,
 				07E161BB1B3BD1A10022677E /* homepage_supp_addBt@2x.png */,
 				07E161BC1B3BD1A10022677E /* homepage_supp_addBt@3x.png */,
 				07E161BD1B3BD1A10022677E /* homepage_supp_numberbg@2x.png */,
@@ -638,9 +644,19 @@
 			name = Supplies;
 			sourceTree = "<group>";
 		};
+		0775DDF91B3CEF4500293BB3 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				0775DDFA1B3CEF5200293BB3 /* MBProgressHUD.h */,
+				0775DDFB1B3CEF5200293BB3 /* MBProgressHUD.m */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
 		077D24411B2FF63700B8AD84 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				0775DDF91B3CEF4500293BB3 /* HUD */,
 				3B2EF2541B3B908100C069CF /* TQMultistageTableView.h */,
 				3B2EF2551B3B908100C069CF /* TQMultistageTableView.m */,
 				077D244A1B2FF69E00B8AD84 /* FMDB */,
@@ -836,6 +852,7 @@
 				3B2EF27D1B3C045900C069CF /* petBeauty_phone_order@2x.png in Resources */,
 				3B2EF2811B3C045900C069CF /* petBeauty_star.png in Resources */,
 				0755FDB81B3955B900651FC3 /* SuppliesTableViewCell.xib in Resources */,
+				0775DDFE1B3CF00600293BB3 /* homepage_checkmark@2x.png in Resources */,
 				07E161C21B3BD1A10022677E /* homepage_supp_addBt@3x.png in Resources */,
 				076EF0ED1B3AAFAD00438018 /* homepage_suppbuy_bt@3x.png in Resources */,
 				F9985D7C1B2AD41300371B33 /* homepage_supplies_bt@2x.png in Resources */,
@@ -898,6 +915,7 @@
 				0727EA6D1B27DB86005D330C /* IntegralViewController.m in Sources */,
 				076EF0BA1B3A835A00438018 /* SuppliesGraphicSummaryView.m in Sources */,
 				0727EA731B27DBD2005D330C /* MineViewController.m in Sources */,
+				0775DDFC1B3CEF5200293BB3 /* MBProgressHUD.m in Sources */,
 				070264CE1B293D7B003BDCB5 /* BannerView.m in Sources */,
 				070F00D91B2E8202007E021B /* SignViewController.m in Sources */,
 				077D24571B2FF6FE00B8AD84 /* FMDatabaseAdditions.m in Sources */,
