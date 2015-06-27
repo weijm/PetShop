@@ -8,6 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MakeSureOrderViewController">
             <connections>
                 <outlet property="dataTalbeView" destination="tka-Mc-wLq" id="VhE-Yk-SSo"/>
+                <outlet property="tPriceLab" destination="uYT-g0-Lfm" id="Etj-B0-dEA"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

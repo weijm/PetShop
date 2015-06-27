@@ -42,6 +42,10 @@
                     <constraint firstAttribute="centerY" secondItem="2Y0-At-XcM" secondAttribute="centerY" id="x8u-hC-Zmy"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="totalCountLab" destination="2Y0-At-XcM" id="p3F-zb-rv5"/>
+                <outlet property="totalPriceLab" destination="we7-b9-flt" id="4rn-b6-JqU"/>
+            </connections>
             <point key="canvasLocation" x="346" y="328"/>
         </tableViewCell>
     </objects>

@@ -13,6 +13,7 @@
 - (void)awakeFromNib {
     // Initialization code
     [self setViewLayer:pictureView];
+   
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
@@ -29,4 +30,40 @@
     [view.layer setBorderColor:colorref];//边框颜色
 }
 
+- (IBAction)reduceNumber:(id)sender {
+    int number = [numberLab.text intValue];
+    _suppliesCount = number -1;
+    numberLab.text = [NSString stringWithFormat:@"%d",_suppliesCount];
+    if ([numberLab.text intValue]>1) {
+        reducceBt.enabled = YES;
+    }else
+    {
+        reducceBt.enabled = NO;
+    }
+    self.updateCell(self);
+
+}
+
+- (IBAction)addNumber:(id)sender {
+    int number = [numberLab.text intValue];
+    _suppliesCount = number +1;
+    NSString *numberString = [NSString stringWithFormat:@"%d",_suppliesCount];
+    numberLab.text = numberString;
+    if ([numberLab.text intValue]>=2) {
+        reducceBt.enabled = YES;
+    }
+    self.updateCell(self);
+
+}
+
+- (void)loadNumber:(int)number
+{
+    countLab.text = [NSString stringWithFormat:@"x%d",number];
+    totalCountLab.text = [NSString stringWithFormat:@"共%d件商品 合计：",number];
+    totalPriceLab.text = [NSString stringWithFormat:@"¥ %.2f",number*29.0];
+    numberLab.text = [NSString stringWithFormat:@"%d",number];
+    if (number>1) {
+        reducceBt.enabled = YES;
+    }
+}
 @end
