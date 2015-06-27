@@ -12,6 +12,8 @@
 {
     
     IBOutlet UITableView *dataTalbeView;
+    
+    IBOutlet UILabel *tPriceLab;
 }
 
 @end

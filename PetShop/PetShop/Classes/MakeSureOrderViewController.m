@@ -10,6 +10,9 @@
 #import "OrderTableViewCell.h"
 
 @interface MakeSureOrderViewController ()
+{
+    __block NSMutableDictionary *countInfoDic;
+}
 
 @end
 
@@ -45,6 +48,15 @@
     UITableViewCell *cell;
     NSString *xibName = [NSString stringWithFormat:@"OrderTableViewCellS%ldR%ld",(long)indexPath.section,(long)indexPath.row];
     OrderTableViewCell *tcell= [[[NSBundle mainBundle] loadNibNamed:xibName owner:nil options:nil] lastObject];
+    tcell.updateCell = ^(OrderTableViewCell *cell)
+    {
+        [self updateCell:cell];
+    };
+    if (countInfoDic) {
+        int count = [[countInfoDic objectForKey:@"count"] intValue];
+//        float price = [[countInfoDic objectForKey:@"price"] floatValue];
+        [tcell loadNumber:count];
+    }
     cell = tcell;
 
     if (indexPath.section == 1) {
@@ -84,5 +96,13 @@
         return [Util myYOrHeight:40];
    
     }
+}
+//更新界面
+-(void)updateCell:(OrderTableViewCell*)cell
+{
+    countInfoDic = [[NSMutableDictionary alloc] initWithObjectsAndKeys:[NSNumber numberWithInt:cell.suppliesCount],@"count",[NSNumber numberWithFloat:cell.price],@"price", nil];
+    [dataTalbeView reloadData];
+    int count = [[countInfoDic objectForKey:@"count"] intValue];
+    tPriceLab.text = [NSString stringWithFormat:@"¥ %.2f",(count*29.0)*100/100];
 }
 @end

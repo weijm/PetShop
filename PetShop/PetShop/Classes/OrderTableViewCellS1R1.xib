@@ -36,6 +36,9 @@
                                 <state key="normal" backgroundImage="homepage_supp_reduceBt.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="reduceNumber:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="ZV3-e8-mmt"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homepage_supp_numberbg.png" translatesAutoresizingMaskIntoConstraints="NO" id="SzD-Tz-kN2" userLabel="numbg">
                                 <rect key="frame" x="30" y="0.0" width="30" height="30"/>
@@ -51,6 +54,9 @@
                                 <state key="normal" backgroundImage="homepage_supp_addBt.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="addNumber:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Ubj-u7-y2I"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -91,6 +97,10 @@
                     <constraint firstAttribute="centerY" secondItem="Xm3-0z-8cT" secondAttribute="centerY" id="z92-TM-7Cq"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="numberLab" destination="6YM-vA-peO" id="6aH-1M-09M"/>
+                <outlet property="reducceBt" destination="NsJ-0z-ZCV" id="q0a-de-O66"/>
+            </connections>
             <point key="canvasLocation" x="346" y="351"/>
         </tableViewCell>
     </objects>
