@@ -31,4 +31,10 @@
 
 #define topBarheight      ([[[UIDevice currentDevice] systemVersion] floatValue]>=7.0?64:44)
 
+
 #define HUDTAG 100000
+
+#define firstCellHeight    200
+#define secondCellHeight   150
+#define thirdCellHeight    80
+

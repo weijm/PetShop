@@ -7,7 +7,7 @@
 //
 
 #import "PetBeautyCareCell.h"
-
+#import "PetDoctorStarView.h"
 @implementation PetBeautyCareCell
 
 - (id)initWithFrame:(CGRect)frame  andDictionary:(NSDictionary*)dictionary{
@@ -52,6 +52,12 @@
         [_phoneButton addTarget:self action:@selector(callBeautyCare:) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:_phoneButton];
         
+        //星级
+        _starNumber = 3;
+        PetDoctorStarView *starView = [[PetDoctorStarView alloc]initWithFrame:CGRectMake(95, 37, 85, 12)];
+        [starView loadHilightStars:_starNumber];
+        starView.backgroundColor = [UIColor whiteColor];
+        [self addSubview:starView];
     }
     return self;
 }

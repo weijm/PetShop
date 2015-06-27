@@ -8,6 +8,7 @@
 
 #import "HomePageViewController.h"
 #import "BannerView.h"
+#import "PetHospitalViewController.h"
 #import "PetBeautyViewController.h"
 #import "SignViewController.h"
 #import "SuppliesViewController.h"
@@ -133,13 +134,18 @@
         case 3:
         {
             NSLog(@"宠物美容33");
-            PetBeautyViewController *pet = [[PetBeautyViewController alloc] init];
-            pet.hidesBottomBarWhenPushed = YES;
-            [self.navigationController pushViewController:pet animated:YES];
+            PetBeautyViewController *petBeauty = [[PetBeautyViewController alloc] init];
+            petBeauty.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:petBeauty animated:YES];
         }
             break;
         case 4:
+        {
             NSLog(@"宠物医院44");
+            PetHospitalViewController *petHospital = [[PetHospitalViewController alloc] init];
+            petHospital.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:petHospital animated:YES];
+        }
             break;
         case 5:
             NSLog(@"团购55");

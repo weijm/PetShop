@@ -23,9 +23,9 @@
 @property (nonatomic,retain) UILabel     *beautyCareLabel;     //美容院
 @property (nonatomic,retain) UILabel     *authentitationLabel; //认证
 @property (nonatomic,retain) UIButton    *phoneButton;         //呼叫
-@property (nonatomic,retain) NSString    *starNumber;          //星级
-@property (nonatomic,retain) NSString    *phoneNumber;         //号码
 
+@property (nonatomic,retain) NSString    *phoneNumber;         //号码
+@property (nonatomic)NSInteger starNumber;                    //星星个数
 - (id)initWithFrame:(CGRect)frame  andDictionary:(NSDictionary*)dictionary;
 
 @end
