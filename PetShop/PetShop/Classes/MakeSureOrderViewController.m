@@ -8,6 +8,7 @@
 
 #import "MakeSureOrderViewController.h"
 #import "OrderTableViewCell.h"
+#import "OrderAddressListViewController.h"
 
 @interface MakeSureOrderViewController ()
 {
@@ -97,6 +98,13 @@
    
     }
 }
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.section ==0&&indexPath.row == 0) {
+        OrderAddressListViewController *addressVC = [[OrderAddressListViewController alloc] init];
+        [self.navigationController pushViewController:addressVC animated:YES];
+    }
+}
 //更新界面
 -(void)updateCell:(OrderTableViewCell*)cell
 {
@@ -104,5 +112,8 @@
     [dataTalbeView reloadData];
     int count = [[countInfoDic objectForKey:@"count"] intValue];
     tPriceLab.text = [NSString stringWithFormat:@"¥ %.2f",(count*29.0)*100/100];
+}
+#pragma mark -确认点击事件
+- (IBAction)makeSureOrder:(id)sender {
 }
 @end

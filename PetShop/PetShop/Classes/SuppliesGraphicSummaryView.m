@@ -40,7 +40,7 @@
         string = @"收藏成功";
     }else
     {
-        string = @"收藏失败";
+        string = @"取消收藏";
     }
     self.colletedOrCancel(string);
     bt.showColor = !isSelected;

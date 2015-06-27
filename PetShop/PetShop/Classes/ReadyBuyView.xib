@@ -267,7 +267,7 @@
                         </view>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WaY-UJ-g3j" userLabel="surebt">
                             <rect key="frame" x="0.0" y="280" width="320" height="50"/>
-                            <color key="backgroundColor" red="0.94117647058823528" green="0.0" blue="0.29411764705882354" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="0.83921568629999999" green="0.0" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="fq0-DJ-RGK"/>
                             </constraints>

@@ -15,5 +15,6 @@
     
     IBOutlet UILabel *tPriceLab;
 }
+- (IBAction)makeSureOrder:(id)sender;
 
 @end
