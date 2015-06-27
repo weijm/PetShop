@@ -43,7 +43,7 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
-    NSString *xibName = [NSString stringWithFormat:@"OrderTableViewCellS%ldR%ld",indexPath.section,(long)indexPath.row];
+    NSString *xibName = [NSString stringWithFormat:@"OrderTableViewCellS%ldR%ld",(long)indexPath.section,(long)indexPath.row];
     OrderTableViewCell *tcell= [[[NSBundle mainBundle] loadNibNamed:xibName owner:nil options:nil] lastObject];
     cell = tcell;
 
