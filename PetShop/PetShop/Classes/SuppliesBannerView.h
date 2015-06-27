@@ -13,8 +13,9 @@
 @end
 @interface SuppliesBannerView : UIView<UIScrollViewDelegate>
 {
-    
+    //横向滚动视图
     IBOutlet UIScrollView *bannerScroll;
+    //页视图
     IBOutlet UIPageControl *bannerPage;
 }
 @property(weak,nonatomic) id<SuppliesBannerViewDelegate> delegate;

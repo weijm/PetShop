@@ -29,6 +29,7 @@
     }
     return self;
 }
+//加载button上的标题，显示或隐藏横竖线
 -(void)loadButtonView
 {
     NSInteger  tag = self.tag;
@@ -50,7 +51,7 @@
             break;
     }
 }
-
+//点击按钮的触发事件
 - (IBAction)clickedCustomSegmentBt:(id)sender {
     NSInteger viewTag = self.tag;
     _hLine.hidden = NO;

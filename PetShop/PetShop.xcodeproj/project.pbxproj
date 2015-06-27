@@ -74,6 +74,16 @@
 		076EF0ED1B3AAFAD00438018 /* homepage_suppbuy_bt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 076EF0EB1B3AAFAD00438018 /* homepage_suppbuy_bt@3x.png */; };
 		076EF0F01B3AAFB500438018 /* homepage_suppreadybuy_bt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 076EF0EE1B3AAFB500438018 /* homepage_suppreadybuy_bt@2x.png */; };
 		076EF0F11B3AAFB500438018 /* homepage_suppreadybuy_bt@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 076EF0EF1B3AAFB500438018 /* homepage_suppreadybuy_bt@3x.png */; };
+		0775DDFC1B3CEF5200293BB3 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775DDFB1B3CEF5200293BB3 /* MBProgressHUD.m */; };
+		0775DDFE1B3CF00600293BB3 /* homepage_checkmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0775DDFD1B3CF00600293BB3 /* homepage_checkmark@2x.png */; };
+		0775DE021B3D1FEF00293BB3 /* MakeSureOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775DE001B3D1FEF00293BB3 /* MakeSureOrderViewController.m */; };
+		0775DE031B3D1FEF00293BB3 /* MakeSureOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0775DE011B3D1FEF00293BB3 /* MakeSureOrderViewController.xib */; };
+		0775DE071B3D257700293BB3 /* OrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0775DE051B3D257700293BB3 /* OrderTableViewCell.m */; };
+		0775DE081B3D257700293BB3 /* OrderTableViewCellS0R0.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0775DE061B3D257700293BB3 /* OrderTableViewCellS0R0.xib */; };
+		0775DE0E1B3D26D500293BB3 /* OrderTableViewCellS1R0.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0775DE0A1B3D26D500293BB3 /* OrderTableViewCellS1R0.xib */; };
+		0775DE0F1B3D26D500293BB3 /* OrderTableViewCellS1R1.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0775DE0B1B3D26D500293BB3 /* OrderTableViewCellS1R1.xib */; };
+		0775DE101B3D26D500293BB3 /* OrderTableViewCellS1R2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0775DE0C1B3D26D500293BB3 /* OrderTableViewCellS1R2.xib */; };
+		0775DE111B3D26D500293BB3 /* OrderTableViewCellS1R3.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0775DE0D1B3D26D500293BB3 /* OrderTableViewCellS1R3.xib */; };
 		077D24561B2FF6FE00B8AD84 /* FMDatabase.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D244C1B2FF6FE00B8AD84 /* FMDatabase.m */; };
 		077D24571B2FF6FE00B8AD84 /* FMDatabaseAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D244E1B2FF6FE00B8AD84 /* FMDatabaseAdditions.m */; };
 		077D24581B2FF6FE00B8AD84 /* FMDatabasePool.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D24501B2FF6FE00B8AD84 /* FMDatabasePool.m */; };
@@ -237,6 +247,19 @@
 		076EF0EB1B3AAFAD00438018 /* homepage_suppbuy_bt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_suppbuy_bt@3x.png"; sourceTree = "<group>"; };
 		076EF0EE1B3AAFB500438018 /* homepage_suppreadybuy_bt@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_suppreadybuy_bt@2x.png"; sourceTree = "<group>"; };
 		076EF0EF1B3AAFB500438018 /* homepage_suppreadybuy_bt@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_suppreadybuy_bt@3x.png"; sourceTree = "<group>"; };
+		0775DDFA1B3CEF5200293BB3 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		0775DDFB1B3CEF5200293BB3 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		0775DDFD1B3CF00600293BB3 /* homepage_checkmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_checkmark@2x.png"; sourceTree = "<group>"; };
+		0775DDFF1B3D1FEF00293BB3 /* MakeSureOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MakeSureOrderViewController.h; sourceTree = "<group>"; };
+		0775DE001B3D1FEF00293BB3 /* MakeSureOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MakeSureOrderViewController.m; sourceTree = "<group>"; };
+		0775DE011B3D1FEF00293BB3 /* MakeSureOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MakeSureOrderViewController.xib; sourceTree = "<group>"; };
+		0775DE041B3D257700293BB3 /* OrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderTableViewCell.h; sourceTree = "<group>"; };
+		0775DE051B3D257700293BB3 /* OrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderTableViewCell.m; sourceTree = "<group>"; };
+		0775DE061B3D257700293BB3 /* OrderTableViewCellS0R0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTableViewCellS0R0.xib; sourceTree = "<group>"; };
+		0775DE0A1B3D26D500293BB3 /* OrderTableViewCellS1R0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTableViewCellS1R0.xib; sourceTree = "<group>"; };
+		0775DE0B1B3D26D500293BB3 /* OrderTableViewCellS1R1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTableViewCellS1R1.xib; sourceTree = "<group>"; };
+		0775DE0C1B3D26D500293BB3 /* OrderTableViewCellS1R2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTableViewCellS1R2.xib; sourceTree = "<group>"; };
+		0775DE0D1B3D26D500293BB3 /* OrderTableViewCellS1R3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderTableViewCellS1R3.xib; sourceTree = "<group>"; };
 		077D244B1B2FF6FE00B8AD84 /* FMDatabase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabase.h; sourceTree = "<group>"; };
 		077D244C1B2FF6FE00B8AD84 /* FMDatabase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMDatabase.m; sourceTree = "<group>"; };
 		077D244D1B2FF6FE00B8AD84 /* FMDatabaseAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMDatabaseAdditions.h; sourceTree = "<group>"; };
@@ -583,21 +606,19 @@
 		076A4D9E1B315FFB002F51DA /* Supplies */ = {
 			isa = PBXGroup;
 			children = (
+				0775DE091B3D25B100293BB3 /* Cell */,
 				076A4D9F1B316017002F51DA /* SuppliesViewController.h */,
 				076A4DA01B316017002F51DA /* SuppliesViewController.m */,
 				076A4DA11B316017002F51DA /* SuppliesViewController.xib */,
-				0755FDB41B3955B900651FC3 /* SuppliesTableViewCell.h */,
-				0755FDB51B3955B900651FC3 /* SuppliesTableViewCell.m */,
-				0755FDB61B3955B900651FC3 /* SuppliesTableViewCell.xib */,
 				076EF0B31B3A5BA300438018 /* SuppliesListViewController.h */,
 				076EF0B41B3A5BA300438018 /* SuppliesListViewController.m */,
 				076EF0B51B3A5BA300438018 /* SuppliesListViewController.xib */,
-				076EF0C61B3A910000438018 /* InfoTableViewCell.h */,
-				076EF0C71B3A910000438018 /* InfoTableViewCell.m */,
-				076EF0C81B3A910000438018 /* InfoTableViewCell.xib */,
 				076EF0E31B3A9F3400438018 /* SuppliesDetailsViewController.h */,
 				076EF0E41B3A9F3400438018 /* SuppliesDetailsViewController.m */,
 				076EF0E51B3A9F3400438018 /* SuppliesDetailsViewController.xib */,
+				0775DDFF1B3D1FEF00293BB3 /* MakeSureOrderViewController.h */,
+				0775DE001B3D1FEF00293BB3 /* MakeSureOrderViewController.m */,
+				0775DE011B3D1FEF00293BB3 /* MakeSureOrderViewController.xib */,
 			);
 			name = Supplies;
 			sourceTree = "<group>";
@@ -631,6 +652,7 @@
 		076EF0BD1B3A8D7A00438018 /* Supplies */ = {
 			isa = PBXGroup;
 			children = (
+				0775DDFD1B3CF00600293BB3 /* homepage_checkmark@2x.png */,
 				07E161BB1B3BD1A10022677E /* homepage_supp_addBt@2x.png */,
 				07E161BC1B3BD1A10022677E /* homepage_supp_addBt@3x.png */,
 				07E161BD1B3BD1A10022677E /* homepage_supp_numberbg@2x.png */,
@@ -656,9 +678,39 @@
 			name = Supplies;
 			sourceTree = "<group>";
 		};
+		0775DDF91B3CEF4500293BB3 /* HUD */ = {
+			isa = PBXGroup;
+			children = (
+				0775DDFA1B3CEF5200293BB3 /* MBProgressHUD.h */,
+				0775DDFB1B3CEF5200293BB3 /* MBProgressHUD.m */,
+			);
+			path = HUD;
+			sourceTree = "<group>";
+		};
+		0775DE091B3D25B100293BB3 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0755FDB41B3955B900651FC3 /* SuppliesTableViewCell.h */,
+				0755FDB51B3955B900651FC3 /* SuppliesTableViewCell.m */,
+				0755FDB61B3955B900651FC3 /* SuppliesTableViewCell.xib */,
+				076EF0C61B3A910000438018 /* InfoTableViewCell.h */,
+				076EF0C71B3A910000438018 /* InfoTableViewCell.m */,
+				076EF0C81B3A910000438018 /* InfoTableViewCell.xib */,
+				0775DE041B3D257700293BB3 /* OrderTableViewCell.h */,
+				0775DE051B3D257700293BB3 /* OrderTableViewCell.m */,
+				0775DE061B3D257700293BB3 /* OrderTableViewCellS0R0.xib */,
+				0775DE0A1B3D26D500293BB3 /* OrderTableViewCellS1R0.xib */,
+				0775DE0B1B3D26D500293BB3 /* OrderTableViewCellS1R1.xib */,
+				0775DE0C1B3D26D500293BB3 /* OrderTableViewCellS1R2.xib */,
+				0775DE0D1B3D26D500293BB3 /* OrderTableViewCellS1R3.xib */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
 		077D24411B2FF63700B8AD84 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				0775DDF91B3CEF4500293BB3 /* HUD */,
 				3B2EF2541B3B908100C069CF /* TQMultistageTableView.h */,
 				3B2EF2551B3B908100C069CF /* TQMultistageTableView.m */,
 				077D244A1B2FF69E00B8AD84 /* FMDB */,
@@ -834,6 +886,7 @@
 				F9985D771B2AD41300371B33 /* homepage_monopoly_bt@3x.png in Resources */,
 				F9985D701B2AD41300371B33 /* homepage_deals_bt@2x.png in Resources */,
 				07E161C51B3BD1A10022677E /* homepage_supp_reduceBt@2x.png in Resources */,
+				0775DE031B3D1FEF00293BB3 /* MakeSureOrderViewController.xib in Resources */,
 				076EF0E91B3AA8D500438018 /* homepage_suppdefault@2x.png in Resources */,
 				076EF0DD1B3A979200438018 /* homepage_suppinfo_icon1@2x.png in Resources */,
 				07E161C41B3BD1A10022677E /* homepage_supp_numberbg@3x.png in Resources */,
@@ -847,16 +900,25 @@
 				070264DC1B298AB9003BDCB5 /* homepage_banner2@2x.png in Resources */,
 				F9985D721B2AD41300371B33 /* homepage_grooming_bt@2x.png in Resources */,
 				070264DE1B2991D6003BDCB5 /* homepage_left_bt@2x.png in Resources */,
+
+				0775DE0E1B3D26D500293BB3 /* OrderTableViewCellS1R0.xib in Resources */,
+				3B2EF27F1B3C045900C069CF /* petBeauty_star_hide.png in Resources */,
+
 				0727EA741B27DBD2005D330C /* MineViewController.xib in Resources */,
 				3B1184301B3D5A0600F0C0D0 /* petBeauty_phone_order@2x.png in Resources */,
 				3B1184341B3D5A0600F0C0D0 /* petBeauty_star@2x.png in Resources */,
 				F9985D581B2ACE3400371B33 /* homepage_searchbg@3x.png in Resources */,
 				0727EAB31B282622005D330C /* home_icon@3x.png in Resources */,
+
+				0775DE0F1B3D26D500293BB3 /* OrderTableViewCellS1R1.xib in Resources */,
+
 				3B11842E1B3D5A0600F0C0D0 /* petBeauty_left@2x.png in Resources */,
+
 				076EF0BC1B3A83A500438018 /* SuppliesGraphicSummaryView.xib in Resources */,
 				076A4DAE1B31637B002F51DA /* CustomSegmentView.xib in Resources */,
 				3B1184351B3D5A0600F0C0D0 /* petBeauty_star@3x.png in Resources */,
 				07E161C11B3BD1A10022677E /* homepage_supp_addBt@2x.png in Resources */,
+				0775DE111B3D26D500293BB3 /* OrderTableViewCellS1R3.xib in Resources */,
 				070264C91B29363B003BDCB5 /* homepage_shopcart@2x.png in Resources */,
 				07E161B91B3BAD970022677E /* homepage_supp_closeBt@2x.png in Resources */,
 				0727EAB81B2826D3005D330C /* persional_icon@2x.png in Resources */,
@@ -868,10 +930,12 @@
 				F9985D761B2AD41300371B33 /* homepage_monopoly_bt@2x.png in Resources */,
 				076A4D9B1B31146F002F51DA /* PetDB.sqlite in Resources */,
 				0755FDB81B3955B900651FC3 /* SuppliesTableViewCell.xib in Resources */,
+				0775DDFE1B3CF00600293BB3 /* homepage_checkmark@2x.png in Resources */,
 				07E161C21B3BD1A10022677E /* homepage_supp_addBt@3x.png in Resources */,
 				076EF0ED1B3AAFAD00438018 /* homepage_suppbuy_bt@3x.png in Resources */,
 				3B1184251B3D2C1000F0C0D0 /* PetDoctorStarView.xib in Resources */,
 				F9985D7C1B2AD41300371B33 /* homepage_supplies_bt@2x.png in Resources */,
+				0775DE101B3D26D500293BB3 /* OrderTableViewCellS1R2.xib in Resources */,
 				0727EA6E1B27DB86005D330C /* IntegralViewController.xib in Resources */,
 				076EF0DE1B3A979200438018 /* homepage_suppinfo_icon1@3x.png in Resources */,
 				3B1184321B3D5A0600F0C0D0 /* petBeauty_star_hide@2x.png in Resources */,
@@ -894,6 +958,7 @@
 				F9985D751B2AD41300371B33 /* homepage_hospital_bt@3x.png in Resources */,
 				076EF0F01B3AAFB500438018 /* homepage_suppreadybuy_bt@2x.png in Resources */,
 				F9985D5C1B2ACE7000371B33 /* homepage_shopcart@3x.png in Resources */,
+				0775DE081B3D257700293BB3 /* OrderTableViewCellS0R0.xib in Resources */,
 				F9985D5B1B2ACE7000371B33 /* homepage_list_btn@3x.png in Resources */,
 				F9985D7A1B2AD41300371B33 /* homepage_sign_bt@2x.png in Resources */,
 				076EF0C41B3A8DE000438018 /* homepage_supplies_collectbt@2x.png in Resources */,
@@ -933,6 +998,7 @@
 				0727EA6D1B27DB86005D330C /* IntegralViewController.m in Sources */,
 				076EF0BA1B3A835A00438018 /* SuppliesGraphicSummaryView.m in Sources */,
 				0727EA731B27DBD2005D330C /* MineViewController.m in Sources */,
+				0775DDFC1B3CEF5200293BB3 /* MBProgressHUD.m in Sources */,
 				070264CE1B293D7B003BDCB5 /* BannerView.m in Sources */,
 				3B11841A1B3CEA9600F0C0D0 /* PetHospitalCell.m in Sources */,
 				070F00D91B2E8202007E021B /* SignViewController.m in Sources */,
@@ -943,6 +1009,7 @@
 				3B2EF2561B3B908100C069CF /* TQMultistageTableView.m in Sources */,
 				07E161C91B3C00240022677E /* UIButton+Select.m in Sources */,
 				FD2EB6A81B2DB0B7007C5E38 /* SegementBtnView.m in Sources */,
+				0775DE071B3D257700293BB3 /* OrderTableViewCell.m in Sources */,
 				0727EA331B27CA98005D330C /* AppDelegate.m in Sources */,
 				070F00DF1B2ED1EB007E021B /* DateView.m in Sources */,
 				0727EA301B27CA98005D330C /* main.m in Sources */,
@@ -955,6 +1022,7 @@
 				F9985D5F1B2AD0C400371B33 /* HomePageButtonView.m in Sources */,
 				076A4DA21B316017002F51DA /* SuppliesViewController.m in Sources */,
 				077D245A1B2FF6FE00B8AD84 /* FMResultSet.m in Sources */,
+				0775DE021B3D1FEF00293BB3 /* MakeSureOrderViewController.m in Sources */,
 				077D24581B2FF6FE00B8AD84 /* FMDatabasePool.m in Sources */,
 				0727EA5C1B27D774005D330C /* RootViewController.m in Sources */,
 				0727EA571B27D36C005D330C /* HomePageViewController.m in Sources */,

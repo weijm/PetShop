@@ -1,6 +1,6 @@
 //
 //  SuppliesViewController.m
-//  PetShop
+//  宠物用品首页
 //
 //  Created by wjm on 15/6/17.
 //  Copyright (c) 2015年 wjm. All rights reserved.
@@ -240,6 +240,7 @@
     [self.navigationController pushViewController:listVC animated:YES];
     
 }
+//移除下拉列表的视图及其父视图
 -(void)removeListBg
 {
     UIView *tempListBg = [self.view viewWithTag:ListBgTag];
