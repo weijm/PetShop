@@ -9,7 +9,7 @@
 #import "PetHospitalViewController.h"
 #import "PetHospitalCell.h"
 #import <Foundation/NSObject.h>
-
+#import "PetSearchBar.h"
 @interface PetHospitalViewController ()
 {
     UIWebView *petPhoneWebView;
@@ -24,55 +24,29 @@
     [super viewDidLoad];
     self.title = @"宠物医院";
     //tableView
-    PHospitalTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, 30, kWidth, kHeight-32)];
+    PHospitalTableView = [[TQMultistageTableView alloc] initWithFrame:CGRectMake(0, 22, kWidth, kHeight-26)];
     PHospitalTableView.dataSource = self;
     PHospitalTableView.delegate   = self;
     PHospitalTableView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.PHospitalTableView];
     
     //搜索
-    UIView *search = [[UIView alloc] initWithFrame:CGRectMake(0, topBarheight, kWidth, 60)];
-    search.backgroundColor = [self colorWithHexString:@"EEEEEF"];
+    UIView *search = [[UIView alloc] initWithFrame:CGRectMake(0, topBarheight, kWidth, 44)];
+    search.backgroundColor = [UIColor colorWithRed:238/255.0 green:238/255.0 blue:239/255.0 alpha:1.0];
     [self.view addSubview:search];
+    
+    PetSearchBar *searchBar = [[PetSearchBar alloc] initWithFrame:CGRectMake(0, 5, kWidth, 34)];
+    searchBar.delegate = self;
+    [searchBar searchDataByArray:nil];//传入所有数据数组，方便搜索时比较
+    [search addSubview:searchBar];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
--(UIColor *) colorWithHexString: (NSString *)color
-{
-    NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
-    // String should be 6 or 8 characters
-    if ([cString length] <6) {
-        return [UIColor clearColor];
-     }
-    // strip 0X if it appears
-    if ([cString hasPrefix:@"0X"])
-        cString = [cString substringFromIndex:2];
-    if ([cString hasPrefix:@"#"])
-        cString = [cString substringFromIndex:1];
-    if ([cString length] !=6)
-        return [UIColor clearColor];
-    // Separate into r, g, b substrings
-    NSRange range;
-    range.location =0;
-    range.length =2;
-    //r
-    NSString *rString = [cString substringWithRange:range];
-    //g
-    range.location =2;
-    NSString *gString = [cString substringWithRange:range];
-    //b
-    range.location =4;
-    NSString *bString = [cString substringWithRange:range];
-    // Scan values
-    unsigned int r, g, b;
-    [[NSScanner scannerWithString:rString] scanHexInt:&r];
-    [[NSScanner scannerWithString:gString] scanHexInt:&g];
-    [[NSScanner scannerWithString:bString] scanHexInt:&b];
-    return [UIColor colorWithRed:((float) r /255.0f) green:((float) g /255.0f) blue:((float) b /255.0f) alpha:1.0f];
 
-}
 #pragma mark - TQTableViewDataSource
 #pragma mark -- 一级cell的个数
 - (NSInteger)numberOfSectionsInTableView:(TQMultistageTableView *)tableView
@@ -252,5 +226,9 @@
     }
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"tel://%@",phoneNumber]];
     [petPhoneWebView loadRequest:[NSURLRequest requestWithURL:url]];
+}
+/////////////////////////////////////////PetSearchBarDelegate////////////////////////////////////
+- (void)reloadTableViewBySearchResult:(NSArray *)searchResultArray{
+    //根据搜索结果刷新tableview
 }
 @end

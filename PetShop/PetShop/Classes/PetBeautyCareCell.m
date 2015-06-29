@@ -33,14 +33,15 @@
         _beautyCareLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 55, 120, 15)];
         _beautyCareLabel.text = @"北京多美宠物美容";
         _beautyCareLabel.textColor = [UIColor whiteColor];
-        _beautyCareLabel.backgroundColor = [UIColor grayColor];
+        _beautyCareLabel.backgroundColor = [UIColor colorWithRed:179/255.0 green:179/255.0 blue:179/255.0 alpha:1.0];
         _beautyCareLabel.font = [UIFont systemFontOfSize:11];
         [self addSubview:_beautyCareLabel];
+        
         //认证
         _authentitationLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 70, 120, 15)];
         _authentitationLabel.text = @"CKU资格认证";
         _authentitationLabel.textColor = [UIColor whiteColor];
-        _authentitationLabel.backgroundColor = [UIColor redColor];
+        _authentitationLabel.backgroundColor = [UIColor colorWithRed:228/255.0 green:37/255.0 blue:101/255.0 alpha:1.0];
         _authentitationLabel.font = [UIFont systemFontOfSize:11];
         [self addSubview:_authentitationLabel];
         

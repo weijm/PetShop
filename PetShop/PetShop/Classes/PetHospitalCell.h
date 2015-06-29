@@ -24,7 +24,7 @@
 @property (nonatomic,retain) UILabel     *diagnosisLabel;      //诊断和鲜花
 
 @property (nonatomic,retain) UIButton    *phoneButton;         //呼叫
-@property (nonatomic) NSInteger    starNumber;          //星级
+@property (nonatomic) NSInteger    starNumber;                 //星级
 @property (nonatomic,retain) NSString    *phoneNumber;         //号码
 @property (nonatomic,retain) NSString     *flowerNumber;       //鲜花数量
 @property (nonatomic,retain) NSString     *diagnosisNumber;    //诊断数量

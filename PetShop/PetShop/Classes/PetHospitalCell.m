@@ -51,6 +51,7 @@
         
         
         //医院
+        
         NSString *hosStrig = @"内科，北京第一宠物医院";
         NSDictionary *dicHos = @{NSBackgroundColorAttributeName:[UIColor colorWithRed:234/255.0 green:234/255.0 blue:234/255.0 alpha:1.0]};
         
@@ -58,7 +59,6 @@
         _hospitalLabel.attributedText = [[NSAttributedString alloc] initWithString:hosStrig attributes:dicHos];
         _hospitalLabel.font = [UIFont systemFontOfSize:11];
         [self addSubview:_hospitalLabel];
-        
         
         _phoneNumber = @"10086";
         
