@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AreaPickerView">
+            <connections>
+                <outlet property="locationPicker" destination="deQ-Cz-wQ0" id="Eij-fX-PCP"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="399" height="282"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dgj-sd-44I" userLabel="headerbg">
+                    <rect key="frame" x="0.0" y="0.0" width="399" height="40"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="njO-yc-Nmw"/>
+                    </constraints>
+                </view>
+                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="deQ-Cz-wQ0" userLabel="areaPicker">
+                    <rect key="frame" x="0.0" y="53" width="399" height="216"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="yIk-1h-8F7"/>
+                        <outlet property="delegate" destination="-1" id="544-zm-Ijv"/>
+                    </connections>
+                </pickerView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="deQ-Cz-wQ0" secondAttribute="bottom" id="2wM-GF-zJv"/>
+                <constraint firstItem="deQ-Cz-wQ0" firstAttribute="top" secondItem="dgj-sd-44I" secondAttribute="bottom" id="Vl4-i2-nFd"/>
+                <constraint firstItem="dgj-sd-44I" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="bvb-d7-ApT"/>
+                <constraint firstAttribute="trailing" secondItem="deQ-Cz-wQ0" secondAttribute="trailing" id="h6F-1q-PIF"/>
+                <constraint firstItem="dgj-sd-44I" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="keW-4o-pW9"/>
+                <constraint firstItem="deQ-Cz-wQ0" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mRw-Jt-MaB"/>
+                <constraint firstAttribute="trailing" secondItem="dgj-sd-44I" secondAttribute="trailing" id="zXb-7w-oiI"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="313.5" y="382"/>
+        </view>
+    </objects>
+</document>

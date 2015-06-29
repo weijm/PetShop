@@ -59,4 +59,5 @@
  */
 +(CGPoint)myCGPoint:(float)x AndY:(float)y;
 +(CGFloat)myYOrHeight:(float)var;
++(CGFloat)myXOrWidth:(float)var;
 @end

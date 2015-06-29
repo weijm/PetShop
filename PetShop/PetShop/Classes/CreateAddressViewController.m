@@ -8,11 +8,15 @@
 
 #import "CreateAddressViewController.h"
 #import "CreateAddressTableViewCell.h"
+#import "OrderAddress.h"
 
 #define FOOTERTAG 10
-#define FOOTERHEIGHT 50
+#define FOOTERHEIGHT [Util myYOrHeight:50]
 
 @interface CreateAddressViewController ()
+{
+    NSMutableDictionary *contentDictionary;  //编辑的内容
+}
 
 @end
 
@@ -33,6 +37,9 @@
     self.navigationItem.rightBarButtonItem = rightItem;
     //去掉tableView的分割线
     dataTableView.separatorColor = [UIColor clearColor];
+    
+    //编辑的内容
+    contentDictionary = [[NSMutableDictionary alloc] init];
 
 }
 
@@ -59,19 +66,28 @@
 {
     CreateAddressTableViewCell *tcell= [[[NSBundle mainBundle] loadNibNamed:@"CreateAddressTableViewCell" owner:nil options:nil] lastObject];
     tcell.tag = indexPath.row;
+    [tcell loadsubView];
+    tcell.finishedThisCell = ^(NSString *string,NSInteger index)
+    {
+        [self operateTextFieldContent:string index:index];
+    };
 
     UITableViewCell *cell = tcell;
+    cell.selectionStyle  = UITableViewCellSelectionStyleNone;
     return cell;
 }
 -(UIView*)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
+    float fWidth = [Util myXOrWidth:150];
+    float fheight = [Util myYOrHeight:40];
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, FOOTERHEIGHT)];
     footerView.tag = FOOTERTAG;
-    UIButton *saveBt = [[UIButton alloc] initWithFrame:CGRectMake((kWidth-150)/2, FOOTERHEIGHT-40, 150, 40)];
+    UIButton *saveBt = [[UIButton alloc] initWithFrame:CGRectMake((kWidth-fWidth)/2, FOOTERHEIGHT-fheight, fWidth, fheight)];
     [saveBt setTitle:@"保存并使用" forState:UIControlStateNormal];
     [saveBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    saveBt.backgroundColor = kNavigationBgColor;
+    [saveBt setBackgroundImage:[UIImage imageNamed:@"homepage_suppbuy_bt.png"] forState:UIControlStateNormal];
     [saveBt addTarget:self action:@selector(saveData) forControlEvents:UIControlEventTouchUpInside];
+    saveBt.layer.cornerRadius = 2.0;
     [footerView addSubview:saveBt];
     return footerView;
 }
@@ -79,9 +95,46 @@
 {
     return FOOTERHEIGHT;
 }
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 4) {
+        return [Util myYOrHeight:65];
+    }
+    return [Util myYOrHeight:45];
+}
 #pragma mark - 保存地址
 -(void)saveData
 {
+    NSLog(@"content dictionary == %@",contentDictionary);
+}
+#pragma mark - 将编辑的内容暂时放入dictionary中
+-(void)operateTextFieldContent:(NSString *)string index:(NSInteger)index
+{
+    if ([string length]==0) {
+        return;
+    }
+    NSString *keyString = @"personalName";
+    switch (index) {
+        case 0:
+            keyString = @"personalName";
+            break;
+        case 1:
+            keyString = @"phone";
+            break;
+        case 2:
+            keyString = @"area";
+            break;
+        case 3:
+            keyString = @"address";
+            break;
+        case 4:
+            keyString = @"isDeault";
+            break;
+        default:
+            break;
+    }
+    
+    [contentDictionary setObject:string forKey:keyString];
     
 }
 @end

@@ -160,4 +160,11 @@
     float newVar = var *var1;
     return newVar;
 }
++(CGFloat)myXOrWidth:(float)var
+{
+    float var1 = autoSizeScaleX;
+    float newVar = var *var1;
+    return newVar;
+}
+
 @end
