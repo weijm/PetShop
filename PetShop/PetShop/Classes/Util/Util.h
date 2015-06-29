@@ -59,4 +59,11 @@
  */
 +(CGPoint)myCGPoint:(float)x AndY:(float)y;
 +(CGFloat)myYOrHeight:(float)var;
+
+/*
+ 十六进制色值转换RGB值
+例如： 输入@“EEEEEF”输出238，238，239
+ */
++(UIColor *) colorWithHexString: (NSString *)color;
+
 @end

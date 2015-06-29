@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "TQMultistageTableView.h"
 #import "PetHospitalCell.h"
-@interface PetHospitalViewController : UIViewController<TQTableViewDataSource,TQTableViewDelegate,PetHospitalCellDelegate>
+#import "PetSearchBar.h"
+
+@interface PetHospitalViewController : UIViewController<TQTableViewDataSource,TQTableViewDelegate,PetHospitalCellDelegate,PetSearchBarDelegate>
 
 @property (nonatomic,retain) TQMultistageTableView *PHospitalTableView;
-- (UIColor *) colorWithHexString: (NSString *)color;
+
 @end

@@ -44,7 +44,7 @@
         </view>
     </objects>
     <resources>
-        <image name="petBeauty_star.png" width="23" height="20"/>
-        <image name="petBeauty_star_hide.png" width="23" height="20"/>
+        <image name="petBeauty_star.png" width="11" height="10"/>
+        <image name="petBeauty_star_hide.png" width="11" height="10"/>
     </resources>
 </document>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PetSearchBar">
+            <connections>
+                <outlet property="SearchBtn" destination="DDV-Z4-Jev" id="DJU-e8-m3a"/>
+                <outlet property="searchTextField" destination="OW9-y4-GOW" id="Tux-aE-NCq"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="317" height="34"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pet_searchBar.png" translatesAutoresizingMaskIntoConstraints="NO" id="8cB-5J-7u4">
+                    <rect key="frame" x="20" y="2" width="277" height="30"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDV-Z4-Jev">
+                    <rect key="frame" x="240" y="2" width="47" height="30"/>
+                    <state key="normal" title="搜病症">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="searchAction:" destination="-1" eventType="touchUpInside" id="u8Y-fQ-yZx"/>
+                    </connections>
+                </button>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入搜索关键字" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OW9-y4-GOW">
+                    <rect key="frame" x="26" y="2" width="206" height="30"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="OW9-y4-GOW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="26" id="3hD-aa-rsM"/>
+                <constraint firstItem="OW9-y4-GOW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="Ehv-pf-0Re"/>
+                <constraint firstAttribute="trailing" secondItem="8cB-5J-7u4" secondAttribute="trailing" constant="20" id="Gyh-Us-yUm"/>
+                <constraint firstItem="8cB-5J-7u4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="fAM-fK-1tc"/>
+                <constraint firstAttribute="bottom" secondItem="DDV-Z4-Jev" secondAttribute="bottom" constant="2" id="h3m-5p-xGx"/>
+                <constraint firstAttribute="bottom" secondItem="OW9-y4-GOW" secondAttribute="bottom" constant="2" id="hx8-cO-75V"/>
+                <constraint firstItem="8cB-5J-7u4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="kqS-F3-PU8"/>
+                <constraint firstItem="DDV-Z4-Jev" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="2" id="pBP-uL-oP9"/>
+                <constraint firstAttribute="bottom" secondItem="8cB-5J-7u4" secondAttribute="bottom" constant="2" id="rj5-cx-NrO"/>
+                <constraint firstAttribute="trailing" secondItem="OW9-y4-GOW" secondAttribute="trailing" constant="85" id="rrS-YL-j2v"/>
+                <constraint firstAttribute="trailing" secondItem="DDV-Z4-Jev" secondAttribute="trailing" constant="30" id="tkA-Xe-K3W"/>
+                <constraint firstItem="DDV-Z4-Jev" firstAttribute="leading" secondItem="OW9-y4-GOW" secondAttribute="trailing" constant="8" id="u62-if-QqW"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="731.5" y="466"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="pet_searchBar.png" width="277" height="26"/>
+    </resources>
+</document>
