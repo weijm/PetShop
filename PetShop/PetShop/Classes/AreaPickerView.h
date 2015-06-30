@@ -20,6 +20,7 @@ typedef enum {
 @optional
 -(void)pickerDidChangeStatus:(AreaPickerView*)picker;
 
+
 @end
 
 @interface AreaPickerView : UIView<UIPickerViewDataSource,UIPickerViewDelegate>
@@ -28,12 +29,15 @@ typedef enum {
 @property (strong, nonatomic) IBOutlet UIPickerView *locationPicker;
 @property (strong,nonatomic) Location *locate;
 @property (nonatomic) AreaPickerStyle pickerStyle;
+@property (nonatomic,copy) void(^finishedThisCell)(NSString *string,NSInteger index,AreaPickerView *pickView);
 
--(id)initWithFrame:(CGRect)frame withStyle:(AreaPickerStyle)pStyle;
+- (id)initWithStyle:(AreaPickerStyle)pickStyle delegate:(id<AreaPickerViewDelegate>)delegate;
 
 -(void)showInView:(UIView*)view;
 
 -(void)cancelPicker;
 
+- (IBAction)cancel:(id)sender;
+- (IBAction)finished:(id)sender;
 
 @end

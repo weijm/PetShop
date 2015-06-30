@@ -15,6 +15,7 @@
     contentTextFiled.delegate = self;
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeKey)];
     [self addGestureRecognizer:tap];
+    [contentTextFiled resignFirstResponder];
     
 }
 
@@ -23,16 +24,18 @@
 
     // Configure the view for the selected state
 }
--(void)loadsubView
+-(void)loadsubView:(NSMutableDictionary*)dictionary
 {
     NSInteger tag = self.tag;
     switch (tag) {
         case 0:
             titleLab.text = @"收货人：";
+            contentTextFiled.text = [dictionary objectForKey:@"personalName"];
             break;
         case 1:
             titleLab.text = @"联系方式：";
             contentTextFiled.keyboardType = UIKeyboardTypeNumberPad;
+            contentTextFiled.text = [dictionary objectForKey:@"phone"];
             break;
         case 2:
         {
@@ -40,6 +43,7 @@
             arrowView.hidden =NO;
             //textField 不可点击
             contentTextFiled.enabled = NO;
+            contentTextFiled.text = [dictionary objectForKey:@"area"];
             
             UIButton *bt = [[UIButton alloc] initWithFrame:self.contentView.frame];
             [bt addTarget:self action:@selector(areaPicker) forControlEvents:UIControlEventTouchUpInside];
@@ -48,6 +52,7 @@
             break;
         case 3:
             titleLab.text = @"详细地址：";
+            contentTextFiled.text = [dictionary objectForKey:@"address"];
             break;
         case 4:
             titleLab.hidden = YES;
@@ -55,6 +60,7 @@
             arrowView.hidden = YES;
             defaultBg.hidden = NO;
             openSwitch.hidden = NO;
+            openSwitch.on = [[dictionary objectForKey:@"isDeault"] intValue];
             break;
         default:
             break;
@@ -63,7 +69,6 @@
 
 - (IBAction)setDefault:(id)sender {
     UISwitch *oSwitch = (UISwitch*)sender;
-    NSLog(@"open == %d",oSwitch.on);
     NSString *openString = [NSString stringWithFormat:@"%d",oSwitch.on];
     self.finishedThisCell(openString,self.tag);
 }
@@ -71,7 +76,6 @@
 
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
-    NSLog(@"textFieldDidEndEditing");
     if ([textField.text length]!=0) {
         self.finishedThisCell(textField.text,self.tag);
     }
@@ -85,7 +89,9 @@
 #pragma mark -选择地区
 -(void)areaPicker
 {
-    NSLog(@"areaPicker");
+    if ([_delegate respondsToSelector:@selector(chooseAddressInfo)]) {
+        [_delegate chooseAddressInfo];
+    }
 }
 #pragma mark - 取消键盘
 -(void)removeKey

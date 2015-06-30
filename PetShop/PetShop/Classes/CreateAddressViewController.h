@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface CreateAddressViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+#import "CreateAddressTableViewCell.h"
+#import "AreaPickerView.h"
+@interface CreateAddressViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,CreateAddressTableViewCellDelegate,AreaPickerViewDelegate>
 {
     
     IBOutlet UITableView *dataTableView;

@@ -31,7 +31,7 @@
     
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
     [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-        BOOL isSuccess = [db executeUpdate:@"insert into OrderAddress (personalName,phone,area,address,isDeault,userId) values(?,?,?,?,?,?)",[dictionary objectForKey:PERSONALNAME],[dictionary objectForKey:PHONE],[dictionary objectForKey:AREA],[dictionary objectForKey:ADDRESS],[dictionary objectForKey:ISDEFAULT],[dictionary objectForKey:USERID]];
+        BOOL isSuccess = [db executeUpdate:@"insert into OrderAddress (personalName,phone,area,address,isDefault,userId) values(?,?,?,?,?,?)",[dictionary objectForKey:PERSONALNAME],[dictionary objectForKey:PHONE],[dictionary objectForKey:AREA],[dictionary objectForKey:ADDRESS],[dictionary objectForKey:ISDEFAULT],[dictionary objectForKey:USERID]];
         if (!isSuccess) {
             NSLog(@"插入失败");
             *rollback = YES;
@@ -53,7 +53,7 @@
     
     FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
     [queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
-        BOOL isSuccess = [db executeUpdate:@"update OrderAddress set personalName=?,phone=?,area=?,address=?,isDeault=? where id =?",[dictionary objectForKey:PERSONALNAME],[dictionary objectForKey:PHONE],[dictionary objectForKey:AREA],[dictionary objectForKey:ADDRESS],[dictionary objectForKey:ISDEFAULT],[dictionary objectForKey:ORDERID]];
+        BOOL isSuccess = [db executeUpdate:@"update OrderAddress set personalName=?,phone=?,area=?,address=?,isDefault=? where id =?",[dictionary objectForKey:PERSONALNAME],[dictionary objectForKey:PHONE],[dictionary objectForKey:AREA],[dictionary objectForKey:ADDRESS],[dictionary objectForKey:ISDEFAULT],[dictionary objectForKey:ORDERID]];
         if (!isSuccess) {
             NSLog(@"插入失败");
             *rollback = YES;

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@protocol CreateAddressTableViewCellDelegate<NSObject>
+-(void)chooseAddressInfo;
+@end
 @interface CreateAddressTableViewCell : UITableViewCell<UITextFieldDelegate>
 {
     //标题
@@ -23,7 +25,8 @@
 }
 //编辑信息的处理
 @property (nonatomic,copy) void(^finishedThisCell)(NSString *string,NSInteger index);
+@property (nonatomic,weak) id<CreateAddressTableViewCellDelegate> delegate;
 //按要求加载cell
--(void)loadsubView;
+-(void)loadsubView:(NSMutableDictionary*)dictionary;
 - (IBAction)setDefault:(id)sender;
 @end

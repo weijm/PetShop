@@ -20,44 +20,41 @@
     }
     return _locate;
 }
-
--(id)initWithFrame:(CGRect)frame withStyle:(AreaPickerStyle)pStyle
+- (id)initWithStyle:(AreaPickerStyle)pickStyle delegate:(id<AreaPickerViewDelegate>)delegate
 {
-    self = [super initWithFrame:frame];
+    self = [[[NSBundle mainBundle] loadNibNamed:@"AreaPickerView" owner:self options:nil] objectAtIndex:0];
     if (self) {
-        UIView *containerView = [[[UINib nibWithNibName:@"AreaPickerView" bundle:nil] instantiateWithOwner:self options:nil] objectAtIndex:0];
-        CGRect newFrame = CGRectMake(0, 0, self.frame.size.width, self.frame.size.height);
-        containerView.frame = newFrame;
-        [self addSubview:containerView];
+        self.delegate = delegate;
+        self.pickerStyle = pickStyle;
         
-        self.pickerStyle = pStyle;
         //加载数据
         if (self.pickerStyle == AreaPickerWithStateAndCityAndDistrict) {
-            provinces = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"area" ofType:@"plist"]];
+            provinces = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"area.plist" ofType:nil]];
             cities = [[provinces objectAtIndex:0] objectForKey:@"cities"];
-            _locate.state = [[provinces objectAtIndex:0] objectForKey:@"state"];
-            _locate.city = [[cities objectAtIndex:0] objectForKey:@"city"];
+            
+            self.locate.state = [[provinces objectAtIndex:0] objectForKey:@"state"];
+            self.locate.city = [[cities objectAtIndex:0] objectForKey:@"city"];
             
             areas = [[cities objectAtIndex:0] objectForKey:@"areas"];
-            if (areas.count>0) {
-                _locate.district = [areas objectAtIndex:0];
-            }else
-            {
-                _locate.district = @"";
-           
+            if (areas.count > 0) {
+                self.locate.district = [areas objectAtIndex:0];
+            } else{
+                self.locate.district = @"";
             }
-        }else
-        {
-            provinces = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"city" ofType:@"plist"]];
-            cities = [[provinces objectAtIndex:0] objectForKey:@"cities"];
-            _locate.state = [[provinces objectAtIndex:0] objectForKey:@"state"];
-            _locate.city = [cities objectAtIndex:0];
             
-       
+        } else{
+            provinces = [[NSArray alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"city.plist" ofType:nil]];
+            cities = [[provinces objectAtIndex:0] objectForKey:@"cities"];
+            self.locate.state = [[provinces objectAtIndex:0] objectForKey:@"state"];
+            self.locate.city = [cities objectAtIndex:0];
         }
     }
+    
     return self;
+    
 }
+
+
 #pragma mark - PickerViewDelegate
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
@@ -76,10 +73,9 @@
             break;
         case 1:
             return [cities count];
-            
             break;
         case 2:
-            if (_pickerStyle == AreaPickerWithStateAndCityAndDistrict) {
+            if (self.pickerStyle == AreaPickerWithStateAndCityAndDistrict) {
                 return [areas count];
                 break;
             }
@@ -87,30 +83,28 @@
             return 0;
             break;
     }
+
 }
 -(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if (_pickerStyle == AreaPickerWithStateAndCityAndDistrict) {
+    if (self.pickerStyle == AreaPickerWithStateAndCityAndDistrict) {
         switch (component) {
             case 0:
                 return [[provinces objectAtIndex:row] objectForKey:@"state"];
                 break;
             case 1:
                 return [[cities objectAtIndex:row] objectForKey:@"city"];
-                
                 break;
             case 2:
-                if ([areas count]>0) {
+                if ([areas count] > 0) {
                     return [areas objectAtIndex:row];
                     break;
                 }
-                
             default:
-                return @"";
+                return  @"";
                 break;
         }
-    }else
-    {
+    } else{
         switch (component) {
             case 0:
                 return [[provinces objectAtIndex:row] objectForKey:@"state"];
@@ -122,104 +116,128 @@
                 return @"";
                 break;
         }
-   
     }
 }
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    if (_pickerStyle == AreaPickerWithStateAndCityAndDistrict) {
+    if (self.pickerStyle == AreaPickerWithStateAndCityAndDistrict) {
         switch (component) {
             case 0:
                 cities = [[provinces objectAtIndex:row] objectForKey:@"cities"];
-                [_locationPicker selectRow:0 inComponent:1 animated:YES];
-                [_locationPicker reloadComponent:1];
+                [self.locationPicker selectRow:0 inComponent:1 animated:YES];
+                [self.locationPicker reloadComponent:1];
                 
                 areas = [[cities objectAtIndex:0] objectForKey:@"areas"];
-                [_locationPicker selectRow:0 inComponent:2 animated:YES];
-                [_locationPicker reloadComponent:2];
+                [self.locationPicker selectRow:0 inComponent:2 animated:YES];
+                [self.locationPicker reloadComponent:2];
                 
-                _locate.state = [[provinces objectAtIndex:row] objectForKey:@"state"];
-                
-                _locate.city = [[cities objectAtIndex:row] objectForKey:@"city"];
-                if ([areas count]>0) {
-                    _locate.district = [areas objectAtIndex:row];
-                }else
-                {
-                    _locate.district = @"";
+                self.locate.state = [[provinces objectAtIndex:row] objectForKey:@"state"];
+                self.locate.city = [[cities objectAtIndex:0] objectForKey:@"city"];
+                if ([areas count] > 0) {
+                    self.locate.district = [areas objectAtIndex:0];
+                } else{
+                    self.locate.district = @"";
                 }
                 break;
             case 1:
                 areas = [[cities objectAtIndex:row] objectForKey:@"areas"];
-                [_locationPicker selectRow:0 inComponent:2 animated:YES];
-                [_locationPicker reloadComponent:2];
-                _locate.city = [[cities objectAtIndex:row]objectForKey:@"city"];
-                if (areas.count>0) {
-                    _locate.district = [areas objectAtIndex:0];
-                }else
-                {
-                    _locate.district = @"";
-               
-                }
+                [self.locationPicker selectRow:0 inComponent:2 animated:YES];
+                [self.locationPicker reloadComponent:2];
                 
+                self.locate.city = [[cities objectAtIndex:row] objectForKey:@"city"];
+                if ([areas count] > 0) {
+                    self.locate.district = [areas objectAtIndex:0];
+                } else{
+                    self.locate.district = @"";
+                }
                 break;
             case 2:
-                if (areas.count>0) {
-                    _locate.district = [areas objectAtIndex:row];
-                }else
-                {
-                    _locate.district = @"";
-               
+                if ([areas count] > 0) {
+                    self.locate.district = [areas objectAtIndex:row];
+                } else{
+                    self.locate.district = @"";
                 }
                 break;
-                
             default:
                 break;
         }
-    }else
-    {
+    } else{
         switch (component) {
             case 0:
                 cities = [[provinces objectAtIndex:row] objectForKey:@"cities"];
-                [_locationPicker selectRow:0 inComponent:1 animated:YES];
-                [_locationPicker reloadComponent:1];
+                [self.locationPicker selectRow:0 inComponent:1 animated:YES];
+                [self.locationPicker reloadComponent:1];
                 
-                _locate.state = [[provinces objectAtIndex:row] objectForKey:@"state"];
-                _locate.city = [cities objectAtIndex:0];
+                self.locate.state = [[provinces objectAtIndex:row] objectForKey:@"state"];
+                self.locate.city = [cities objectAtIndex:0];
                 break;
             case 1:
-                _locate.city = [cities objectAtIndex:row];
-                
+                self.locate.city = [cities objectAtIndex:row];
                 break;
-                
             default:
                 break;
         }
     }
     
-    if ([_delegate respondsToSelector:@selector(pickerDidChangeStatus:)]) {
-        [_delegate pickerDidChangeStatus:self];
+    if([self.delegate respondsToSelector:@selector(pickerDidChangeStatus:)]) {
+        [self.delegate pickerDidChangeStatus:self];
     }
 }
 #pragma mark - animation
 -(void)showInView:(UIView *)view
 {
-    self.frame = CGRectMake(0, view.frame.size.height, self.frame.size.width, self.frame.size.height);
+    UIView *areaBg = [[UIView alloc] initWithFrame:view.frame];
+    areaBg.backgroundColor = [UIColor clearColor];
+    areaBg.tag = 250;
+    [view addSubview:areaBg];
+    
+    UIView *alphBg = [[UIView alloc] initWithFrame:view.frame];
+    alphBg.backgroundColor = [UIColor grayColor];
+    alphBg.alpha = 0;
+    [areaBg addSubview:alphBg];
+    
+    float height = [Util myYOrHeight:216];
+    self.frame = CGRectMake(0, view.frame.size.height, kWidth, height);
     [view addSubview:self];
     
     [UIView animateWithDuration:0.3 animations:^{
+        
+        alphBg.alpha = 0.8;
         CGRect frame = self.frame;
         frame.origin.y = view.frame.size.height-self.frame.size.height;
         self.frame = frame;
+        
             }];
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelPicker)];
+    [areaBg addGestureRecognizer:tap];
 }
 -(void)cancelPicker
 {
+    UIView *supView = [self superview];
+    UIView *areaBg = [supView viewWithTag:250];
+    float height = [Util myYOrHeight:216];
     [UIView animateWithDuration:0.3 animations:^{
+        areaBg.alpha = 0;
         CGRect frame = self.frame;
-        frame.origin.y = frame.origin.y+frame.size.height;
+        frame.origin.y = frame.origin.y+height;
         self.frame = frame;
     } completion:^(BOOL finished){
+        [areaBg removeFromSuperview];
         [self removeFromSuperview];
     }];
+}
+
+- (IBAction)cancel:(id)sender {
+    NSLog(@"cancel");
+    [self cancelPicker];
+}
+
+- (IBAction)finished:(id)sender {
+    NSLog(@"finished");
+    NSString *string = [NSString stringWithFormat:@"%@%@%@",_locate.state,_locate.city,_locate.district];
+    NSLog(@"string == %@",string);
+    self.finishedThisCell(string,2,self);
+    
 }
 @end

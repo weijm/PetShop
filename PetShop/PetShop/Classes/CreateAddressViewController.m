@@ -7,7 +7,7 @@
 //
 
 #import "CreateAddressViewController.h"
-#import "CreateAddressTableViewCell.h"
+#import "MakeSureOrderViewController.h"
 #import "OrderAddress.h"
 
 #define FOOTERTAG 10
@@ -45,7 +45,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - 删除事件
@@ -66,11 +65,12 @@
 {
     CreateAddressTableViewCell *tcell= [[[NSBundle mainBundle] loadNibNamed:@"CreateAddressTableViewCell" owner:nil options:nil] lastObject];
     tcell.tag = indexPath.row;
-    [tcell loadsubView];
+    [tcell loadsubView:contentDictionary];
     tcell.finishedThisCell = ^(NSString *string,NSInteger index)
     {
         [self operateTextFieldContent:string index:index];
     };
+    tcell.delegate = self;
 
     UITableViewCell *cell = tcell;
     cell.selectionStyle  = UITableViewCellSelectionStyleNone;
@@ -105,7 +105,11 @@
 #pragma mark - 保存地址
 -(void)saveData
 {
-    NSLog(@"content dictionary == %@",contentDictionary);
+    //保存到数据库中
+    [contentDictionary setObject:@"1" forKey:@"userId"];
+    [[OrderAddress sharedInstance] insertData:contentDictionary];
+    //返回到订单页面
+    
 }
 #pragma mark - 将编辑的内容暂时放入dictionary中
 -(void)operateTextFieldContent:(NSString *)string index:(NSInteger)index
@@ -113,28 +117,41 @@
     if ([string length]==0) {
         return;
     }
-    NSString *keyString = @"personalName";
+    NSString *keyString = PERSONALNAME;
     switch (index) {
         case 0:
-            keyString = @"personalName";
+            keyString = PERSONALNAME;
             break;
         case 1:
-            keyString = @"phone";
+            keyString = PHONE;
             break;
         case 2:
-            keyString = @"area";
+            keyString = AREA;
             break;
         case 3:
-            keyString = @"address";
+            keyString = ADDRESS;
             break;
         case 4:
-            keyString = @"isDeault";
+            keyString = ISDEFAULT;
             break;
         default:
             break;
     }
-    
     [contentDictionary setObject:string forKey:keyString];
     
+}
+#pragma mark - CreateAddressTableViewCellDelegate
+-(void)chooseAddressInfo
+{
+    [dataTableView reloadData];
+    
+    AreaPickerView *pickerView = [[AreaPickerView alloc] initWithStyle:AreaPickerWithStateAndCityAndDistrict delegate:self];
+    [pickerView showInView:self.view];
+    pickerView.finishedThisCell = ^(NSString *string,NSInteger index,AreaPickerView *pickView){
+        [self operateTextFieldContent:string index:index];
+        [pickView cancelPicker];
+        [dataTableView reloadData];
+    };
+
 }
 @end

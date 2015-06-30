@@ -101,6 +101,8 @@
 		077D24591B2FF6FE00B8AD84 /* FMDatabaseQueue.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D24521B2FF6FE00B8AD84 /* FMDatabaseQueue.m */; };
 		077D245A1B2FF6FE00B8AD84 /* FMResultSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 077D24551B2FF6FE00B8AD84 /* FMResultSet.m */; };
 		077D245C1B2FF80900B8AD84 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 077D245B1B2FF80900B8AD84 /* libsqlite3.0.dylib */; };
+		07A5E9831B426B5B00285A3C /* city.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07A5E9811B426B5B00285A3C /* city.plist */; };
+		07A5E9841B426B5B00285A3C /* area.plist in Resources */ = {isa = PBXBuildFile; fileRef = 07A5E9821B426B5B00285A3C /* area.plist */; };
 		07E161B41B3BA4350022677E /* ReadyBuyView.m in Sources */ = {isa = PBXBuildFile; fileRef = 07E161B31B3BA4350022677E /* ReadyBuyView.m */; };
 		07E161B61B3BA4410022677E /* ReadyBuyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 07E161B51B3BA4410022677E /* ReadyBuyView.xib */; };
 		07E161B91B3BAD970022677E /* homepage_supp_closeBt@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 07E161B71B3BAD970022677E /* homepage_supp_closeBt@2x.png */; };
@@ -300,6 +302,8 @@
 		077D24541B2FF6FE00B8AD84 /* FMResultSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FMResultSet.h; sourceTree = "<group>"; };
 		077D24551B2FF6FE00B8AD84 /* FMResultSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FMResultSet.m; sourceTree = "<group>"; };
 		077D245B1B2FF80900B8AD84 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		07A5E9811B426B5B00285A3C /* city.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = city.plist; sourceTree = "<group>"; };
+		07A5E9821B426B5B00285A3C /* area.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = area.plist; sourceTree = "<group>"; };
 		07E161B21B3BA4350022677E /* ReadyBuyView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReadyBuyView.h; sourceTree = "<group>"; };
 		07E161B31B3BA4350022677E /* ReadyBuyView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReadyBuyView.m; sourceTree = "<group>"; };
 		07E161B51B3BA4410022677E /* ReadyBuyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ReadyBuyView.xib; sourceTree = "<group>"; };
@@ -509,6 +513,7 @@
 		0727EA5E1B27D883005D330C /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				07A5E9801B426B4800285A3C /* setting */,
 				3B2EF2701B3C044000C069CF /* PetBeautyImage */,
 				076A4D991B311465002F51DA /* db */,
 				070264C21B2935F9003BDCB5 /* Homepage */,
@@ -814,6 +819,15 @@
 			name = Framework;
 			sourceTree = "<group>";
 		};
+		07A5E9801B426B4800285A3C /* setting */ = {
+			isa = PBXGroup;
+			children = (
+				07A5E9811B426B5B00285A3C /* city.plist */,
+				07A5E9821B426B5B00285A3C /* area.plist */,
+			);
+			path = setting;
+			sourceTree = "<group>";
+		};
 		3B1184121B3CE82C00F0C0D0 /* PetHospital */ = {
 			isa = PBXGroup;
 			children = (
@@ -1016,6 +1030,7 @@
 				070264C51B293603003BDCB5 /* homepage_list_btn@2x.png in Resources */,
 				F9985D7D1B2AD41300371B33 /* homepage_supplies_bt@3x.png in Resources */,
 				076EF0EC1B3AAFAD00438018 /* homepage_suppbuy_bt@2x.png in Resources */,
+				07A5E9841B426B5B00285A3C /* area.plist in Resources */,
 				076EF0F11B3AAFB500438018 /* homepage_suppreadybuy_bt@3x.png in Resources */,
 				0727EAB51B282622005D330C /* integral_icon@3x.png in Resources */,
 				076EF0E11B3A979200438018 /* homepage_suppinfo_icon3@2x.png in Resources */,
@@ -1023,6 +1038,7 @@
 				F9985D731B2AD41300371B33 /* homepage_grooming_bt@3x.png in Resources */,
 				F9985D791B2AD41300371B33 /* homepage_serve_bt@3x.png in Resources */,
 				F9985D751B2AD41300371B33 /* homepage_hospital_bt@3x.png in Resources */,
+				07A5E9831B426B5B00285A3C /* city.plist in Resources */,
 				076EF0F01B3AAFB500438018 /* homepage_suppreadybuy_bt@2x.png in Resources */,
 				F9985D5C1B2ACE7000371B33 /* homepage_shopcart@3x.png in Resources */,
 				0775DE081B3D257700293BB3 /* OrderTableViewCellS0R0.xib in Resources */,

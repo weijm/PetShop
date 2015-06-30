@@ -13,7 +13,7 @@
 #define PHONE @"phone"
 #define AREA @"area"
 #define ADDRESS @"address"
-#define ISDEFAULT @"isDeault"
+#define ISDEFAULT @"isDefault"
 #define USERID @"userId"  //关联user
 #define ORDERID @"id"
 @interface OrderAddress : NSObject
