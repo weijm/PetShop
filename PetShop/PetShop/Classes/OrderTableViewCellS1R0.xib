@@ -94,7 +94,11 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="contentLab" destination="aVd-uc-PLU" id="oQf-Wt-Wx7"/>
+                <outlet property="countLab" destination="a0n-7l-MUi" id="bp4-7Y-VVG"/>
                 <outlet property="pictureView" destination="y87-IM-FjX" id="fjb-20-FMU"/>
+                <outlet property="priceLab" destination="0DA-a1-HXc" id="jn4-23-HFi"/>
+                <outlet property="shopLab" destination="dqC-Iq-6Tb" id="Wus-Y5-vHa"/>
             </connections>
             <point key="canvasLocation" x="346" y="371"/>
         </tableViewCell>
