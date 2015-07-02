@@ -12,7 +12,7 @@
 #import "PetBeautyViewController.h"
 #import "SignViewController.h"
 #import "SuppliesViewController.h"
-
+#import "PetDoorServiceViewController.h"
 
 #define kSearchBarRect CGRectMake(50,22,(kWidth - 50*2),40)
 #define kSearchBarTag 100
@@ -151,7 +151,12 @@
             NSLog(@"团购55");
             break;
         case 6:
+        {
             NSLog(@"上门服务66");
+            PetDoorServiceViewController *doorSer = [[PetDoorServiceViewController alloc] init];
+            doorSer.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:doorSer animated:YES];
+        }
             break;
         case 7:
             NSLog(@"签到77");

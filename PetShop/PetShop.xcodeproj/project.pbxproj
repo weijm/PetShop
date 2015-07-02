@@ -122,6 +122,10 @@
 		3BE555EB1B3E7FBB0005E30C /* PetSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BE555EA1B3E7FBB0005E30C /* PetSearchBar.m */; };
 		3BE555EE1B3E93B90005E30C /* pet_searchBar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BE555EC1B3E93B90005E30C /* pet_searchBar@2x.png */; };
 		3BE555EF1B3E93B90005E30C /* pet_searchBar@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3BE555ED1B3E93B90005E30C /* pet_searchBar@3x.png */; };
+		3BF8FC751B437B8E00BEA7CC /* PetDoorServiceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF8FC731B437B8E00BEA7CC /* PetDoorServiceViewController.m */; };
+		3BF8FC761B437B8E00BEA7CC /* PetDoorServiceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BF8FC741B437B8E00BEA7CC /* PetDoorServiceViewController.xib */; };
+		3BF8FC7A1B4394F500BEA7CC /* PetDoorServiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3BF8FC781B4394F500BEA7CC /* PetDoorServiceTableViewCell.m */; };
+		3BF8FC7B1B4394F500BEA7CC /* PetDoorServiceTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3BF8FC791B4394F500BEA7CC /* PetDoorServiceTableViewCell.xib */; };
 		F9985D561B2ACC1600371B33 /* homepage_searchbg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9985D551B2ACC1600371B33 /* homepage_searchbg@2x.png */; };
 		F9985D581B2ACE3400371B33 /* homepage_searchbg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9985D571B2ACE3400371B33 /* homepage_searchbg@3x.png */; };
 		F9985D5B1B2ACE7000371B33 /* homepage_list_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = F9985D591B2ACE7000371B33 /* homepage_list_btn@3x.png */; };
@@ -316,6 +320,12 @@
 		3BE555EA1B3E7FBB0005E30C /* PetSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetSearchBar.m; sourceTree = "<group>"; };
 		3BE555EC1B3E93B90005E30C /* pet_searchBar@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pet_searchBar@2x.png"; sourceTree = "<group>"; };
 		3BE555ED1B3E93B90005E30C /* pet_searchBar@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pet_searchBar@3x.png"; sourceTree = "<group>"; };
+		3BF8FC721B437B8E00BEA7CC /* PetDoorServiceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetDoorServiceViewController.h; sourceTree = "<group>"; };
+		3BF8FC731B437B8E00BEA7CC /* PetDoorServiceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetDoorServiceViewController.m; sourceTree = "<group>"; };
+		3BF8FC741B437B8E00BEA7CC /* PetDoorServiceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetDoorServiceViewController.xib; sourceTree = "<group>"; };
+		3BF8FC771B4394F500BEA7CC /* PetDoorServiceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PetDoorServiceTableViewCell.h; sourceTree = "<group>"; };
+		3BF8FC781B4394F500BEA7CC /* PetDoorServiceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PetDoorServiceTableViewCell.m; sourceTree = "<group>"; };
+		3BF8FC791B4394F500BEA7CC /* PetDoorServiceTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PetDoorServiceTableViewCell.xib; sourceTree = "<group>"; };
 		F9985D551B2ACC1600371B33 /* homepage_searchbg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_searchbg@2x.png"; sourceTree = "<group>"; };
 		F9985D571B2ACE3400371B33 /* homepage_searchbg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_searchbg@3x.png"; sourceTree = "<group>"; };
 		F9985D591B2ACE7000371B33 /* homepage_list_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage_list_btn@3x.png"; sourceTree = "<group>"; };
@@ -799,9 +809,23 @@
 			name = PetBeautyImage;
 			sourceTree = "<group>";
 		};
+		3BF8FC711B437B5300BEA7CC /* PetDoorService */ = {
+			isa = PBXGroup;
+			children = (
+				3BF8FC721B437B8E00BEA7CC /* PetDoorServiceViewController.h */,
+				3BF8FC731B437B8E00BEA7CC /* PetDoorServiceViewController.m */,
+				3BF8FC741B437B8E00BEA7CC /* PetDoorServiceViewController.xib */,
+				3BF8FC771B4394F500BEA7CC /* PetDoorServiceTableViewCell.h */,
+				3BF8FC781B4394F500BEA7CC /* PetDoorServiceTableViewCell.m */,
+				3BF8FC791B4394F500BEA7CC /* PetDoorServiceTableViewCell.xib */,
+			);
+			path = PetDoorService;
+			sourceTree = "<group>";
+		};
 		FD2EB6A01B2DAF02007C5E38 /* HomePushViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3BF8FC711B437B5300BEA7CC /* PetDoorService */,
 				3B1184121B3CE82C00F0C0D0 /* PetHospital */,
 				3B2EF26C1B3C01CA00C069CF /* PetBeautyCare */,
 				076A4D9E1B315FFB002F51DA /* Supplies */,
@@ -894,6 +918,7 @@
 				07E161C61B3BD1A10022677E /* homepage_supp_reduceBt@3x.png in Resources */,
 				070264D01B293DAB003BDCB5 /* BannerView.xib in Resources */,
 				076EF0E21B3A979200438018 /* homepage_suppinfo_icon3@3x.png in Resources */,
+				3BF8FC761B437B8E00BEA7CC /* PetDoorServiceViewController.xib in Resources */,
 				3BE555EE1B3E93B90005E30C /* pet_searchBar@2x.png in Resources */,
 				076EF0C51B3A8DE000438018 /* homepage_supplies_collectbt@3x.png in Resources */,
 				0727EA681B27DB31005D330C /* CommunityViewController.xib in Resources */,
@@ -986,6 +1011,7 @@
 				0727EAB01B282622005D330C /* community_icon@2x.png in Resources */,
 				F9985D611B2AD0E100371B33 /* HomePageButtonView.xib in Resources */,
 				FD2EB6A51B2DAF31007C5E38 /* PetBeautyViewController.xib in Resources */,
+				3BF8FC7B1B4394F500BEA7CC /* PetDoorServiceTableViewCell.xib in Resources */,
 				076EF0E01B3A979200438018 /* homepage_suppinfo_icon2@3x.png in Resources */,
 				0727EAB41B282622005D330C /* integral_icon@2x.png in Resources */,
 			);
@@ -1015,10 +1041,12 @@
 				070F00D91B2E8202007E021B /* SignViewController.m in Sources */,
 				3B1184161B3CE85500F0C0D0 /* PetHospitalViewController.m in Sources */,
 				077D24571B2FF6FE00B8AD84 /* FMDatabaseAdditions.m in Sources */,
+				3BF8FC7A1B4394F500BEA7CC /* PetDoorServiceTableViewCell.m in Sources */,
 				076EF0B61B3A5BA300438018 /* SuppliesListViewController.m in Sources */,
 				3B2EF26F1B3C024700C069CF /* PetBeautyCareCell.m in Sources */,
 				3B2EF2561B3B908100C069CF /* TQMultistageTableView.m in Sources */,
 				07E161C91B3C00240022677E /* UIButton+Select.m in Sources */,
+				3BF8FC751B437B8E00BEA7CC /* PetDoorServiceViewController.m in Sources */,
 				FD2EB6A81B2DB0B7007C5E38 /* SegementBtnView.m in Sources */,
 				0775DE071B3D257700293BB3 /* OrderTableViewCell.m in Sources */,
 				0727EA331B27CA98005D330C /* AppDelegate.m in Sources */,
