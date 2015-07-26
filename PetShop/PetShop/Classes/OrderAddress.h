@@ -17,6 +17,8 @@
 #define USERID @"userId"  //关联user
 #define ORDERID @"id"
 @interface OrderAddress : NSObject
+
+
 /**
  单实例
  */
@@ -37,4 +39,8 @@
  删除数据
  */
 -(void)deleteData:(int)dataId;
+/**
+ 根据id获取订单地址信息
+ */
+-(NSDictionary*)getDataById:(int)orederAddressId;
 @end

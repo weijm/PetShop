@@ -59,6 +59,13 @@
     
     return image;
 }
++ (NSString*)checkString:(NSString*)string
+{
+    if (string == nil) {
+        return @"";
+    }
+    return string;
+}
 //获取当前年、月、日、周
 + (NSDictionary*)getCurrentMonth
 {
@@ -116,10 +123,10 @@
 // 用户的数据库文件路径
 +(NSString*)getSQLitePath
 {
-    NSString *dbPath = [NSString stringWithFormat:@"%@/PetDB.sqlite",[self documentPath]];
+    NSString *dbPath = [NSString stringWithFormat:@"%@/data.sqlite",[self documentPath]];
     NSFileManager *filemanager = [NSFileManager defaultManager];
     if (![filemanager fileExistsAtPath:dbPath]) {
-        NSString *bundelPath = [[NSBundle mainBundle] pathForResource:@"PetDB" ofType:@"sqlite"];
+        NSString *bundelPath = [[NSBundle mainBundle] pathForResource:@"data" ofType:@"sqlite"];
         if (![self copyFile:bundelPath To:dbPath]) {
             NSLog(@"getSQLitePath copy file error");
         }

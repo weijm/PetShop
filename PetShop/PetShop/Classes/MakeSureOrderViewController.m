@@ -9,6 +9,7 @@
 #import "MakeSureOrderViewController.h"
 #import "OrderTableViewCell.h"
 #import "OrderAddressListViewController.h"
+#import "OrderAddress.h"
 
 @interface MakeSureOrderViewController ()
 {
@@ -25,8 +26,19 @@
     self.title = @"确认订单";
     //将cell的分割线去掉
     dataTalbeView.separatorColor = [UIColor clearColor];
+    
 }
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+    if (_isEditAddress) {
+        NSLog(@"orderAddId == %d",_orderAddressId);
+        addressDic = (NSMutableDictionary*)[[OrderAddress sharedInstance] getDataById:_orderAddressId];
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+        [dataTalbeView reloadRowsAtIndexPaths:[NSArray arrayWithObjects:indexPath, nil] withRowAnimation:NO];
+        _isEditAddress = NO;
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -55,16 +67,18 @@
     };
     if (countInfoDic) {
         int count = [[countInfoDic objectForKey:@"count"] intValue];
-//        float price = [[countInfoDic objectForKey:@"price"] floatValue];
         [tcell loadNumber:count];
     }
-    cell = tcell;
-
+    
     if (indexPath.section == 1) {
         if (indexPath.row !=2) {
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            tcell.selectionStyle = UITableViewCellSelectionStyleNone;
         }
+    }else
+    {//重新加载地址信息
+        [tcell loadAddressInfo:addressDic];
     }
+    cell = tcell;
     return cell;
 }
 -(UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -102,7 +116,9 @@
 {
     if (indexPath.section ==0&&indexPath.row == 0) {
         OrderAddressListViewController *addressVC = [[OrderAddressListViewController alloc] init];
+        _isEditAddress = YES;
         [self.navigationController pushViewController:addressVC animated:YES];
+        [tableView deselectRowAtIndexPath:[tableView indexPathForSelectedRow] animated:YES];
     }
 }
 //更新界面

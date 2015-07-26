@@ -36,7 +36,7 @@
                                              nil] forState:UIControlStateSelected];
 
     //设置tabbar的选中image的颜色
-    self.tabBar.TintColor = kNavigationBgColor;
+    self.tabBar.tintColor = kNavigationBgColor;
    
 }
 

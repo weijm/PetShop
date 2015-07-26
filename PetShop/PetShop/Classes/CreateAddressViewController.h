@@ -14,4 +14,6 @@
     
     IBOutlet UITableView *dataTableView;
 }
+@property (nonatomic) int createType;//0 新建  1 修改
+@property (nonatomic,strong) NSDictionary *orderAddressDic;
 @end

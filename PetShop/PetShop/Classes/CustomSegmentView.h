@@ -25,6 +25,8 @@
 @property (strong, nonatomic) IBOutlet UIView *hLine;//底部分割横线
 @property (nonatomic,weak) id<CustomSegmentViewDelegate>  delegate;
 @property (nonatomic) BOOL isShowCoverView;//按钮是否已经被选中
+@property (nonatomic) int  categaryType;
+
 /**
  加载button上的标题，显示或隐藏横竖线
  */
@@ -33,5 +35,12 @@
  点击按钮的触发事件
  */
 - (IBAction)clickedCustomSegmentBt:(id)sender;
-
+/**
+ 物品分类中加载button上的标题，显示或隐藏横竖线
+ */
+-(void)loadButtonViewInSuppList;
+/**
+ 加载宠物专卖button上的标题，显示或隐藏横竖线
+ */
+-(void)loadButtonViewInMonopoly;
 @end

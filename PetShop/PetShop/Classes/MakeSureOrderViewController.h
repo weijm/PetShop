@@ -13,8 +13,14 @@
     
     IBOutlet UITableView *dataTalbeView;
     
+    NSMutableArray *dataArray;
+    
+    NSMutableDictionary *addressDic;
     IBOutlet UILabel *tPriceLab;
 }
+@property(nonatomic) int orderAddressId;//选中地址的id
+@property(nonatomic) BOOL isEditAddress;
+@property(nonatomic) int orderId;
 - (IBAction)makeSureOrder:(id)sender;
 
 @end

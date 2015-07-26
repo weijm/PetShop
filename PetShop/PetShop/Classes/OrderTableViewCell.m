@@ -7,6 +7,7 @@
 //
 
 #import "OrderTableViewCell.h"
+#import "OrderAddress.h"
 
 @implementation OrderTableViewCell
 
@@ -65,5 +66,16 @@
     if (number>1) {
         reducceBt.enabled = YES;
     }
+}
+
+// 加载地址信息
+-(void)loadAddressInfo:(NSMutableDictionary*)dic
+{
+    if (dic!=nil) {
+        nameLab.text = [dic objectForKey:PERSONALNAME];
+        phoneLab.text = [dic objectForKey:PHONE];
+        addressLab.text = [NSString stringWithFormat:@"%@%@",[dic objectForKey:AREA],[dic objectForKey:ADDRESS]];
+    }
+   
 }
 @end

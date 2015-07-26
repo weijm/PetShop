@@ -34,5 +34,5 @@
  查询数据
  */
 -(NSMutableArray*)getSignDateByMonth:(int)month AndYear:(int)year AndUser:(int)userId;
-
+-(void)getData;
 @end

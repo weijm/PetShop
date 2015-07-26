@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MonopolyTableViewCellID" rowHeight="93" id="KGk-i7-Jjw" customClass="MonopolyTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="93"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view alpha="0.19999999999999968" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKd-CZ-ok2" userLabel="line">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="1"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Jbm-4s-57R"/>
+                        </constraints>
+                    </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homepage_monopoly_default.png" translatesAutoresizingMaskIntoConstraints="NO" id="xWM-Vc-2KO" userLabel="picImg">
+                        <rect key="frame" x="10" y="16" width="70" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="2V6-xj-Yvt"/>
+                            <constraint firstAttribute="width" constant="70" id="T4a-KA-iv3"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dEt-cg-Qcv">
+                        <rect key="frame" x="90" y="0.0" width="180" height="92.5"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hz6-C6-o9b" userLabel="midView">
+                                <rect key="frame" x="0.0" y="36" width="180" height="20"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DJ5-pc-rio" userLabel="xing">
+                                        <rect key="frame" x="0.0" y="0.0" width="70" height="20"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homepage_supp_mark.png" translatesAutoresizingMaskIntoConstraints="NO" id="TUr-m9-0NT" userLabel="img1">
+                                                <rect key="frame" x="0.0" y="5" width="11" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="ebl-u7-Sy8"/>
+                                                    <constraint firstAttribute="width" constant="11" id="yoy-Sv-qID"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homepage_supp_mark.png" translatesAutoresizingMaskIntoConstraints="NO" id="LAT-pi-xnG" userLabel="img2">
+                                                <rect key="frame" x="14" y="5" width="11" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="ErR-9b-8mE"/>
+                                                    <constraint firstAttribute="width" constant="11" id="fhl-Fl-3eq"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homepage_supp_mark.png" translatesAutoresizingMaskIntoConstraints="NO" id="rxm-jF-l1J" userLabel="img3">
+                                                <rect key="frame" x="28" y="5" width="11" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="11" id="fw0-Vv-K06"/>
+                                                    <constraint firstAttribute="height" constant="10" id="k8T-6u-EuC"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homepage_mono_mark.png" translatesAutoresizingMaskIntoConstraints="NO" id="B7n-0o-OGp" userLabel="img4">
+                                                <rect key="frame" x="42" y="5" width="11" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="10" id="9y6-Uj-kNA"/>
+                                                    <constraint firstAttribute="width" constant="11" id="q65-x1-VzB"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homepage_mono_mark.png" translatesAutoresizingMaskIntoConstraints="NO" id="lcD-V1-LR1" userLabel="img5">
+                                                <rect key="frame" x="56" y="5" width="11" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="11" id="fO4-L7-icP"/>
+                                                    <constraint firstAttribute="height" constant="10" id="n47-m3-u9w"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="B7n-0o-OGp" firstAttribute="leading" secondItem="rxm-jF-l1J" secondAttribute="trailing" constant="3" id="IFJ-hB-QVW"/>
+                                            <constraint firstItem="rxm-jF-l1J" firstAttribute="leading" secondItem="LAT-pi-xnG" secondAttribute="trailing" constant="3" id="J8o-74-Ssw"/>
+                                            <constraint firstAttribute="centerY" secondItem="TUr-m9-0NT" secondAttribute="centerY" id="KR7-He-vNN"/>
+                                            <constraint firstAttribute="centerY" secondItem="B7n-0o-OGp" secondAttribute="centerY" id="arT-Rx-l1a"/>
+                                            <constraint firstItem="LAT-pi-xnG" firstAttribute="leading" secondItem="TUr-m9-0NT" secondAttribute="trailing" constant="3" id="dwP-ME-1PA"/>
+                                            <constraint firstItem="lcD-V1-LR1" firstAttribute="leading" secondItem="B7n-0o-OGp" secondAttribute="trailing" constant="3" id="fao-Rb-EOk"/>
+                                            <constraint firstAttribute="width" constant="70" id="gsd-Yl-LeV"/>
+                                            <constraint firstAttribute="centerY" secondItem="LAT-pi-xnG" secondAttribute="centerY" id="kze-kU-J6J"/>
+                                            <constraint firstAttribute="centerY" secondItem="lcD-V1-LR1" secondAttribute="centerY" id="omG-Rl-DtF"/>
+                                            <constraint firstItem="TUr-m9-0NT" firstAttribute="leading" secondItem="DJ5-pc-rio" secondAttribute="leading" id="sip-NX-vLE"/>
+                                            <constraint firstAttribute="centerY" secondItem="rxm-jF-l1J" secondAttribute="centerY" id="ynA-7p-Hp5"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="月销售量659单" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIn-QE-pkI" userLabel="monthCountLab">
+                                        <rect key="frame" x="72" y="0.0" width="108" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="DJ5-pc-rio" firstAttribute="leading" secondItem="hz6-C6-o9b" secondAttribute="leading" id="AXq-W0-8F7"/>
+                                    <constraint firstItem="FIn-QE-pkI" firstAttribute="leading" secondItem="DJ5-pc-rio" secondAttribute="trailing" constant="2" id="Jdb-CF-gcQ"/>
+                                    <constraint firstItem="DJ5-pc-rio" firstAttribute="top" secondItem="hz6-C6-o9b" secondAttribute="top" id="WhK-4I-gjt"/>
+                                    <constraint firstAttribute="height" constant="20" id="dBp-nY-G4I"/>
+                                    <constraint firstAttribute="trailing" secondItem="FIn-QE-pkI" secondAttribute="trailing" id="dvl-bN-1o9"/>
+                                    <constraint firstItem="FIn-QE-pkI" firstAttribute="top" secondItem="hz6-C6-o9b" secondAttribute="top" id="oA2-Es-zap"/>
+                                    <constraint firstAttribute="bottom" secondItem="DJ5-pc-rio" secondAttribute="bottom" id="qP9-vd-myX"/>
+                                    <constraint firstAttribute="bottom" secondItem="FIn-QE-pkI" secondAttribute="bottom" id="uer-Yh-oOn"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="宠物美容/宠物用品/宠物专卖" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaA-Lx-GfE">
+                                <rect key="frame" x="0.0" y="56" width="180" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="xEX-xO-WBQ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.69999999999999973" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="咪咪宠物店(长乐路店)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Spv-T9-gLH">
+                                <rect key="frame" x="0.0" y="15" width="180" height="21"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="fvD-f4-qmW"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="NaA-Lx-GfE" secondAttribute="trailing" id="1LK-6F-scu"/>
+                            <constraint firstItem="hz6-C6-o9b" firstAttribute="leading" secondItem="dEt-cg-Qcv" secondAttribute="leading" id="MUY-pz-6yW"/>
+                            <constraint firstItem="NaA-Lx-GfE" firstAttribute="top" secondItem="hz6-C6-o9b" secondAttribute="bottom" id="RfU-l1-9JE"/>
+                            <constraint firstItem="Spv-T9-gLH" firstAttribute="leading" secondItem="dEt-cg-Qcv" secondAttribute="leading" id="SgV-Ej-4H7"/>
+                            <constraint firstItem="NaA-Lx-GfE" firstAttribute="leading" secondItem="dEt-cg-Qcv" secondAttribute="leading" id="UC4-5f-Qym"/>
+                            <constraint firstAttribute="centerY" secondItem="hz6-C6-o9b" secondAttribute="centerY" id="ZG0-YW-miC"/>
+                            <constraint firstAttribute="trailing" secondItem="hz6-C6-o9b" secondAttribute="trailing" id="b3T-ng-pVy"/>
+                            <constraint firstItem="hz6-C6-o9b" firstAttribute="top" secondItem="Spv-T9-gLH" secondAttribute="bottom" id="lf6-i1-sc7"/>
+                            <constraint firstAttribute="trailing" secondItem="Spv-T9-gLH" secondAttribute="trailing" id="wqO-Kd-tVz"/>
+                        </constraints>
+                    </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1UX-xN-kfm">
+                        <rect key="frame" x="275" y="31.5" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="4h4-8Q-eIu"/>
+                            <constraint firstAttribute="height" constant="30" id="GeS-od-Qeo"/>
+                        </constraints>
+                        <state key="normal" image="homepage_monopoly_phonebt.png">
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="dEt-cg-Qcv" secondAttribute="bottom" id="3P7-dh-2IL"/>
+                    <constraint firstItem="1UX-xN-kfm" firstAttribute="leading" secondItem="dEt-cg-Qcv" secondAttribute="trailing" constant="5" id="4Bu-lC-am8"/>
+                    <constraint firstAttribute="centerY" secondItem="1UX-xN-kfm" secondAttribute="centerY" id="Fdi-Un-5Wh"/>
+                    <constraint firstItem="dEt-cg-Qcv" firstAttribute="leading" secondItem="xWM-Vc-2KO" secondAttribute="trailing" constant="10" id="ehx-CU-H4V"/>
+                    <constraint firstAttribute="trailing" secondItem="1UX-xN-kfm" secondAttribute="trailing" constant="15" id="hnM-ah-1Sa"/>
+                    <constraint firstItem="xWM-Vc-2KO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="tYu-ID-qHw"/>
+                    <constraint firstItem="xKd-CZ-ok2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="thm-1e-Xbh"/>
+                    <constraint firstAttribute="trailing" secondItem="xKd-CZ-ok2" secondAttribute="trailing" id="uWF-XP-jgZ"/>
+                    <constraint firstItem="xKd-CZ-ok2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="w23-9c-au0"/>
+                    <constraint firstAttribute="centerY" secondItem="xWM-Vc-2KO" secondAttribute="centerY" id="wGt-sj-Isd"/>
+                    <constraint firstItem="dEt-cg-Qcv" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="wwb-4j-C3h"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="shopInfoLab" destination="NaA-Lx-GfE" id="WKv-lG-2le"/>
+                <outlet property="shopNameLab" destination="Spv-T9-gLH" id="E6c-vF-gTm"/>
+                <outlet property="xingBg" destination="DJ5-pc-rio" id="5Qz-eu-ZZI"/>
+            </connections>
+            <point key="canvasLocation" x="201" y="319.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="homepage_mono_mark.png" width="11" height="10"/>
+        <image name="homepage_monopoly_default.png" width="69" height="59"/>
+        <image name="homepage_monopoly_phonebt.png" width="39" height="38"/>
+        <image name="homepage_supp_mark.png" width="11" height="10"/>
+    </resources>
+</document>

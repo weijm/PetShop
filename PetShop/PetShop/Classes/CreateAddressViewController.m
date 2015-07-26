@@ -26,20 +26,18 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.title = @"编辑收货地址";
-    //删除按钮
-    UIButton *rightBt = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, 50, 30)];
-    [rightBt setTitle:@"删除" forState:UIControlStateNormal];
-    [rightBt setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [rightBt addTarget:self action:@selector(deleteAddress) forControlEvents:UIControlEventTouchUpInside];
-    rightBt.titleEdgeInsets = UIEdgeInsetsMake(5, 10, 0, 0);
-    rightBt.titleLabel.font = [UIFont systemFontOfSize:16];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBt];
-    self.navigationItem.rightBarButtonItem = rightItem;
     //去掉tableView的分割线
     dataTableView.separatorColor = [UIColor clearColor];
     
     //编辑的内容
-    contentDictionary = [[NSMutableDictionary alloc] init];
+    if(_createType==0)
+    {
+        contentDictionary = [[NSMutableDictionary alloc] init];
+    }else
+    {
+        contentDictionary = [[NSMutableDictionary alloc] initWithDictionary:_orderAddressDic];
+    }
+    
 
 }
 
@@ -59,20 +57,25 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return 4;
+    
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CreateAddressTableViewCell *tcell= [[[NSBundle mainBundle] loadNibNamed:@"CreateAddressTableViewCell" owner:nil options:nil] lastObject];
-    tcell.tag = indexPath.row;
-    [tcell loadsubView:contentDictionary];
-    tcell.finishedThisCell = ^(NSString *string,NSInteger index)
+    static NSString *cellid=@"OrderAddressListId";
+    CreateAddressTableViewCell *cell = (CreateAddressTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellid];//（寻找标识符为cellid并且没被用到的cell用于重用）
+    if (cell == nil) {
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"CreateAddressTableViewCell" owner:self options:nil] lastObject];
+    }
+    cell.tag = indexPath.row;
+    //加载内容
+    [cell loadsubView:contentDictionary];
+    cell.finishedThisCell = ^(NSString *string,NSInteger index)
     {
         [self operateTextFieldContent:string index:index];
     };
-    tcell.delegate = self;
+    cell.delegate = self;
 
-    UITableViewCell *cell = tcell;
     cell.selectionStyle  = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -105,10 +108,32 @@
 #pragma mark - 保存地址
 -(void)saveData
 {
+    if ([contentDictionary allKeys].count<4) {
+        UIAlertView *alterView = [[UIAlertView alloc] initWithTitle:nil message:@"请将信息填写完整" delegate:nil cancelButtonTitle:@"确认" otherButtonTitles:nil, nil];
+        [alterView show];
+        return;
+    }
     //保存到数据库中
     [contentDictionary setObject:@"1" forKey:@"userId"];
-    [[OrderAddress sharedInstance] insertData:contentDictionary];
+    int orderAddressId = 0;
+    if (_createType==0) {//新建
+        [[OrderAddress sharedInstance] insertData:contentDictionary];
+    }else
+    {//修改
+        [[OrderAddress sharedInstance] updateData:contentDictionary];
+        orderAddressId = [[contentDictionary objectForKey:ORDERID] intValue];
+    }
+    
     //返回到订单页面
+    
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:[MakeSureOrderViewController class]]) {
+            MakeSureOrderViewController *tempVC = (MakeSureOrderViewController *)vc;
+            tempVC.isEditAddress = YES;
+            tempVC.orderAddressId = orderAddressId;
+            [self.navigationController popToViewController:tempVC animated:YES];
+        }
+    }
     
 }
 #pragma mark - 将编辑的内容暂时放入dictionary中

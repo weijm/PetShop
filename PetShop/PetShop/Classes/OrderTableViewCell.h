@@ -10,6 +10,16 @@
 
 @interface OrderTableViewCell : UITableViewCell
 {
+    /**第一行 地址信息*/
+    //姓名
+    
+    IBOutlet UILabel *nameLab;
+    //电话
+    
+    IBOutlet UILabel *phoneLab;
+    //地址
+    
+    IBOutlet UILabel *addressLab;
     /**第二行的cell上的内容*/
     //商品缩略图
     IBOutlet UIImageView *pictureView;
@@ -52,4 +62,8 @@
  */
 - (void)loadNumber:(int)number;
 
+/**
+ 加载地址信息
+ */
+-(void)loadAddressInfo:(NSMutableDictionary*)dic;
 @end

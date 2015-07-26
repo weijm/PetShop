@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SuppliesListViewController">
             <connections>
-                <outlet property="listTableView" destination="a8H-Fz-5wF" id="QxE-aO-3YI"/>
+                <outlet property="searchBar" destination="IWB-Ot-ANs" id="JEE-D4-Z5R"/>
+                <outlet property="searchBg" destination="bKR-94-GdR" id="p22-4p-2E0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,22 +17,62 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="a8H-Fz-5wF" userLabel="listTableView">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="-1" id="dCJ-Q5-eYC"/>
-                        <outlet property="delegate" destination="-1" id="dtg-E3-0eB"/>
-                    </connections>
-                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKR-94-GdR" userLabel="barbg">
+                    <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Da-E5-zXS">
+                            <rect key="frame" x="10" y="7" width="40" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="Swd-d9-63Q"/>
+                                <constraint firstAttribute="width" constant="40" id="naP-8S-fZd"/>
+                            </constraints>
+                            <state key="normal" image="homepage_supp_list.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DwQ-kI-L4Q">
+                            <rect key="frame" x="550" y="7" width="40" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="0rn-wu-mq1"/>
+                                <constraint firstAttribute="height" constant="30" id="k6I-9m-SSq"/>
+                            </constraints>
+                            <state key="normal" image="homepage_supp_buy.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <searchBar contentMode="redraw" placeholder="请输入搜索关键字                     " translatesAutoresizingMaskIntoConstraints="NO" id="IWB-Ot-ANs">
+                            <rect key="frame" x="60" y="0.0" width="480" height="44"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="ad9-XH-Wh1"/>
+                            </constraints>
+                            <color key="barTintColor" red="0.90980392156862744" green="0.91764705882352937" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
+                    </subviews>
+                    <color key="backgroundColor" red="0.90980392156862744" green="0.91764705882352937" blue="0.92156862745098034" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="9nQ-Zr-255"/>
+                        <constraint firstItem="8Da-E5-zXS" firstAttribute="leading" secondItem="bKR-94-GdR" secondAttribute="leading" constant="10" id="BIJ-hj-448"/>
+                        <constraint firstAttribute="centerY" secondItem="8Da-E5-zXS" secondAttribute="centerY" id="BO2-GV-nm6"/>
+                        <constraint firstItem="DwQ-kI-L4Q" firstAttribute="leading" secondItem="IWB-Ot-ANs" secondAttribute="trailing" constant="10" id="JCO-0g-Hrx"/>
+                        <constraint firstItem="IWB-Ot-ANs" firstAttribute="leading" secondItem="8Da-E5-zXS" secondAttribute="trailing" constant="10" id="V9p-bp-ywt"/>
+                        <constraint firstAttribute="centerY" secondItem="DwQ-kI-L4Q" secondAttribute="centerY" id="jOj-dQ-Sv9"/>
+                        <constraint firstAttribute="trailing" secondItem="DwQ-kI-L4Q" secondAttribute="trailing" constant="10" id="lY0-YD-dcF"/>
+                        <constraint firstAttribute="centerY" secondItem="IWB-Ot-ANs" secondAttribute="centerY" id="oyh-xL-Kca"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="a8H-Fz-5wF" secondAttribute="bottom" id="BxI-Ej-G3E"/>
-                <constraint firstItem="a8H-Fz-5wF" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aSt-nU-wTD"/>
-                <constraint firstItem="a8H-Fz-5wF" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="dT9-me-RTX"/>
-                <constraint firstAttribute="trailing" secondItem="a8H-Fz-5wF" secondAttribute="trailing" id="mjp-MB-Wd6"/>
+                <constraint firstItem="bKR-94-GdR" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ZAf-0b-0ds"/>
+                <constraint firstItem="bKR-94-GdR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="64" id="hxA-xK-f91"/>
+                <constraint firstAttribute="trailing" secondItem="bKR-94-GdR" secondAttribute="trailing" id="keD-9S-Ena"/>
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="homepage_supp_buy.png" width="27" height="26"/>
+        <image name="homepage_supp_list.png" width="28" height="21"/>
+    </resources>
 </document>

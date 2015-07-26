@@ -12,10 +12,10 @@
 #import "PetBeautyViewController.h"
 #import "SignViewController.h"
 #import "SuppliesViewController.h"
+#import "MonopolyViewController.h"
 
 
 #define kSearchBarRect CGRectMake(50,22,(kWidth - 50*2),40)
-#define kSearchBarTag 100
 #define kBtBgTag 9
 
 #define bannerHeight 160
@@ -63,13 +63,8 @@
 //初始化导航条
 -(void)initSearchBar
 {
-    UISearchBar *tempSearchBar = (UISearchBar *)[[UIApplication sharedApplication].windows[0] viewWithTag:kSearchBarTag];
-    if (tempSearchBar) {
-        [tempSearchBar removeFromSuperview];
-    }
     UISearchBar *customSearchBar = [[UISearchBar alloc] initWithFrame:kSearchBarRect];
     //添加的searchBar标记
-    customSearchBar.tag = kSearchBarTag;
     customSearchBar.delegate = self;
     //设置searchBar的背景图片
     customSearchBar.backgroundImage = [Util imageWithColor:[UIColor clearColor]];
@@ -130,6 +125,11 @@
             break;
         case 2:
             NSLog(@"宠物专卖22");
+        {
+            MonopolyViewController *monopolyVC = [[MonopolyViewController alloc] init];
+            monopolyVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:monopolyVC animated:YES];
+        }
             break;
         case 3:
         {

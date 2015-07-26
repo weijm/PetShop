@@ -68,4 +68,36 @@
     return dateArray;
     
 }
+-(void)getData
+{
+    NSString *dbPath = [Util getSQLitePath];
+    FMDatabase *db = [FMDatabase databaseWithPath:dbPath];
+    if (![db open]) {
+        NSLog(@"could not open db");
+    }
+    [db setShouldCacheStatements:YES];
+    
+    NSMutableArray *dateArray = [[NSMutableArray alloc] init];
+    
+    FMDatabaseQueue *queue = [FMDatabaseQueue databaseQueueWithPath:dbPath];
+    [queue inDatabase:^(FMDatabase *db){
+        FMResultSet *rs = [db executeQuery:@"select * from t_industry where fid = ?",[NSNumber numberWithInt:0]];
+        while ([rs next]) {
+            NSMutableDictionary *dic = [[NSMutableDictionary alloc] init];
+            [dic setObject:[rs stringForColumn:@"name"] forKey:@"firstName"];
+            FMResultSet *rs1 = [db executeQuery:@"select * from t_industry where fid = ?",[NSNumber numberWithInt:[rs intForColumn:@"id"]]];
+            NSMutableArray *arr = [[NSMutableArray alloc] init];
+            while ([rs1 next]) {
+                [arr addObject:[rs1 stringForColumn:@"name"]];
+            }
+            [dic setObject:arr forKey:@"secondArray"];
+            [dateArray addObject:dic];
+        }
+        [rs close];
+    }];
+    NSString *path = [NSString stringWithFormat:@"%@/industry.plist",[Util documentPath]];
+    NSLog(@"path == %@",path);
+    [dateArray writeToFile:path atomically:YES];
+
+}
 @end

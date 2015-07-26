@@ -19,6 +19,10 @@
  根据颜色获取对应色值的图片
  */
 + (UIImage *)imageWithColor:(UIColor *)color;
+/**
+ 判断字符串是否为空
+ */
++ (NSString*)checkString:(NSString*)string;
 
 /**
  获取当前年、月、日、周

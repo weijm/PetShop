@@ -55,11 +55,59 @@
 - (IBAction)clickedCustomSegmentBt:(id)sender {
     NSInteger viewTag = self.tag;
     _hLine.hidden = NO;
-    self.backgroundColor = Rgb(234, 234, 234);
+    if (_categaryType == 0) {
+        self.backgroundColor = Rgb(234, 234, 234);
+    }
+    
     if ([_delegate respondsToSelector:@selector(ClickBtByTag:)]) {
         
         [_delegate ClickBtByTag:viewTag];
         _isShowCoverView = !_isShowCoverView;
     }
+}
+//加载宠物专卖button上的标题，显示或隐藏横竖线
+-(void)loadButtonViewInMonopoly
+{
+    NSInteger  tag = self.tag;
+    self.backgroundColor = [UIColor whiteColor];
+    switch (tag) {
+        case 1:
+            [segmentBt setTitle:@"全部专卖店" forState:UIControlStateNormal];
+            _hLine.hidden = NO;
+            self.backgroundColor = Rgb(234, 234, 234);
+            break;
+        case 2:
+            [segmentBt setTitle:@"默认排序" forState:UIControlStateNormal];
+            break;
+        case 3:
+            [segmentBt setTitle:@"筛选区域" forState:UIControlStateNormal];
+            vLine.hidden = YES;
+            break;
+            
+        default:
+            break;
+    }
+}
+-(void)loadButtonViewInSuppList
+{
+    NSInteger  tag = self.tag;
+    self.backgroundColor = [UIColor whiteColor];
+    switch (tag) {
+        case 1:
+            [segmentBt setTitle:@"默认排序" forState:UIControlStateNormal];
+            _hLine.hidden = NO;
+            break;
+        case 2:
+            [segmentBt setTitle:@"价格排序" forState:UIControlStateNormal];
+            break;
+        case 3:
+            [segmentBt setTitle:@"销量排序" forState:UIControlStateNormal];
+            vLine.hidden = YES;
+            break;
+            
+        default:
+            break;
+    }
+
 }
 @end

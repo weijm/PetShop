@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import "SignModel.h"
 @interface AppDelegate ()
 
 @end
@@ -19,6 +20,7 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
+    [[SignModel sharedInstance] getData];
     
     RootViewController *rootVC = [[RootViewController alloc] init];
 //    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:rootVC];
@@ -26,6 +28,7 @@
 //        [navigation.navigationBar setBarTintColor:Rgb(248, 28, 102)];
 //    }
     self.window.rootViewController = rootVC;
+    
     return YES;
 }
 
