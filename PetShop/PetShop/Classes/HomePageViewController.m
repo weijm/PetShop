@@ -13,6 +13,7 @@
 #import "SignViewController.h"
 #import "SuppliesViewController.h"
 #import "MonopolyViewController.h"
+#import "DoorServerViewController.h"
 
 
 #define kSearchBarRect CGRectMake(50,22,(kWidth - 50*2),40)
@@ -149,9 +150,23 @@
             break;
         case 5:
             NSLog(@"团购55");
+        {
+            SuppliesViewController *suppliesVC = [[SuppliesViewController alloc] init];
+            suppliesVC.isPurchase = YES;
+            suppliesVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:suppliesVC animated:YES];
+
+       
+        }
             break;
         case 6:
             NSLog(@"上门服务66");
+        {
+            DoorServerViewController *doorServerVC = [[DoorServerViewController alloc] init];
+            doorServerVC.hidesBottomBarWhenPushed = YES;
+            [self.navigationController pushViewController:doorServerVC animated:YES];
+       
+        }
             break;
         case 7:
             NSLog(@"签到77");

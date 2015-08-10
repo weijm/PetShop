@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface CommunityViewController : UIViewController
+@interface CommunityViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 @end

@@ -9,6 +9,7 @@
 #import "MonopolyViewController.h"
 #import "MonopolyTableViewCell.h"
 #import "MonopolyListView.h"
+#import "MonopolyInfoViewController.h"
 
 #define BTCOUNT 3
 @interface MonopolyViewController ()
@@ -124,6 +125,11 @@
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return [Util myYOrHeight:90];
+}
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    MonopolyInfoViewController *infoVC = [[MonopolyInfoViewController alloc] init];
+    [self.navigationController pushViewController:infoVC animated:YES];
 }
 #pragma mark - 初始化SegmentBt
 -(void)initSegmentBt

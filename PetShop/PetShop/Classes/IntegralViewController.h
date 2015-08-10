@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface IntegralViewController : UIViewController
+#import "CustomSegmentView.h"
+@interface IntegralViewController : UIViewController<CustomSegmentViewDelegate>
 
 @end

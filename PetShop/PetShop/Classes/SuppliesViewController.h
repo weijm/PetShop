@@ -17,5 +17,5 @@
     //首行点击按钮的背景视图
     IBOutlet UIView *segmentView;
 }
-
+@property (nonatomic) BOOL isPurchase;
 @end

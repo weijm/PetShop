@@ -7,7 +7,7 @@
 //
 
 #import "SuppliesViewController.h"
-
+#import "BlukBuyTableViewCell.h"
 #import "SuppliesTableViewCell.h"
 #import "SuppliesListViewController.h"
 
@@ -35,7 +35,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    self.title = @"宠物用品";
+    if (_isPurchase) {
+        self.title = @"团购";
+    }else
+    {
+         self.title = @"宠物用品";
+    }
+   
     self.view.backgroundColor = Rgb(231, 220, 220);
     //初始化首排按钮
     [self initSegmentBt];
@@ -85,8 +91,9 @@
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString * ID=@"CELL";
+    UITableViewCell *cell;
     
-    UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:ID];
+    cell =[tableView dequeueReusableCellWithIdentifier:ID];
     if (cell==nil) {
         if (selectStatus == 1&&indexPath.row==0) {//bannerView
             cell = [UITableViewCell new];
@@ -96,11 +103,22 @@
             [cell.contentView addSubview:bannerView];
             
         }else
-        { //商品列表
-            cell= [[[NSBundle mainBundle] loadNibNamed:@"SuppliesTableViewCell" owner:nil options:nil] lastObject];
-            CGRect frame = cell.frame;
-            frame.size.width = kWidth;
-            cell.frame = frame;
+        {
+            if (_isPurchase) {
+                //团购商品列表
+                cell= [[[NSBundle mainBundle] loadNibNamed:@"BlukBuyTableViewCell" owner:nil options:nil] lastObject];
+                CGRect frame = cell.frame;
+                frame.size.width = kWidth;
+                cell.frame = frame;
+            }else
+            {
+                //商品列表
+                cell= [[[NSBundle mainBundle] loadNibNamed:@"SuppliesTableViewCell" owner:nil options:nil] lastObject];
+                CGRect frame = cell.frame;
+                frame.size.width = kWidth;
+                cell.frame = frame;
+
+            }
         }
         
     }

@@ -20,13 +20,24 @@
     // Override point for customization after application launch.
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self.window makeKeyAndVisible];
-    [[SignModel sharedInstance] getData];
+    
+    //百度定位
+    // 要使用百度地图，请先启动BaiduMapManager
+    _mapManager = [[BMKMapManager alloc]init];
+    BOOL ret = [_mapManager start:@"2CO3su0pMWjnqnw9nZcxSGAf" generalDelegate:self];
+    
+    if (!ret) {
+        NSLog(@"manager start failed!");
+    }
+    
+//        CLLocationManager* locationManager = [[CLLocationManager alloc] init];
+//        if ([[UIDevice currentDevice].systemVersion floatValue] >= 7.0) {
+//            [locationManager requestWhenInUseAuthorization];
+//        }
+    
     
     RootViewController *rootVC = [[RootViewController alloc] init];
-//    UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:rootVC];
-//    if (kDeviceVersion >=7.0) {
-//        [navigation.navigationBar setBarTintColor:Rgb(248, 28, 102)];
-//    }
+
     self.window.rootViewController = rootVC;
     
     return YES;

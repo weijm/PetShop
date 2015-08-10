@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="IntegralSingleView"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="131" height="200"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="homepage_mono_comDefault.png" translatesAutoresizingMaskIntoConstraints="NO" id="XMM-ie-9jr" userLabel="pictureImg">
+                    <rect key="frame" x="0.0" y="0.0" width="130" height="130"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="130" id="CNH-ri-UKi"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" alpha="0.79999999999999982" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="还剩150件" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J4t-fq-hIj" userLabel="countLab">
+                    <rect key="frame" x="0.0" y="185" width="60" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="ASK-MD-GDZ"/>
+                        <constraint firstAttribute="height" constant="15" id="nep-Xv-OYa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="8"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="积分" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXj-9b-Iff" userLabel="积分">
+                    <rect key="frame" x="111" y="185" width="20" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="dZM-yr-NUs"/>
+                        <constraint firstAttribute="width" constant="20" id="jlF-9i-KcA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="9"/>
+                    <color key="textColor" red="0.87450980389999999" green="0.0" blue="0.30196078430000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Db-MK-BmU" userLabel="integralLab">
+                    <rect key="frame" x="65" y="182" width="43" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="fF8-IV-boD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.84313725490000002" green="0.0" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="狗狗衣服泰迪秋冬装四脚衣服比熊吉娃娃宠物衣服幼犬春秋服装包邮" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwI-io-E3d" userLabel="titLab">
+                    <rect key="frame" x="0.0" y="128" width="131" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="dzA-zh-CuY"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="dwI-io-E3d" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="0hC-Fm-jgV"/>
+                <constraint firstAttribute="bottom" secondItem="J4t-fq-hIj" secondAttribute="bottom" id="4e0-Yk-Hid"/>
+                <constraint firstAttribute="trailing" secondItem="dwI-io-E3d" secondAttribute="trailing" id="8YQ-Gv-5Fc"/>
+                <constraint firstItem="dwI-io-E3d" firstAttribute="top" secondItem="XMM-ie-9jr" secondAttribute="bottom" constant="-2" id="ChS-F2-v6U"/>
+                <constraint firstAttribute="bottom" secondItem="3Db-MK-BmU" secondAttribute="bottom" id="KpJ-JZ-waX"/>
+                <constraint firstAttribute="trailing" secondItem="XMM-ie-9jr" secondAttribute="trailing" constant="1" id="OSq-dx-IUE"/>
+                <constraint firstAttribute="trailing" secondItem="ZXj-9b-Iff" secondAttribute="trailing" id="T6H-PG-n3K"/>
+                <constraint firstItem="J4t-fq-hIj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Upj-df-WrV"/>
+                <constraint firstAttribute="centerX" secondItem="XMM-ie-9jr" secondAttribute="centerX" id="Z8r-ge-63t"/>
+                <constraint firstAttribute="bottom" secondItem="ZXj-9b-Iff" secondAttribute="bottom" id="brt-fm-e8T"/>
+                <constraint firstItem="XMM-ie-9jr" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="gWb-Rh-o8p"/>
+                <constraint firstItem="XMM-ie-9jr" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nNq-TQ-CqZ"/>
+                <constraint firstItem="ZXj-9b-Iff" firstAttribute="leading" secondItem="3Db-MK-BmU" secondAttribute="trailing" constant="3" id="uAs-wq-tFk"/>
+                <constraint firstItem="3Db-MK-BmU" firstAttribute="leading" secondItem="J4t-fq-hIj" secondAttribute="trailing" constant="5" id="wc7-Tn-oxa"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="177.5" y="288"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="homepage_mono_comDefault.png" width="85" height="91"/>
+    </resources>
+</document>

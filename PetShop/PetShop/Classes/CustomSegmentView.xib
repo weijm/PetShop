@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomSegmentView">
@@ -28,6 +28,13 @@
                         <action selector="clickedCustomSegmentBt:" destination="-1" eventType="touchUpInside" id="jn9-Jb-pdO"/>
                     </connections>
                 </button>
+                <view alpha="0.64999999999999969" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9w3-vU-Jtp" userLabel="hline2">
+                    <rect key="frame" x="0.0" y="90" width="340" height="1"/>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="3fL-59-Qgr"/>
+                    </constraints>
+                </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2a-tc-ycH" userLabel="hLine">
                     <rect key="frame" x="0.0" y="89" width="340" height="2"/>
                     <color key="backgroundColor" red="0.83921568629999999" green="0.0" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,7 +42,7 @@
                         <constraint firstAttribute="height" constant="2" id="KWt-vh-cg1"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfy-qp-0kK" userLabel="vLine">
+                <view alpha="0.64999999999999969" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dfy-qp-0kK" userLabel="vLine">
                     <rect key="frame" x="339" y="0.0" width="1" height="91"/>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -46,14 +53,17 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="P2a-tc-ycH" secondAttribute="trailing" id="0fN-7Y-L2y"/>
+                <constraint firstAttribute="bottom" secondItem="9w3-vU-Jtp" secondAttribute="bottom" id="3bg-rg-hUT"/>
                 <constraint firstAttribute="trailing" secondItem="7qf-9g-49M" secondAttribute="trailing" id="4Rv-2m-LGP"/>
                 <constraint firstAttribute="trailing" secondItem="Dfy-qp-0kK" secondAttribute="trailing" id="6tk-YF-rk7"/>
                 <constraint firstItem="7qf-9g-49M" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="9Na-N0-QZz"/>
                 <constraint firstAttribute="bottom" secondItem="Dfy-qp-0kK" secondAttribute="bottom" id="Eua-r1-3xz"/>
                 <constraint firstItem="Dfy-qp-0kK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LAX-GB-hEC"/>
+                <constraint firstItem="9w3-vU-Jtp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="S4J-si-Kmk"/>
                 <constraint firstItem="7qf-9g-49M" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="TYf-P6-icy"/>
                 <constraint firstAttribute="bottom" secondItem="P2a-tc-ycH" secondAttribute="bottom" id="duR-mD-NRj"/>
                 <constraint firstAttribute="bottom" secondItem="7qf-9g-49M" secondAttribute="bottom" id="mgl-eD-Aj5"/>
+                <constraint firstAttribute="trailing" secondItem="9w3-vU-Jtp" secondAttribute="trailing" id="y5v-EY-NvX"/>
                 <constraint firstItem="P2a-tc-ycH" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="z0f-ps-uXg"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
